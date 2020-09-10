@@ -4,6 +4,8 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
+import Avatar from "@material-ui/core/Avatar";
+import { deepPurple } from "@material-ui/core/colors";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -11,7 +13,10 @@ const useStyles = makeStyles((theme) => ({
   },
   link: {
     marginRight: theme.spacing(2),
-    flexGrow: 1,
+  },
+  purple: {
+    color: theme.palette.getContrastText(deepPurple[500]),
+    backgroundColor: deepPurple[500],
   },
 }));
 
@@ -23,6 +28,16 @@ function Homepage() {
       <header>
         <AppBar position="static">
           <Toolbar>
+            <Link
+              href="#"
+              onClick={preventDefault}
+              color="inherit"
+              variant="body1"
+              className={classes.link}
+            >
+              <Avatar className={classes.purple}>TB</Avatar>
+            </Link>
+
             <Typography className={classes.root}>
               <Link
                 href="#"
