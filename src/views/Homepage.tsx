@@ -36,22 +36,22 @@ function Homepage() {
           <nav>
             <ul className={classes.ul}>
               <li className={classes.link}>
-                <Link
-                  href="#"
-                  onClick={preventDefault}
-                  color="inherit"
-                  variant="body1"
-                >
-                  <Avatar className={classes.purple}>
-                    <Typography
-                      className={classes.root}
-                      variant="body2"
-                      component="h1"
+                <Avatar className={classes.purple}>
+                  <Typography
+                    className={classes.root}
+                    variant="body2"
+                    component="h1"
+                  >
+                    <Link
+                      href="#"
+                      onClick={preventDefault}
+                      color="inherit"
+                      variant="body1"
                     >
                       TB<span className="visually-hidden">: The Bridge</span>
-                    </Typography>
-                  </Avatar>
-                </Link>
+                    </Link>
+                  </Typography>
+                </Avatar>
               </li>
               <li className={classes.link}>
                 <Link
