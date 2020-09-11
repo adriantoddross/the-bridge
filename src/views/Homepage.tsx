@@ -48,7 +48,7 @@ function Homepage() {
                       variant="body2"
                       component="h1"
                     >
-                      TB
+                      TB<span className="visually-hidden">: The Bridge</span>
                     </Typography>
                   </Avatar>
                 </Link>
