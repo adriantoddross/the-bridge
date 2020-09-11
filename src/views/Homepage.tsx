@@ -8,11 +8,17 @@ import Avatar from "@material-ui/core/Avatar";
 import { deepPurple } from "@material-ui/core/colors";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
+  root: {},
+  ul: {
+    alignItems: "center",
+    display: "flex",
+    flexFlow: "row nowrap",
   },
   link: {
     marginRight: theme.spacing(2),
+    listStyle: "none",
+    justifyContent: "center",
+    alignItems: "center",
   },
   purple: {
     color: theme.palette.getContrastText(deepPurple[500]),
@@ -25,53 +31,64 @@ function Homepage() {
   const preventDefault = (event: React.MouseEvent) => event.preventDefault();
   return (
     <>
-      <header>
-        <AppBar position="static">
-          <Toolbar>
-            <Link
-              href="#"
-              onClick={preventDefault}
-              color="inherit"
-              variant="body1"
-              className={classes.link}
-            >
-              <Avatar className={classes.purple}>TB</Avatar>
-            </Link>
+      <AppBar position="static">
+        <Toolbar>
+          <nav>
+            <ul className={classes.ul}>
+              <li className={classes.link}>
+                <Link
+                  href="#"
+                  onClick={preventDefault}
+                  color="inherit"
+                  variant="body1"
+                >
+                  <Avatar className={classes.purple}>
+                    <Typography
+                      className={classes.root}
+                      variant="body2"
+                      component="h1"
+                    >
+                      TB
+                    </Typography>
+                  </Avatar>
+                </Link>
+              </li>
+              <li className={classes.link}>
+                <Link
+                  href="#"
+                  onClick={preventDefault}
+                  color="inherit"
+                  variant="body1"
+                >
+                  Home
+                </Link>
+              </li>
 
-            <Typography className={classes.root}>
-              <Link
-                href="#"
-                onClick={preventDefault}
-                color="inherit"
-                variant="body1"
-                className={classes.link}
-              >
-                Home
-              </Link>
+              <li className={classes.link}>
+                <Link
+                  href="#"
+                  onClick={preventDefault}
+                  color="inherit"
+                  variant="body1"
+                >
+                  About
+                </Link>
+              </li>
 
-              <Link
-                href="#"
-                onClick={preventDefault}
-                color="inherit"
-                variant="body1"
-                className={classes.link}
-              >
-                About
-              </Link>
-
-              <Link
-                href="#"
-                onClick={preventDefault}
-                color="inherit"
-                variant="body1"
-                className={classes.link}
-              >
-                Contact
-              </Link>
-            </Typography>
-          </Toolbar>
-        </AppBar>
-      </header>
+              <li className={classes.link}>
+                <Link
+                  href="#"
+                  onClick={preventDefault}
+                  color="inherit"
+                  variant="body1"
+                >
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </nav>
+        </Toolbar>
+      </AppBar>
       <main>Main</main>
       <footer>Footer</footer>
     </>
