@@ -39,7 +39,7 @@ function Navbar() {
                 <Avatar className={classes.purple}>
                   <Typography
                     className={classes.root}
-                    variant="body2"
+                    variant="body1"
                     component="h1"
                   >
                     <Link
