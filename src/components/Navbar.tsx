@@ -4,8 +4,11 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
-import Avatar from "@material-ui/core/Avatar";
-import { deepPurple } from "@material-ui/core/colors";
+import Button from "@material-ui/core/Button";
+import Logo from "../logo.svg";
+// import Menu from "@material-ui/core/Menu";
+// import MenuItem from "@material-ui/core/MenuItem";
+import MenuIcon from "@material-ui/icons/Menu";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -20,15 +23,26 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
   },
-  purple: {
-    color: theme.palette.getContrastText(deepPurple[500]),
-    backgroundColor: deepPurple[500],
+  logo: {
+    height: "auto",
+    width: "100%",
   },
 }));
 
 function Navbar() {
   const classes = useStyles();
   const preventDefault = (event: React.MouseEvent) => event.preventDefault();
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event: any) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
     <>
       <AppBar position="static">
@@ -36,24 +50,40 @@ function Navbar() {
           <nav>
             <ul className={classes.ul}>
               <li className={classes.link}>
-                <Avatar className={classes.purple}>
-                  <Typography
-                    className={classes.root}
+                <Typography
+                  className={classes.root}
+                  variant="body1"
+                  component="h1"
+                >
+                  <Link
+                    href="#"
+                    onClick={preventDefault}
+                    color="inherit"
                     variant="body1"
-                    component="h1"
                   >
-                    <Link
-                      href="#"
-                      onClick={preventDefault}
-                      color="inherit"
-                      variant="body1"
-                    >
-                      TB<span className="visually-hidden">: The Bridge</span>
-                    </Link>
-                  </Typography>
-                </Avatar>
+                    <img
+                      src={Logo}
+                      alt="Logo for The Bridge"
+                      className={classes.logo}
+                    />
+                    <span className="visually-hidden">The Bridge</span>
+                  </Link>
+                </Typography>
               </li>
+
               <li className={classes.link}>
+                <Button
+                  aria-controls="simple-menu"
+                  aria-haspopup="true"
+                  onClick={handleClick}
+                  color="inherit"
+                >
+                  <MenuIcon />
+                  <span className="visually-hidden">Open navigation menu</span>
+                </Button>
+              </li>
+
+              {/* <li className={classes.link}>
                 <Link
                   href="#"
                   onClick={preventDefault}
@@ -84,7 +114,7 @@ function Navbar() {
                 >
                   Contact
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </nav>
         </Toolbar>
