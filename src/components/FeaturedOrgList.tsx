@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
 
 function FeaturedOrgList() {
   const classes = useStyles();
-  const [orgs, setOrgs] = React.useState([{}, {}, {}]);
+  const [orgs] = React.useState([{}, {}, {}]);
 
   return (
     <section className={classes.root}>
