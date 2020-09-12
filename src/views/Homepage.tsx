@@ -5,11 +5,13 @@ import Hero from "../components/Hero";
 import Search from "../components/Search";
 import FeaturedOrgList from "../components/FeaturedOrgList";
 import OrgTable from "../components/OrgTable";
+import Subscribe from "../components/Subscribe";
 
 function Homepage() {
   return (
     <>
       <Navbar />
+
       <main>
         <Hero />
         <FeaturedOrgList />
@@ -17,7 +19,9 @@ function Homepage() {
         <OrgTable />
       </main>
 
-      <footer>Footer</footer>
+      <footer>
+        <Subscribe />
+      </footer>
     </>
   );
 }
