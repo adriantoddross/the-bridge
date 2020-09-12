@@ -94,8 +94,8 @@ function Hero() {
         />
       </picture>
 
-      <Paper className={classes.paper} component="section">
-        <Typography variant="h4" component="h1">
+      <Paper className={classes.paper} component="section" elevation={0}>
+        <Typography variant="h5" component="h1">
           Welcome to The Bridge!
         </Typography>
 
@@ -126,8 +126,6 @@ function Hero() {
           Learn more
         </Button>
       </Paper>
-
-      <footer>Footer</footer>
     </>
   );
 }
