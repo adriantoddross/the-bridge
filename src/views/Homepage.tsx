@@ -2,6 +2,7 @@ import React from "react";
 
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
+import Search from "../components/Search";
 
 function Homepage() {
   return (
@@ -9,6 +10,7 @@ function Homepage() {
       <Navbar />
       <main>
         <Hero />
+        <Search />
       </main>
 
       <footer>Footer</footer>
