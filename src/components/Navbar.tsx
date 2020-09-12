@@ -6,8 +6,8 @@ import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
 import Button from "@material-ui/core/Button";
 import Logo from "../logo.svg";
-// import Menu from "@material-ui/core/Menu";
-// import MenuItem from "@material-ui/core/MenuItem";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
 import MenuIcon from "@material-ui/icons/Menu";
 
 const useStyles = makeStyles((theme) => ({
@@ -84,40 +84,33 @@ function Navbar() {
                   <span className="visually-hidden">Open navigation menu</span>
                 </Button>
               </li>
-
-              {/* <li className={classes.link}>
-                <Link
-                  href="#"
-                  onClick={preventDefault}
-                  color="inherit"
-                  variant="body1"
-                >
+            </ul>
+            <Menu
+              id="simple-menu"
+              anchorEl={anchorEl}
+              keepMounted
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+            >
+              <MenuItem onClick={handleClose}>
+                {" "}
+                <Link href="#" onClick={preventDefault}>
                   Home
                 </Link>
-              </li>
+              </MenuItem>
 
-              <li className={classes.link}>
-                <Link
-                  href="#"
-                  onClick={preventDefault}
-                  color="inherit"
-                  variant="body1"
-                >
+              <MenuItem onClick={handleClose}>
+                <Link href="#" onClick={preventDefault}>
                   About
                 </Link>
-              </li>
+              </MenuItem>
 
-              <li className={classes.link}>
-                <Link
-                  href="#"
-                  onClick={preventDefault}
-                  color="inherit"
-                  variant="body1"
-                >
+              <MenuItem onClick={handleClose}>
+                <Link href="#" onClick={preventDefault}>
                   Contact
                 </Link>
-              </li> */}
-            </ul>
+              </MenuItem>
+            </Menu>
           </nav>
         </Toolbar>
       </AppBar>
