@@ -2,12 +2,20 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
+import Paper from "@material-ui/core/Paper";
 
 import Navbar from "../components/Navbar";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
-  heroImage: {},
+  heroImage: {
+    height: "40vh",
+    backgroundImage:
+      'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://res.cloudinary.com/adriantoddross/image/upload/v1599842958/Hero_Image_webp.webp");',
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+  },
   heroText: {},
   heroLink: {},
 }));
@@ -22,7 +30,7 @@ function Homepage() {
 
       <main>
         <div className={[classes.heroImage, classes.root].join(" ")}>
-          <section className={classes.heroText}>
+          <Paper className={classes.heroText} component="section">
             <Typography variant="h4" component="h1">
               Hello, world!
             </Typography>
@@ -38,7 +46,7 @@ function Homepage() {
             >
               Learn more
             </Link>
-          </section>
+          </Paper>
         </div>
       </main>
 
