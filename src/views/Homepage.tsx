@@ -5,6 +5,12 @@ import Link from "@material-ui/core/Link";
 import Paper from "@material-ui/core/Paper";
 
 import Navbar from "../components/Navbar";
+import babatunde200webp from "../images/babatunde-olajide-jcQdBcW7Tmw-unsplash_vaymjd_c_scale,w_200.webp";
+import babatunde608webp from "../images/babatunde-olajide-jcQdBcW7Tmw-unsplash_vaymjd_c_scale,w_608.webp";
+import babatunde875webp from "../images/babatunde-olajide-jcQdBcW7Tmw-unsplash_vaymjd_c_scale,w_875.webp";
+import babatunde1147webp from "../images/babatunde-olajide-jcQdBcW7Tmw-unsplash_vaymjd_c_scale,w_1147.webp";
+import babatunde1359webp from "../images/babatunde-olajide-jcQdBcW7Tmw-unsplash_vaymjd_c_scale,w_1359.webp";
+import babatunde1400webp from "../images/babatunde-olajide-jcQdBcW7Tmw-unsplash_vaymjd_c_scale,w_1400.webp";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,13 +26,7 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
     },
   },
-  heroImage: {
-    backgroundImage:
-      'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://res.cloudinary.com/adriantoddross/image/upload/v1599842958/Hero_Image_webp.webp");',
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-  },
+  img: {},
   heroLink: {},
 }));
 
@@ -39,7 +39,22 @@ function Homepage() {
       <Navbar />
 
       <main>
-        <div className={[classes.heroImage, classes.root].join(" ")} />
+        <picture>
+          <img
+            className={classes.img}
+            sizes="(max-width: 1400px) 100vw, 1400px"
+            srcSet={`
+              ${babatunde200webp} 200w,
+              ${babatunde608webp} 608w,
+              ${babatunde875webp} 875w,
+              ${babatunde1147webp} 1147w,
+              ${babatunde1359webp} 1359w,
+              ${babatunde1400webp} 1400w`}
+            src={babatunde1400webp}
+            alt=""
+          />
+        </picture>
+
         <Paper className={classes.paper} component="section">
           <Typography variant="h4" component="h1">
             Welcome to The Bridge!
