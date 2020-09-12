@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import Link from "@material-ui/core/Link";
+import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
 
 import babatunde200 from "../images/jpg/babatunde-olajide-jcQdBcW7Tmw-unsplash_y5ligb_c_scale,w_200.jpg";
@@ -35,10 +35,10 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("md")]: {},
   },
   paper: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(1),
 
     "& > *": {
-      margin: theme.spacing(1),
+      margin: theme.spacing(2),
     },
   },
   img: {
@@ -104,15 +104,27 @@ function Hero() {
           social impact nonprofit organizations across Nigeria.
         </Typography>
 
-        <Link
+        <Button
           href="#"
           onClick={preventDefault}
           color="inherit"
-          variant="body1"
+          variant="contained"
+          component="a"
+          className={classes.heroLink}
+        >
+          Browse organizations
+        </Button>
+
+        <Button
+          href="#"
+          onClick={preventDefault}
+          color="inherit"
+          variant="contained"
+          component="a"
           className={classes.heroLink}
         >
           Learn more
-        </Link>
+        </Button>
       </Paper>
 
       <footer>Footer</footer>
