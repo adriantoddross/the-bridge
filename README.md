@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/832b0c5c-859c-4c58-aa67-3d14a07c65f6/deploy-status)](https://app.netlify.com/sites/the-bridge/deploys)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
