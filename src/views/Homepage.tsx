@@ -39,25 +39,27 @@ function Homepage() {
       <Navbar />
 
       <main>
-        <div className={[classes.heroImage, classes.root].join(" ")}>
-          <Paper className={classes.paper} component="section">
-            <Typography variant="h4" component="h1">
-              Hello, world!
-            </Typography>
+        <div className={[classes.heroImage, classes.root].join(" ")} />
+        <Paper className={classes.paper} component="section">
+          <Typography variant="h4" component="h1">
+            Welcome to The Bridge!
+          </Typography>
 
-            <Typography variant="body1">Description</Typography>
+          <Typography variant="body1">
+            Making international philanthropy easier by connecting donors with
+            social impact nonprofit organizations across Nigeria.
+          </Typography>
 
-            <Link
-              href="#"
-              onClick={preventDefault}
-              color="inherit"
-              variant="body1"
-              className={classes.heroLink}
-            >
-              Learn more
-            </Link>
-          </Paper>
-        </div>
+          <Link
+            href="#"
+            onClick={preventDefault}
+            color="inherit"
+            variant="body1"
+            className={classes.heroLink}
+          >
+            Learn more
+          </Link>
+        </Paper>
       </main>
 
       <footer>Footer</footer>
