@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 
 function OrgTable() {
   const classes = useStyles();
-  const [orgs, setOrgs] = React.useState([{}, {}, {}]);
+  const [orgs] = React.useState([{}, {}, {}]);
 
   return (
     <section className={classes.root}>
@@ -31,11 +31,7 @@ function OrgTable() {
       </Typography>
       <ul className={classes.list}>
         {orgs.map((org, index) => {
-          return (
-            <li className={classes.item}>
-              Hello World!
-            </li>
-          );
+          return <li className={classes.item}>Hello World!</li>;
         })}
       </ul>
     </section>
