@@ -26,7 +26,12 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
     },
   },
-  img: {},
+  img: {
+    objectFit: "cover",
+    objectPosition: "bottom",
+    height: "40vh",
+    width: "100%",
+  },
   heroLink: {},
 }));
 
