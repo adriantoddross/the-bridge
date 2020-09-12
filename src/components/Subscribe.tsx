@@ -5,12 +5,13 @@ import Paper from "@material-ui/core/Paper";
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    backgroundColor: "#10844E",
+    color: "white",
     padding: theme.spacing(3),
   },
   paper: {
     "& > *": {
-      marginTop: theme.spacing(3),
-      marginBottom: theme.spacing(3),
+      margin: theme.spacing(1),
     },
   },
 }));
@@ -24,7 +25,10 @@ function Subscribe() {
       elevation={0}
     >
       <Typography variant="body1" component="h3">
-        Subscribe!
+        Sign up to our newsletter!
+      </Typography>
+      <Typography variant="body2">
+        Get notified of new organizations and other updates.
       </Typography>
     </Paper>
   );
