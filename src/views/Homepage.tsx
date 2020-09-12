@@ -7,16 +7,26 @@ import Paper from "@material-ui/core/Paper";
 import Navbar from "../components/Navbar";
 
 const useStyles = makeStyles((theme) => ({
-  root: {},
-  heroImage: {
+  root: {
+    display: "grid",
+    placeItems: "center",
     height: "40vh",
+    [theme.breakpoints.up("md")]: {},
+  },
+  paper: {
+    padding: theme.spacing(2),
+
+    "& > *": {
+      margin: theme.spacing(1),
+    },
+  },
+  heroImage: {
     backgroundImage:
       'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://res.cloudinary.com/adriantoddross/image/upload/v1599842958/Hero_Image_webp.webp");',
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
   },
-  heroText: {},
   heroLink: {},
 }));
 
@@ -30,7 +40,7 @@ function Homepage() {
 
       <main>
         <div className={[classes.heroImage, classes.root].join(" ")}>
-          <Paper className={classes.heroText} component="section">
+          <Paper className={classes.paper} component="section">
             <Typography variant="h4" component="h1">
               Hello, world!
             </Typography>
