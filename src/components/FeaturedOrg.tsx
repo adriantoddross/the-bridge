@@ -51,39 +51,33 @@ function FeaturedOrg(props: any) {
   const classes = useStyles();
 
   return (
-    <section className={classes.root}>
-      <Typography variant="h6" component="h2">
-        Featured Organizations
-      </Typography>
+    <Card className={classes.card}>
+      <CardMedia
+        className={classes.media}
+        image={
+          props.image ||
+          "https://res.cloudinary.com/adriantoddross/image/upload/v1596736102/Adrian_Ross_-_Headshot_1.jpg"
+        }
+        title={props.name || "Organization name"}
+      />
 
-      <Card className={classes.card}>
-        <CardMedia
-          className={classes.media}
-          image={
-            props.image ||
-            "https://res.cloudinary.com/adriantoddross/image/upload/v1596736102/Adrian_Ross_-_Headshot_1.jpg"
-          }
-          title={props.name || "Organization name"}
-        />
+      <CardContent className={classes.content}>
+        <Typography variant="body1" className={classes.need}>
+          <span className="visually-hidden">Accepting donations</span>
+          <MonetizationOnIcon />
+        </Typography>
 
-        <CardContent className={classes.content}>
-          <Typography variant="body1" className={classes.need}>
-            <span className="visually-hidden">Accepting donations</span>
-            <MonetizationOnIcon />
+        <div>
+          <Typography variant="body2">
+            {props.cause || "Philanthropic cause"}
           </Typography>
 
-          <div>
-            <Typography variant="body2">
-              {props.cause || "Philanthropic cause"}
-            </Typography>
-
-            <Typography variant="body1" component="h3" className={classes.name}>
-              {props.name || "Organization name"}
-            </Typography>
-          </div>
-        </CardContent>
-      </Card>
-    </section>
+          <Typography variant="body1" component="h3" className={classes.name}>
+            {props.name || "Organization name"}
+          </Typography>
+        </div>
+      </CardContent>
+    </Card>
   );
 }
 
