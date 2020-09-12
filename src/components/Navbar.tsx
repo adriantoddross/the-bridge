@@ -12,16 +12,18 @@ import MenuIcon from "@material-ui/icons/Menu";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
+  nav: {
+    width: "100%",
+  },
   ul: {
-    alignItems: "center",
+    alignItems: "end",
     display: "flex",
     flexFlow: "row nowrap",
+    justifyContent: "space-between",
+    padding: 0,
   },
   link: {
-    marginRight: theme.spacing(2),
     listStyle: "none",
-    justifyContent: "center",
-    alignItems: "center",
   },
   logo: {
     height: "auto",
@@ -47,7 +49,7 @@ function Navbar() {
     <>
       <AppBar position="static">
         <Toolbar>
-          <nav>
+          <nav className={classes.nav}>
             <ul className={classes.ul}>
               <li className={classes.link}>
                 <Typography
@@ -66,8 +68,8 @@ function Navbar() {
                       alt="Logo for The Bridge"
                       className={classes.logo}
                     />
-                    <span className="visually-hidden">The Bridge</span>
                   </Link>
+                  <span className="visually-hidden">The Bridge</span>
                 </Typography>
               </li>
 
