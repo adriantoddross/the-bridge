@@ -47,7 +47,6 @@ const useStyles = makeStyles((theme) => ({
     height: "40vh",
     width: "100%",
   },
-  heroLink: {},
 }));
 
 function Hero() {
@@ -110,7 +109,6 @@ function Hero() {
           color="inherit"
           variant="contained"
           component="a"
-          className={classes.heroLink}
         >
           Browse organizations
         </Button>
@@ -121,7 +119,6 @@ function Hero() {
           color="inherit"
           variant="contained"
           component="a"
-          className={classes.heroLink}
         >
           Learn more
         </Button>
