@@ -63,11 +63,7 @@ function Navbar() {
                     color="inherit"
                     variant="body1"
                   >
-                    <img
-                      src={Logo}
-                      alt="Logo for The Bridge"
-                      className={classes.logo}
-                    />
+                    <img src={Logo} alt="The Bridge" className={classes.logo} />
                   </Link>
                   <span className="visually-hidden">The Bridge</span>
                 </Typography>
