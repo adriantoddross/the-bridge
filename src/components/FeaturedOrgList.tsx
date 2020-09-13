@@ -34,8 +34,8 @@ function FeaturedOrgList() {
       <ul className={classes.list}>
         {orgs.map((org, index) => {
           return (
-            <li className={classes.item}>
-              <FeaturedOrg key={`$org-${index}`} />
+            <li className={classes.item} key={`$org-${index}`}>
+              <FeaturedOrg />
             </li>
           );
         })}

@@ -31,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
 function Search() {
   const classes = useStyles();
   const [type, setType] = React.useState("");
+
   const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     setType(event.target.value as string);
   };
@@ -50,12 +51,10 @@ function Search() {
           <TextField id="search" label="Search by name" variant="outlined" />
 
           <FormControl variant="outlined">
-            <InputLabel id="demo-simple-select-outlined-label">
-              All types
-            </InputLabel>
+            <InputLabel id="select-org-type-label">All types</InputLabel>
             <Select
-              labelId="demo-simple-select-outlined-label"
-              id="demo-simple-select-outlined"
+              labelId="select-org-type-label"
+              id="select-org-type"
               value={type}
               onChange={handleChange}
               label="Type"
@@ -71,15 +70,13 @@ function Search() {
           </FormControl>
 
           <FormControl variant="outlined">
-            <InputLabel id="demo-simple-select-outlined-label">
-              All needs
-            </InputLabel>
+            <InputLabel id="select-org-need-label">All needs</InputLabel>
             <Select
-              labelId="demo-simple-select-outlined-label"
-              id="demo-simple-select-outlined"
+              labelId="select-org-need-label"
+              id="select-org-need"
               value={type}
               onChange={handleChange}
-              label="Type"
+              label="Needs"
             >
               <MenuItem value="">
                 <em>None</em>
