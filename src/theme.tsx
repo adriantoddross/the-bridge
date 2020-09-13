@@ -1,6 +1,8 @@
 import { createMuiTheme } from "@material-ui/core/styles";
 
 const theme = createMuiTheme({
+  // Typography
+
   typography: {
     fontFamily: ["Lato", "sans-serif"].join(","),
     h1: {
@@ -30,6 +32,8 @@ const theme = createMuiTheme({
     },
   },
 
+  // Colors
+
   palette: {
     primary: {
       light: "#E2F4EC",
@@ -38,6 +42,18 @@ const theme = createMuiTheme({
     },
     text: {
       primary: "#004B28",
+    },
+  },
+
+  // Style overrides
+
+  overrides: {
+    MuiTypography: {
+      root: {
+        "& h1": {
+          color: "#004B28",
+        },
+      },
     },
   },
 });
