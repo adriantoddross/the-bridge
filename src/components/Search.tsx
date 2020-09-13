@@ -43,9 +43,7 @@ function Search() {
         component="section"
         elevation={0}
       >
-        <Typography variant="h6" component="h2">
-          Organization list
-        </Typography>
+        <Typography variant="h1" component="h2">Organization list</Typography>
 
         <form noValidate autoComplete="off" className={classes.form}>
           <TextField id="search" label="Search by name" variant="outlined" />

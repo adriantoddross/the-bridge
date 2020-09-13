@@ -94,7 +94,7 @@ function Hero() {
       </picture>
 
       <Paper className={classes.paper} component="section" elevation={0}>
-        <Typography variant="h5" component="h1">
+        <Typography variant="h2" component="h1">
           Welcome to The Bridge!
         </Typography>
 
