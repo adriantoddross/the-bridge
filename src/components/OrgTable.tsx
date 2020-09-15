@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 
 function OrgTable(props: any) {
   const classes = useStyles();
-  const [orgs] = React.useState(props.tableData.orgs || []);
+  const [orgs] = React.useState(props.tableData || []);
 
   return (
     <Paper
