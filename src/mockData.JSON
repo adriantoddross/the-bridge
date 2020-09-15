@@ -92,24 +92,24 @@
     {
       "name": "Lagos Food Bank",
       "contact": {
-        "name": "Orondaam Otto",
+        "name": "Michael Sunbola",
         "role": "Founder",
         "image": ""
       },
       "category": "food",
       "description": "Lagos Food Bank is committed to ending hunger in Lagos by implementing initiatives such as Family Farming, Nutritious Meal Plan for Vulnerable Mothers and Children, Monthly Mobile Pantry and Covid-19 relief drives.",
       "impact": [
-        "Since 2012, Slum2School has provided educational scholarships and development support to over 107,000 children from 47 communities across Nigeria."
+        "200,000 people served in 2019."
       ],
       "needs": {
         "type": ["donation"],
-        "description": "Accepting donations in multiple currencies",
+        "description": "Accepting donations in multiple currencies to open more food bank locations, reach 2,000 more children and 1,000 more nursing mothers.",
         "currency": "multiple"
       },
       "links": {
-        "website": "https://slum2school.org/",
-        "donate": "https://slum2school.org/donate",
-        "learnMore": ""
+        "website": "https://www.lagosfoodbank.org",
+        "donate": "https://www.lagosfoodbank.org/donations/online-payment/",
+        "learnMore": "https://www.lagosfoodbank.org/wp-content/uploads/2019/09/2019-Impact-Report-2-1.pdf"
       }
     }
   ]
