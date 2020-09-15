@@ -4,12 +4,12 @@ import Search from "./Search";
 import OrgTable from "./OrgTable";
 
 function OrgList(props: any) {
-  const [orgs, setOrgs] = React.useState(props.orgs || {});
+  const [orgs] = React.useState(props.orgs || []);
 
   return (
     <>
       <Search />
-      <OrgTable />
+      <OrgTable tableData={orgs} />
     </>
   );
 }
