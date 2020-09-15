@@ -62,6 +62,7 @@ function Search(props: any) {
             id="search"
             label="Search by name"
             variant="outlined"
+            value={query}
             onChange={handleChange}
           />
 
