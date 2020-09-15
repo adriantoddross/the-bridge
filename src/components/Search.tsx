@@ -28,12 +28,22 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Search() {
+function Search(props: any) {
   const classes = useStyles();
+  const [query, setQuery] = React.useState("");
   const [type, setType] = React.useState("");
+  const [need, setNeed] = React.useState("");
 
   const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+    setQuery(event.target.value as string);
+  };
+
+  const selectType = (event: React.ChangeEvent<{ value: unknown }>) => {
     setType(event.target.value as string);
+  };
+
+  const selectNeed = (event: React.ChangeEvent<{ value: unknown }>) => {
+    setNeed(event.target.value as string);
   };
 
   return (
@@ -43,10 +53,17 @@ function Search() {
         component="section"
         elevation={0}
       >
-        <Typography variant="h1" component="h2">Organization list</Typography>
+        <Typography variant="h1" component="h2">
+          Organization list
+        </Typography>
 
         <form noValidate autoComplete="off" className={classes.form}>
-          <TextField id="search" label="Search by name" variant="outlined" />
+          <TextField
+            id="search"
+            label="Search by name"
+            variant="outlined"
+            onChange={handleChange}
+          />
 
           <FormControl variant="outlined">
             <InputLabel id="select-org-type-label">All types</InputLabel>
@@ -54,7 +71,7 @@ function Search() {
               labelId="select-org-type-label"
               id="select-org-type"
               value={type}
-              onChange={handleChange}
+              onChange={selectType}
               label="Type"
             >
               <MenuItem value="">
@@ -72,8 +89,8 @@ function Search() {
             <Select
               labelId="select-org-need-label"
               id="select-org-need"
-              value={type}
-              onChange={handleChange}
+              value={need}
+              onChange={selectNeed}
               label="Needs"
             >
               <MenuItem value="">
