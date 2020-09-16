@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
@@ -23,7 +23,6 @@ const useStyles = makeStyles((theme) => ({
 
 function OrgTable(props: any) {
   const classes = useStyles();
-  const [orgs] = React.useState(props.tableData || []);
 
   return (
     <Paper
@@ -52,7 +51,7 @@ function OrgTable(props: any) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {orgs.map((org: any, index: any) => (
+            {props.tableData.map((org: any, index: any) => (
               <TableRow key={index}>
                 <TableCell>{org.name}</TableCell>
                 <TableCell>{org.category}</TableCell>
