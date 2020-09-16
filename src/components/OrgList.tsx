@@ -40,9 +40,26 @@ function OrgList(props: any) {
     return setOrgs(filteredList);
   };
 
+  const searchByNeed = (userInput: String) => {
+    const searchTerm = userInput.toLowerCase();
+
+    const filteredList = props.data.orgs.filter((org: any) => {
+      const needs = org.needs.type.join().toLowerCase();
+      return needs.includes(searchTerm);
+    });
+
+    console.log(filteredList);
+
+    return setOrgs(filteredList);
+  };
+
   return (
     <>
-      <Search searchByQuery={searchByQuery} searchByType={searchByType} />
+      <Search
+        searchByQuery={searchByQuery}
+        searchByType={searchByType}
+        searchByNeed={searchByNeed}
+      />
       <OrgTable tableData={orgs} />
     </>
   );
