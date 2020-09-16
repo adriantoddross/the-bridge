@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import Search from "./Search";
 import OrgTable from "./OrgTable";
 
 function OrgList(props: any) {
-  const [orgs, setOrgs] = React.useState(props.data.orgs || []);
+  const [orgs, setOrgs] = React.useState([{}]);
+
+  useEffect(() => {
+    if (props.data.orgs) {
+      setOrgs(props.data.orgs);
+    }
+  }, [props.data.orgs]);
 
   const checkName = (name: String, query: String) => {
     const pattern = query
