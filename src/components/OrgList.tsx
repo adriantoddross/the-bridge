@@ -29,26 +29,21 @@ function OrgList(props: any) {
     return setOrgs(filteredList);
   };
 
-  const searchByType = (userInput: String) => {
+  const searchByCategory = (userInput: String, searchByNeed?: Boolean) => {
     const searchTerm = userInput.toLowerCase();
+    let filteredList: {}[] = [];
 
-    const filteredList = props.data.orgs.filter((org: any) => {
-      const category = org.category.join().toLowerCase();
-      return category.includes(searchTerm);
-    });
-
-    return setOrgs(filteredList);
-  };
-
-  const searchByNeed = (userInput: String) => {
-    const searchTerm = userInput.toLowerCase();
-
-    const filteredList = props.data.orgs.filter((org: any) => {
-      const needs = org.needs.type.join().toLowerCase();
-      return needs.includes(searchTerm);
-    });
-
-    console.log(filteredList);
+    if (searchByNeed) {
+      filteredList = props.data.orgs.filter((org: any) => {
+        const needs = org.needs.type.join().toLowerCase();
+        return needs.includes(searchTerm);
+      });
+    } else {
+      filteredList = props.data.orgs.filter((org: any) => {
+        const category = org.category.join().toLowerCase();
+        return category.includes(searchTerm);
+      });
+    }
 
     return setOrgs(filteredList);
   };
@@ -57,8 +52,7 @@ function OrgList(props: any) {
     <>
       <Search
         searchByQuery={searchByQuery}
-        searchByType={searchByType}
-        searchByNeed={searchByNeed}
+        searchByCategory={searchByCategory}
       />
       <OrgTable tableData={orgs} />
     </>

@@ -34,19 +34,19 @@ function Search(props: any) {
   const [type, setType] = React.useState("");
   const [need, setNeed] = React.useState("");
 
-  const searchByQuery = (event: React.ChangeEvent<{ value: unknown }>) => {
+  const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     setQuery(event.target.value as string);
     props.searchByQuery(event.target.value as string);
   };
 
-  const searchByType = (event: React.ChangeEvent<{ value: unknown }>) => {
+  const handleTypeSelect = (event: React.ChangeEvent<{ value: unknown }>) => {
     setType(event.target.value as string);
-    props.searchByType(event.target.value as string);
+    props.searchByCategory(event.target.value as string);
   };
 
-  const searchByNeed = (event: React.ChangeEvent<{ value: unknown }>) => {
+  const handleNeedSelect = (event: React.ChangeEvent<{ value: unknown }>) => {
     setNeed(event.target.value as string);
-    props.searchByNeed(event.target.value as string);
+    props.searchByCategory(event.target.value as string, true);
   };
 
   return (
@@ -66,7 +66,7 @@ function Search(props: any) {
             label="Search by name"
             variant="outlined"
             value={query}
-            onChange={searchByQuery}
+            onChange={handleChange}
           />
 
           <FormControl variant="outlined">
@@ -75,7 +75,7 @@ function Search(props: any) {
               labelId="select-org-type-label"
               id="select-org-type"
               value={type}
-              onChange={searchByType}
+              onChange={handleTypeSelect}
               label="Type"
             >
               <MenuItem value="">
@@ -94,7 +94,7 @@ function Search(props: any) {
               labelId="select-org-need-label"
               id="select-org-need"
               value={need}
-              onChange={searchByNeed}
+              onChange={handleNeedSelect}
               label="Needs"
             >
               <MenuItem value="">
