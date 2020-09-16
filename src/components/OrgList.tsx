@@ -26,12 +26,23 @@ function OrgList(props: any) {
       return name.includes(searchTerm) || checkName(name, searchTerm);
     });
 
-    setOrgs(filteredList);
+    return setOrgs(filteredList);
+  };
+
+  const searchByType = (userInput: String) => {
+    const searchTerm = userInput.toLowerCase();
+
+    const filteredList = props.data.orgs.filter((org: any) => {
+      const category = org.category.join().toLowerCase();
+      return category.includes(searchTerm);
+    });
+
+    return setOrgs(filteredList);
   };
 
   return (
     <>
-      <Search searchByQuery={searchByQuery} />
+      <Search searchByQuery={searchByQuery} searchByType={searchByType} />
       <OrgTable tableData={orgs} />
     </>
   );
