@@ -62,7 +62,7 @@ export default {
         role: "Founder",
         image: {},
       },
-      category: "Education",
+      category: ["Education"],
       description:
         "Slum2School is a volunteer based organization that works with thousands of volunteers across slums, hard to reach villages and underserved communities by engaging these communities to find the best sustainable solution to provide education for children and young people. They build learning centers, provide scholarship opportunities and collaborate with community schools to improve education quality and outcomes.",
       impact: [
@@ -86,7 +86,7 @@ export default {
         role: "Founder",
         image: {},
       },
-      category: "Food Insecurity",
+      category: ["Food Insecurity"],
       description:
         "Lagos Food Bank is committed to ending hunger in Lagos by implementing initiatives such as Family Farming, Nutritious Meal Plan for Vulnerable Mothers and Children, Monthly Mobile Pantry and Covid-19 relief drives.",
       impact: ["200,000 people served in 2019."],
