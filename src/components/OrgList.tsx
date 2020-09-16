@@ -26,7 +26,7 @@ function OrgList(props: any) {
       return name.includes(searchTerm) || checkName(name, searchTerm);
     });
 
-    // Update state in OrgTable!
+    setOrgs(filteredList);
   };
 
   return (
