@@ -32,7 +32,7 @@ function Search(props: any) {
   const classes = useStyles();
   const [query, setQuery] = React.useState("");
   const [type, setType] = React.useState("");
-  const [need, setNeed] = React.useState("");
+  const [need] = React.useState("");
 
   const searchByQuery = (event: React.ChangeEvent<{ value: unknown }>) => {
     setQuery(event.target.value as string);
