@@ -16,7 +16,7 @@ function Homepage() {
       <main>
         <Hero />
         <FeaturedOrgList />
-        <OrgList orgs={mockData}/>
+        <OrgList data={mockData}/>
       </main>
 
       <footer>

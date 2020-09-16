@@ -36,6 +36,7 @@ function Search(props: any) {
 
   const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     setQuery(event.target.value as string);
+    props.searchByQuery(event.target.value as string);
   };
 
   const selectType = (event: React.ChangeEvent<{ value: unknown }>) => {
@@ -62,6 +63,7 @@ function Search(props: any) {
             id="search"
             label="Search by name"
             variant="outlined"
+            value={query}
             onChange={handleChange}
           />
 

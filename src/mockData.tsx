@@ -26,7 +26,7 @@ export default {
         currency: "multiple",
       },
       links: {
-        website: "https://www.agstribe.org/Z",
+        website: "https://www.agstribe.org/",
         donate: "https://dashboard.flutterwave.com/pay/agsdonate",
         learnMore: "https://www.agstribe.org/ags-enterprise-challenge/",
       },
