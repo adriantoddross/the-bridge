@@ -32,7 +32,7 @@ function Search(props: any) {
   const classes = useStyles();
   const [query, setQuery] = React.useState("");
   const [type, setType] = React.useState("");
-  const [need] = React.useState("");
+  const [need, setNeed] = React.useState("");
 
   const searchByQuery = (event: React.ChangeEvent<{ value: unknown }>) => {
     setQuery(event.target.value as string);
@@ -42,6 +42,11 @@ function Search(props: any) {
   const searchByType = (event: React.ChangeEvent<{ value: unknown }>) => {
     setType(event.target.value as string);
     props.searchByType(event.target.value as string);
+  };
+
+  const searchByNeed = (event: React.ChangeEvent<{ value: unknown }>) => {
+    setNeed(event.target.value as string);
+    props.searchByNeed(event.target.value as string);
   };
 
   return (
@@ -89,7 +94,7 @@ function Search(props: any) {
               labelId="select-org-need-label"
               id="select-org-need"
               value={need}
-              onChange={() => console.log("Changed need!")}
+              onChange={searchByNeed}
               label="Needs"
             >
               <MenuItem value="">
