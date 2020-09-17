@@ -3,3 +3,9 @@ export enum Fields {
   TextField,
   Select,
 }
+
+export interface OrgListErrorProps {
+  error: Boolean;
+  field: Fields;
+  helperText: String;
+}
