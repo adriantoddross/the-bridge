@@ -56,6 +56,11 @@ function Search(props: any) {
     return !!(field === fieldType && error);
   };
 
+  const showHelperText = (errorProps: OrgListErrorProps, fieldType: Fields) => {
+    const { field, helperText } = errorProps;
+    return field === fieldType ? helperText : "";
+  };
+
   return (
     <>
       <Paper
@@ -75,7 +80,7 @@ function Search(props: any) {
             value={query}
             onChange={handleChange}
             error={isError(props.error, Fields.TextField)}
-            helperText={props.error.helperText}
+            helperText={showHelperText(props.error, Fields.TextField)}
           />
 
           <FormControl variant="outlined">
