@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 
 import Search from "./Search";
 import OrgTable from "./OrgTable";
-import { Fields } from "./Shared";
+import { Fields, OrgListErrorProps } from "./Shared";
 
 function OrgList(props: any) {
   const [orgs, setOrgs] = React.useState([{}]);
-  const [error, setError] = React.useState({
+  const [error, setError] = React.useState<OrgListErrorProps>({
     error: false,
     field: Fields.None,
     helperText: "",
