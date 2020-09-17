@@ -23,7 +23,7 @@ function OrgList(props: any) {
       setError({
         error: true,
         field: Fields.TextField,
-        helperText: "No matches, please try again.",
+        helperText: "No matches found, please try again.",
       });
     } else {
       // Reset the error state.
