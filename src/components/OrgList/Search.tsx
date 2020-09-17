@@ -8,6 +8,8 @@ import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import { Select } from "@material-ui/core";
 
+import { Fields } from "./Shared";
+
 const useStyles = makeStyles((theme) => ({
   root: {},
   paper: {
@@ -49,6 +51,10 @@ function Search(props: any) {
     props.searchByCategory(event.target.value as string, true);
   };
 
+  const isError = (field: Fields, errorState: boolean) => {
+    return !!(props.error.field === field && props.error);
+  };
+
   return (
     <>
       <Paper
@@ -67,8 +73,8 @@ function Search(props: any) {
             variant="outlined"
             value={query}
             onChange={handleChange}
-            error={props.queryError.error}
-            helperText={props.queryError.helperText}
+            error={!!(props.error.field === Fields.TextField && props.error)}
+            helperText={props.error.helperText}
           />
 
           <FormControl variant="outlined">

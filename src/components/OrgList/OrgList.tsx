@@ -2,11 +2,13 @@ import React, { useEffect } from "react";
 
 import Search from "./Search";
 import OrgTable from "./OrgTable";
+import { Fields } from "./Shared";
 
 function OrgList(props: any) {
   const [orgs, setOrgs] = React.useState([{}]);
-  const [queryError, setQueryError] = React.useState({
+  const [error, setError] = React.useState({
     error: false,
+    field: Fields.None,
     helperText: "",
   });
 
@@ -15,6 +17,23 @@ function OrgList(props: any) {
       setOrgs(props.data.orgs);
     }
   }, [props.data.orgs]);
+
+  const checkForErrors = (data: {}[]) => {
+    if (!data.length) {
+      setError({
+        error: true,
+        field: Fields.TextField,
+        helperText: "No matches, please try again.",
+      });
+    } else {
+      // Reset the error state.
+      setError({
+        error: false,
+        field: Fields.None,
+        helperText: "",
+      });
+    }
+  };
 
   const findClosestMatch = (name: String, query: String) => {
     const pattern = query
@@ -36,19 +55,7 @@ function OrgList(props: any) {
       return name.includes(searchTerm) || findClosestMatch(name, searchTerm);
     });
 
-    if (!filteredList.length) {
-      setQueryError({
-        error: true,
-        helperText: "No matches, please try again.",
-      });
-    } else {
-      // Reset the error state.
-      setQueryError({
-        error: false,
-        helperText: "",
-      });
-    }
-
+    checkForErrors(filteredList);
     return setOrgs(filteredList);
   };
 
@@ -76,7 +83,7 @@ function OrgList(props: any) {
       <Search
         searchByQuery={searchByQuery}
         searchByCategory={searchByCategory}
-        queryError={queryError}
+        error={error}
       />
       <OrgTable tableData={orgs} />
     </>
