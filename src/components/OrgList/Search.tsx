@@ -8,7 +8,7 @@ import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import { Select } from "@material-ui/core";
 
-import { Fields } from "./Shared";
+import { Fields, OrgListErrorProps } from "./Shared";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -51,8 +51,9 @@ function Search(props: any) {
     props.searchByCategory(event.target.value as string, true);
   };
 
-  const isError = (field: Fields, errorState: boolean) => {
-    return !!(props.error.field === field && props.error);
+  const isError = (errorProps: OrgListErrorProps, fieldType: Fields) => {
+    const { field, error } = errorProps;
+    return !!(field === fieldType && error);
   };
 
   return (
@@ -73,7 +74,7 @@ function Search(props: any) {
             variant="outlined"
             value={query}
             onChange={handleChange}
-            error={!!(props.error.field === Fields.TextField && props.error)}
+            error={isError(props.error, Fields.TextField)}
             helperText={props.error.helperText}
           />
 
