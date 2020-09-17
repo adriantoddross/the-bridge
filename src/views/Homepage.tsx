@@ -2,10 +2,11 @@ import React from "react";
 
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
-import Search from "../components/Search";
 import FeaturedOrgList from "../components/FeaturedOrgList";
-import OrgTable from "../components/OrgTable";
+import OrgList from "../components/OrgList/OrgList";
 import Subscribe from "../components/Subscribe";
+
+import mockData from "../mockData";
 
 function Homepage() {
   return (
@@ -15,8 +16,7 @@ function Homepage() {
       <main>
         <Hero />
         <FeaturedOrgList />
-        <Search />
-        <OrgTable />
+        <OrgList data={mockData}/>
       </main>
 
       <footer>

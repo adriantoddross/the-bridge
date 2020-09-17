@@ -23,7 +23,6 @@ const useStyles = makeStyles((theme) => ({
 
 function OrgTable(props: any) {
   const classes = useStyles();
-  const [orgs] = React.useState(props.orgs || [{}, {}, {}]);
 
   return (
     <Paper
@@ -52,10 +51,10 @@ function OrgTable(props: any) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {orgs.map((row: any, index: any) => (
+            {props.tableData.map((org: any, index: any) => (
               <TableRow key={index}>
-                <TableCell>Organization name</TableCell>
-                <TableCell>Organization category</TableCell>
+                <TableCell>{org.name}</TableCell>
+                <TableCell>{org.category}</TableCell>
               </TableRow>
             ))}
           </TableBody>
