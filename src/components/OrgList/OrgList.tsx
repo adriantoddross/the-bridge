@@ -18,11 +18,11 @@ function OrgList(props: any) {
     }
   }, [props.data.orgs]);
 
-  const checkForErrors = (data: {}[]) => {
+  const checkForErrors = (data: {}[], fieldType: Fields) => {
     if (!data.length) {
       setError({
         error: true,
-        field: Fields.TextField,
+        field: fieldType,
         helperText: "No matches found, please try again.",
       });
     } else {
@@ -55,7 +55,7 @@ function OrgList(props: any) {
       return name.includes(searchTerm) || findClosestMatch(name, searchTerm);
     });
 
-    checkForErrors(filteredList);
+    checkForErrors(filteredList, Fields.TextField);
     return setOrgs(filteredList);
   };
 
@@ -68,11 +68,15 @@ function OrgList(props: any) {
         const needs = org.needs.type.join().toLowerCase();
         return needs.includes(searchTerm);
       });
+
+      checkForErrors(filteredList, Fields.SelectNeed);
     } else {
       filteredList = props.data.orgs.filter((org: any) => {
         const category = org.category.join().toLowerCase();
         return category.includes(searchTerm);
       });
+
+      checkForErrors(filteredList, Fields.SelectType);
     }
 
     return setOrgs(filteredList);
