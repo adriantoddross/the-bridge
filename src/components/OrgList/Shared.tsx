@@ -1,7 +1,8 @@
 export enum Fields {
   None,
   TextField,
-  Select,
+  SelectType,
+  SelectNeed,
 }
 
 export interface OrgListErrorProps {
