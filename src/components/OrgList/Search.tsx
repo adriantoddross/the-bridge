@@ -7,6 +7,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import { Select } from "@material-ui/core";
+import FormHelperText from "@material-ui/core/FormHelperText/FormHelperText";
 
 import { Fields, OrgListErrorProps } from "./Shared";
 
@@ -83,7 +84,10 @@ function Search(props: any) {
             helperText={showHelperText(props.error, Fields.TextField)}
           />
 
-          <FormControl variant="outlined">
+          <FormControl
+            variant="outlined"
+            error={isError(props.error, Fields.SelectType)}
+          >
             <InputLabel id="select-org-type-label">All types</InputLabel>
             <Select
               labelId="select-org-type-label"
@@ -100,9 +104,15 @@ function Search(props: any) {
               <MenuItem value="youth">Youth Development</MenuItem>
               <MenuItem value="women">Women's Issues</MenuItem>
             </Select>
+            <FormHelperText>
+              {showHelperText(props.error, Fields.SelectType)}
+            </FormHelperText>
           </FormControl>
 
-          <FormControl variant="outlined">
+          <FormControl
+            variant="outlined"
+            error={isError(props.error, Fields.SelectNeed)}
+          >
             <InputLabel id="select-org-need-label">All needs</InputLabel>
             <Select
               labelId="select-org-need-label"
@@ -118,6 +128,9 @@ function Search(props: any) {
               <MenuItem value="talent">Talent</MenuItem>
               <MenuItem value="treasure">Treasure</MenuItem>
             </Select>
+            <FormHelperText>
+              {showHelperText(props.error, Fields.SelectNeed)}
+            </FormHelperText>
           </FormControl>
         </form>
       </Paper>
