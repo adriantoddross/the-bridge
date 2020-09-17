@@ -67,6 +67,8 @@ function Search(props: any) {
             variant="outlined"
             value={query}
             onChange={handleChange}
+            error={props.queryError.error}
+            helperText={props.queryError.helperText}
           />
 
           <FormControl variant="outlined">
