@@ -2,38 +2,15 @@ import React, { useEffect } from "react";
 
 import Search from "./Search";
 import OrgTable from "./OrgTable";
-import { Fields, OrgListErrorProps } from "./Shared";
 
 function OrgList(props: any) {
   const [orgs, setOrgs] = React.useState([{}]);
-  const [error, setError] = React.useState<OrgListErrorProps>({
-    error: false,
-    field: Fields.None,
-    helperText: "",
-  });
 
   useEffect(() => {
     if (props.data.orgs) {
       setOrgs(props.data.orgs);
     }
   }, [props.data.orgs]);
-
-  const checkForErrors = (data: {}[], fieldType: Fields) => {
-    if (!data.length) {
-      setError({
-        error: true,
-        field: fieldType,
-        helperText: "No matches found, please try again.",
-      });
-    } else {
-      // Reset the error state.
-      setError({
-        error: false,
-        field: Fields.None,
-        helperText: "",
-      });
-    }
-  };
 
   const findClosestMatch = (name: String, query: String) => {
     const pattern = query
@@ -63,7 +40,7 @@ function OrgList(props: any) {
     type: string | "",
     need: string | ""
   ) => {
-    const allOrgs = [...orgs];
+    const allOrgs = [...props.data.orgs];
     const searchTerm = query.toLowerCase();
 
     if (searchTerm) {
@@ -74,7 +51,8 @@ function OrgList(props: any) {
         const needs = org.needs.type.join().toLowerCase();
         return category.includes(type) && needs.includes(need);
       });
-      console.log("Filtering with search term:", results);
+
+      setOrgs(results);
     } else {
       const results = allOrgs.filter((org: any) => {
         const category = org.category.join().toLowerCase();
@@ -82,13 +60,13 @@ function OrgList(props: any) {
         return category.includes(type) && needs.includes(need);
       });
 
-      console.log("Filtering without search term:", results);
+      setOrgs(results);
     }
   };
 
   return (
     <>
-      <Search searchForOrg={searchForOrg} error={error} />
+      <Search searchForOrg={searchForOrg} />
       <OrgTable tableData={orgs} />
     </>
   );
