@@ -39,17 +39,17 @@ function Search(props: any) {
 
   const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     setQuery(event.target.value as string);
-    props.searchByQuery(event.target.value as string);
+    props.searchForOrg(event.target.value as string, type, need);
   };
 
   const handleTypeSelect = (event: React.ChangeEvent<{ value: unknown }>) => {
     setType(event.target.value as string);
-    props.searchByCategory(event.target.value as string);
+    props.searchForOrg(query, event.target.value as string, need);
   };
 
   const handleNeedSelect = (event: React.ChangeEvent<{ value: unknown }>) => {
     setNeed(event.target.value as string);
-    props.searchByCategory(event.target.value as string, true);
+    props.searchForOrg(query, type, event.target.value as string);
   };
 
   const isError = (errorProps: OrgListErrorProps, fieldType: Fields) => {
