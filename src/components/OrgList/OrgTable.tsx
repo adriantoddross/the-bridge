@@ -23,6 +23,14 @@ const useStyles = makeStyles((theme) => ({
 
 function OrgTable(props: any) {
   const classes = useStyles();
+  const noResults = props.tableData.length ? (
+    ""
+  ) : (
+    <>
+      <Typography variant="h3">No organizations found</Typography>
+      <Typography variant="body1">Try another search term</Typography>
+    </>
+  );
 
   return (
     <Paper
@@ -60,6 +68,7 @@ function OrgTable(props: any) {
           </TableBody>
         </Table>
       </TableContainer>
+      {noResults}
     </Paper>
   );
 }

@@ -2,38 +2,15 @@ import React, { useEffect } from "react";
 
 import Search from "./Search";
 import OrgTable from "./OrgTable";
-import { Fields, OrgListErrorProps } from "./Shared";
 
 function OrgList(props: any) {
   const [orgs, setOrgs] = React.useState([{}]);
-  const [error, setError] = React.useState<OrgListErrorProps>({
-    error: false,
-    field: Fields.None,
-    helperText: "",
-  });
 
   useEffect(() => {
     if (props.data.orgs) {
       setOrgs(props.data.orgs);
     }
   }, [props.data.orgs]);
-
-  const checkForErrors = (data: {}[], fieldType: Fields) => {
-    if (!data.length) {
-      setError({
-        error: true,
-        field: fieldType,
-        helperText: "No matches found, please try again.",
-      });
-    } else {
-      // Reset the error state.
-      setError({
-        error: false,
-        field: Fields.None,
-        helperText: "",
-      });
-    }
-  };
 
   const findClosestMatch = (name: String, query: String) => {
     const pattern = query
@@ -47,48 +24,49 @@ function OrgList(props: any) {
     return name.match(regex);
   };
 
-  const searchByQuery = (userInput: String) => {
+  const searchByQuery = (userInput: String, list: {}[]) => {
     const searchTerm = userInput.toLowerCase();
 
-    const filteredList: {}[] = props.data.orgs.filter((org: any) => {
+    const filteredList: {}[] = list.filter((org: any) => {
       const name = org.name.toLowerCase();
       return name.includes(searchTerm) || findClosestMatch(name, searchTerm);
     });
 
-    checkForErrors(filteredList, Fields.TextField);
-    return setOrgs(filteredList);
+    return filteredList;
   };
 
-  const searchByCategory = (userInput: String, searchByNeed?: Boolean) => {
-    const searchTerm = userInput.toLowerCase();
-    let filteredList: {}[] = [];
+  const searchForOrg = (
+    query: string | "",
+    type: string | "",
+    need: string | ""
+  ) => {
+    const allOrgs = [...props.data.orgs];
+    const searchTerm = query.toLowerCase();
 
-    if (searchByNeed) {
-      filteredList = props.data.orgs.filter((org: any) => {
-        const needs = org.needs.type.join().toLowerCase();
-        return needs.includes(searchTerm);
-      });
+    if (searchTerm) {
+      const closestMatches = searchByQuery(searchTerm, allOrgs);
 
-      checkForErrors(filteredList, Fields.SelectNeed);
-    } else {
-      filteredList = props.data.orgs.filter((org: any) => {
+      const results = closestMatches.filter((org: any) => {
         const category = org.category.join().toLowerCase();
-        return category.includes(searchTerm);
+        const needs = org.needs.type.join().toLowerCase();
+        return category.includes(type) && needs.includes(need);
       });
 
-      checkForErrors(filteredList, Fields.SelectType);
-    }
+      setOrgs(results);
+    } else {
+      const results = allOrgs.filter((org: any) => {
+        const category = org.category.join().toLowerCase();
+        const needs = org.needs.type.join().toLowerCase();
+        return category.includes(type) && needs.includes(need);
+      });
 
-    return setOrgs(filteredList);
+      setOrgs(results);
+    }
   };
 
   return (
     <>
-      <Search
-        searchByQuery={searchByQuery}
-        searchByCategory={searchByCategory}
-        error={error}
-      />
+      <Search searchForOrg={searchForOrg} />
       <OrgTable tableData={orgs} />
     </>
   );
