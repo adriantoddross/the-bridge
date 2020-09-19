@@ -47,48 +47,48 @@ function OrgList(props: any) {
     return name.match(regex);
   };
 
-  const searchByQuery = (userInput: String) => {
+  const searchByQuery = (userInput: String, list: {}[]) => {
     const searchTerm = userInput.toLowerCase();
 
-    const filteredList: {}[] = props.data.orgs.filter((org: any) => {
+    const filteredList: {}[] = list.filter((org: any) => {
       const name = org.name.toLowerCase();
       return name.includes(searchTerm) || findClosestMatch(name, searchTerm);
     });
 
-    checkForErrors(filteredList, Fields.TextField);
-    return setOrgs(filteredList);
+    return filteredList;
   };
 
-  const searchByCategory = (userInput: String, searchByNeed?: Boolean) => {
-    const searchTerm = userInput.toLowerCase();
-    let filteredList: {}[] = [];
+  const searchForOrg = (
+    query: string | "",
+    type: string | "",
+    need: string | ""
+  ) => {
+    const allOrgs = [...orgs];
+    const searchTerm = query.toLowerCase();
 
-    if (searchByNeed) {
-      filteredList = props.data.orgs.filter((org: any) => {
-        const needs = org.needs.type.join().toLowerCase();
-        return needs.includes(searchTerm);
-      });
+    if (searchTerm) {
+      const closestMatches = searchByQuery(searchTerm, allOrgs);
 
-      checkForErrors(filteredList, Fields.SelectNeed);
-    } else {
-      filteredList = props.data.orgs.filter((org: any) => {
+      const results = closestMatches.filter((org: any) => {
         const category = org.category.join().toLowerCase();
-        return category.includes(searchTerm);
+        const needs = org.needs.type.join().toLowerCase();
+        return category.includes(type) && needs.includes(need);
+      });
+      console.log("Filtering with search term:", results);
+    } else {
+      const results = allOrgs.filter((org: any) => {
+        const category = org.category.join().toLowerCase();
+        const needs = org.needs.type.join().toLowerCase();
+        return category.includes(type) && needs.includes(need);
       });
 
-      checkForErrors(filteredList, Fields.SelectType);
+      console.log("Filtering without search term:", results);
     }
-
-    return setOrgs(filteredList);
   };
 
   return (
     <>
-      <Search
-        searchByQuery={searchByQuery}
-        searchByCategory={searchByCategory}
-        error={error}
-      />
+      <Search searchForOrg={searchForOrg} error={error} />
       <OrgTable tableData={orgs} />
     </>
   );
