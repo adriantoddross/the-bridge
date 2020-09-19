@@ -7,9 +7,6 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import { Select } from "@material-ui/core";
-import FormHelperText from "@material-ui/core/FormHelperText/FormHelperText";
-
-import { Fields, OrgListErrorProps } from "./Shared";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -52,16 +49,6 @@ function Search(props: any) {
     props.searchForOrg(query, type, event.target.value as string);
   };
 
-  const isError = (errorProps: OrgListErrorProps, fieldType: Fields) => {
-    const { field, error } = errorProps;
-    return !!(field === fieldType && error);
-  };
-
-  const showHelperText = (errorProps: OrgListErrorProps, fieldType: Fields) => {
-    const { field, helperText } = errorProps;
-    return field === fieldType ? helperText : "";
-  };
-
   return (
     <>
       <Paper
@@ -80,14 +67,9 @@ function Search(props: any) {
             variant="outlined"
             value={query}
             onChange={handleChange}
-            error={isError(props.error, Fields.TextField)}
-            helperText={showHelperText(props.error, Fields.TextField)}
           />
 
-          <FormControl
-            variant="outlined"
-            error={isError(props.error, Fields.SelectType)}
-          >
+          <FormControl variant="outlined">
             <InputLabel id="select-org-type-label">All types</InputLabel>
             <Select
               labelId="select-org-type-label"
@@ -104,15 +86,9 @@ function Search(props: any) {
               <MenuItem value="youth">Youth Development</MenuItem>
               <MenuItem value="women">Women's Issues</MenuItem>
             </Select>
-            <FormHelperText>
-              {showHelperText(props.error, Fields.SelectType)}
-            </FormHelperText>
           </FormControl>
 
-          <FormControl
-            variant="outlined"
-            error={isError(props.error, Fields.SelectNeed)}
-          >
+          <FormControl variant="outlined">
             <InputLabel id="select-org-need-label">All needs</InputLabel>
             <Select
               labelId="select-org-need-label"
@@ -128,9 +104,6 @@ function Search(props: any) {
               <MenuItem value="talent">Talent</MenuItem>
               <MenuItem value="treasure">Treasure</MenuItem>
             </Select>
-            <FormHelperText>
-              {showHelperText(props.error, Fields.SelectNeed)}
-            </FormHelperText>
           </FormControl>
         </form>
       </Paper>
