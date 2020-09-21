@@ -56,9 +56,7 @@ function Search(props: any) {
         component="section"
         elevation={0}
       >
-        <Typography variant="h1" component="h2">
-          Organization list
-        </Typography>
+        <Typography variant="h2">Organization list</Typography>
 
         <form noValidate autoComplete="off" className={classes.form}>
           <TextField

@@ -28,7 +28,7 @@ function FeaturedOrgList() {
 
   return (
     <section className={classes.root}>
-      <Typography variant="h1" component="h2">
+      <Typography variant="h2">
         Featured Organizations
       </Typography>
       <ul className={classes.list}>

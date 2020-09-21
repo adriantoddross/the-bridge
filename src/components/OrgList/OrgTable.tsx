@@ -38,9 +38,7 @@ function OrgTable(props: any) {
       component="section"
       elevation={0}
     >
-      <Typography variant="h6" component="h2">
-        Featured Organizations
-      </Typography>
+      <Typography variant="h2">Featured Organizations</Typography>
 
       <TableContainer component={Paper}>
         <Table aria-label="simple table">
