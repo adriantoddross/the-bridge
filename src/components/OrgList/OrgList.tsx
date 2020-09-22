@@ -7,10 +7,10 @@ function OrgList(props: any) {
   const [orgs, setOrgs] = React.useState([{}]);
 
   useEffect(() => {
-    if (props.data.orgs) {
-      setOrgs(props.data.orgs);
+    if (props.data) {
+      setOrgs(props.data);
     }
-  }, [props.data.orgs]);
+  }, [props.data]);
 
   const findClosestMatch = (name: String, query: String) => {
     const pattern = query
