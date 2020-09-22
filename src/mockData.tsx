@@ -2,6 +2,7 @@ export default {
   orgs: [
     {
       name: "AGS Tribe",
+      cloudinaryImageTitle: "pexels-david-kuko-2647104",
       contact: {
         name: "Ife Durosinmi Etti",
         role: "Founder",
