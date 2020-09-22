@@ -22,20 +22,23 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function FeaturedOrgList() {
+function FeaturedOrgList(props: any) {
   const classes = useStyles();
-  const [orgs] = React.useState([{}, {}, {}]);
 
   return (
     <section className={classes.root}>
-      <Typography variant="h2">
-        Featured Organizations
-      </Typography>
+      <Typography variant="h2">Featured Organizations</Typography>
       <ul className={classes.list}>
-        {orgs.map((org, index) => {
+        {props.data.map((org: any, index) => {
+          console.log(`org ${index}:`, org);
+          const { name, category, cloudinaryImageTitle } = org;
           return (
             <li className={classes.item} key={`$org-${index}`}>
-              <FeaturedOrg />
+              <FeaturedOrg
+                name={name}
+                category={category}
+                imageTitle={cloudinaryImageTitle}
+              />
             </li>
           );
         })}
