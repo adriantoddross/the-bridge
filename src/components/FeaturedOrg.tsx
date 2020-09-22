@@ -5,6 +5,7 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import MonetizationOnIcon from "@material-ui/icons/MonetizationOn";
+import { Cloudinary } from "cloudinary-core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -49,15 +50,27 @@ const useStyles = makeStyles((theme) => ({
 
 function FeaturedOrg(props: any) {
   const classes = useStyles();
+  const cl = new Cloudinary({
+    cloud_name: process.env.REACT_APP_CLOUDINARY_CLOUD_NAME,
+    secure: true,
+  });
+  const cloudinaryURL = cl.url(
+    `/the-bridge/${props.imageTitle}` ||
+      "/the-bridge/pexels-uncoveredlens-3620343.jpg",
+    {
+      dpr: "auto",
+      width: "auto",
+      q_auto: "auto",
+      crop: "scale",
+      fetch_format: "auto",
+    }
+  );
 
   return (
     <Card className={classes.card}>
       <CardMedia
         className={classes.media}
-        image={
-          props.image ||
-          "https://res.cloudinary.com/adriantoddross/image/upload/v1596736102/Adrian_Ross_-_Headshot_1.jpg"
-        }
+        image={props.imageTitle ? cloudinaryURL : ""}
         title={props.name || "Organization name"}
       />
 
@@ -69,7 +82,7 @@ function FeaturedOrg(props: any) {
 
         <div>
           <Typography variant="body2">
-            {props.cause || "Philanthropic cause"}
+            {props.category || "Philanthropic cause"}
           </Typography>
 
           <Typography variant="body1" component="h3" className={classes.name}>
