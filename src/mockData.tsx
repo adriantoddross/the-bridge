@@ -34,6 +34,7 @@ export default {
     },
     {
       name: "Project Alert",
+      cloudinaryImageTitle: "pexels-uncoveredlens-3620343",
       contact: {
         name: "Josephine Effah-Chukwuma",
         role: "Founder",
@@ -58,6 +59,7 @@ export default {
     },
     {
       name: "Slum2School",
+      cloudinaryImageTitle: "pexels-tope-a-asokere-3519625",
       contact: {
         name: "Orondaam Otto",
         role: "Founder",
@@ -82,6 +84,8 @@ export default {
     },
     {
       name: "Lagos Food Bank",
+      cloudinaryImageTitle: "pexels-omotayo-tajudeen-3213283",
+
       contact: {
         name: "Michael Sunbola",
         role: "Founder",
