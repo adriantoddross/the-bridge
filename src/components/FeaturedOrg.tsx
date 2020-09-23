@@ -76,7 +76,6 @@ function FeaturedOrg(props: any) {
   );
 
   const needsIcons = props.needs.map((need, index) => {
-    console.log(need);
     switch (need) {
       case "time":
         return (
