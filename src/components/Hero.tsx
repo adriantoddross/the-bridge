@@ -5,29 +5,37 @@ import { Image } from "cloudinary-react";
 
 import Paper from "@material-ui/core/Paper";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "grid",
-    placeItems: "center",
-    height: "40vh",
-    [theme.breakpoints.up("md")]: {},
-  },
-  paper: {},
-  img: {
-    objectFit: "cover",
-    objectPosition: "bottom",
-    height: "40vh",
-    width: "100%",
-  },
-  heroContent: {
-    padding: theme.spacing(1.5, 3),
-    "& > *": {
-      margin: theme.spacing(1),
-    },
-  },
-}));
+interface HeroProps {
+  cloudinaryImageTitle: string;
+  title: string;
+  description?: string;
+  children?: React.ReactNode;
+  objectPosition?: string;
+}
 
-function Hero(props) {
+function Hero(props: HeroProps) {
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      display: "grid",
+      placeItems: "center",
+      height: "40vh",
+      [theme.breakpoints.up("md")]: {},
+    },
+    paper: {},
+    img: {
+      objectFit: "cover",
+      objectPosition: props.objectPosition ? props.objectPosition : "bottom",
+      height: "40vh",
+      width: "100%",
+    },
+    heroContent: {
+      padding: theme.spacing(1.5, 3),
+      "& > *": {
+        margin: theme.spacing(1),
+      },
+    },
+  }));
+
   const classes = useStyles();
 
   return (
@@ -52,6 +60,7 @@ function Hero(props) {
         <div className={classes.heroContent}>
           {" "}
           <Typography variant="h1">{props.title}</Typography>
+          <Typography variant="body1">{props.description}</Typography>
           {props.children}
         </div>
       </Paper>
