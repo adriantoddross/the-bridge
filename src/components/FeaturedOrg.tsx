@@ -8,6 +8,8 @@ import Tooltip from "@material-ui/core/Tooltip";
 import { Cloudinary } from "cloudinary-core";
 
 import { ReactComponent as MoneyIcon } from "../icons/money.svg";
+import { ReactComponent as ItemsIcon } from "../icons/items.svg";
+import { ReactComponent as VolunteerIcon } from "../icons/volunteering.svg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -49,9 +51,9 @@ const useStyles = makeStyles((theme) => ({
     textOverflow: "ellipsis",
   },
   svg: {
-    width: "1.75rem",
+    width: "1.35rem",
     height: "auto",
-    padding: "0px 0.25rem",
+    padding: "0px 0.35rem",
   },
 }));
 
@@ -73,26 +75,35 @@ function FeaturedOrg(props: any) {
     }
   );
 
-  const needsIcons = props.needs.map((need) => {
+  const needsIcons = props.needs.map((need, index) => {
+    console.log(need);
     switch (need) {
       case "time":
         return (
-          <Tooltip title="Accepting volunteers" className={classes.need}>
-            <MoneyIcon title="Accepting volunteers" className={classes.svg} />
+          <Tooltip
+            title="Accepting volunteers"
+            className={classes.need}
+            key={index}
+          >
+            <VolunteerIcon className={classes.svg} />
           </Tooltip>
         );
 
-      case "stuff":
+      case "items":
         return (
-          <Tooltip title="Accepting items" className={classes.need}>
-            <MoneyIcon title="Accepting items" className={classes.svg} />
+          <Tooltip title="Accepting items" className={classes.need} key={index}>
+            <ItemsIcon className={classes.svg} />
           </Tooltip>
         );
 
       default:
         return (
-          <Tooltip title="Accepting donations" className={classes.need}>
-            <MoneyIcon title="Accepting donations" className={classes.svg} />
+          <Tooltip
+            title="Accepting donations"
+            className={classes.need}
+            key={index}
+          >
+            <MoneyIcon className={classes.svg} />
           </Tooltip>
         );
     }
@@ -107,9 +118,7 @@ function FeaturedOrg(props: any) {
       />
 
       <CardContent className={classes.content}>
-        <div className={classes.need}>
-          {needsIcons}
-        </div>
+        <div className={classes.need}>{needsIcons}</div>
 
         <div>
           <Typography variant="body2">
