@@ -11,7 +11,7 @@ import TableRow from "@material-ui/core/TableRow";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: theme.spacing(3),
+    padding: theme.spacing(0, 3),
   },
   paper: {
     "& > *": {
@@ -38,8 +38,6 @@ function OrgTable(props: any) {
       component="section"
       elevation={0}
     >
-      <Typography variant="h2">Featured Organizations</Typography>
-
       <TableContainer component={Paper}>
         <Table aria-label="simple table">
           <TableHead>
