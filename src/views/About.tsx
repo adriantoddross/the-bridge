@@ -2,7 +2,7 @@ import React from "react";
 
 import Navbar from "../components/Navbar";
 import Subscribe from "../components/Subscribe";
-import mockData from "../mockData";
+import Hero from "../components/Hero";
 
 function Homepage() {
   return (
@@ -10,7 +10,11 @@ function Homepage() {
       <Navbar />
 
       <main>
-        <h1>Hello world!</h1>
+        <Hero
+          cloudinaryImageTitle="pexels-uncoveredlens-3620404"
+          objectPosition="top"
+          title="About The Bridge"
+        ></Hero>
       </main>
 
       <footer>
