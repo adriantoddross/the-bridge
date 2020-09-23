@@ -30,7 +30,6 @@ function FeaturedOrgList(props: any) {
       <Typography variant="h2">Featured Organizations</Typography>
       <ul className={classes.list}>
         {props.data.map((org: any, index) => {
-          console.log(`org ${index}:`, org);
           const { name, category, cloudinaryImageTitle, needs } = org;
           return (
             <li className={classes.item} key={`$org-${index}`}>
