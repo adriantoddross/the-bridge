@@ -9,6 +9,7 @@ import Logo from "../logo.svg";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import MenuIcon from "@material-ui/icons/Menu";
+import { Link as RouterLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -90,19 +91,19 @@ function Navbar() {
             >
               <MenuItem onClick={handleClose}>
                 {" "}
-                <Link href="#" onClick={preventDefault}>
+                <Link component={RouterLink} to="/">
                   Home
                 </Link>
               </MenuItem>
 
               <MenuItem onClick={handleClose}>
-                <Link href="#" onClick={preventDefault}>
+                <Link component={RouterLink} to="/about">
                   About
                 </Link>
               </MenuItem>
 
               <MenuItem onClick={handleClose}>
-                <Link href="#" onClick={preventDefault}>
+                <Link component={RouterLink} to="/contact">
                   Contact
                 </Link>
               </MenuItem>
