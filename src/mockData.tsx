@@ -2,6 +2,7 @@ export default {
   orgs: [
     {
       name: "AGS Tribe",
+      cloudinaryImageTitle: "pexels-david-kuko-2647104",
       contact: {
         name: "Ife Durosinmi Etti",
         role: "Founder",
@@ -33,6 +34,7 @@ export default {
     },
     {
       name: "Project Alert",
+      cloudinaryImageTitle: "pexels-uncoveredlens-3620343",
       contact: {
         name: "Josephine Effah-Chukwuma",
         role: "Founder",
@@ -57,6 +59,7 @@ export default {
     },
     {
       name: "Slum2School",
+      cloudinaryImageTitle: "pexels-tope-a-asokere-3519625",
       contact: {
         name: "Orondaam Otto",
         role: "Founder",
@@ -81,6 +84,8 @@ export default {
     },
     {
       name: "Lagos Food Bank",
+      cloudinaryImageTitle: "pexels-omotayo-tajudeen-3213283",
+
       contact: {
         name: "Michael Sunbola",
         role: "Founder",
@@ -91,7 +96,7 @@ export default {
         "Lagos Food Bank is committed to ending hunger in Lagos by implementing initiatives such as Family Farming, Nutritious Meal Plan for Vulnerable Mothers and Children, Monthly Mobile Pantry and Covid-19 relief drives.",
       impact: ["200,000 people served in 2019."],
       needs: {
-        type: ["treasure"],
+        type: ["treasure", "items"],
         description:
           "Accepting donations in multiple currencies to open more food bank locations, reach 2,000 more children and 1,000 more nursing mothers.",
         currency: "multiple",
