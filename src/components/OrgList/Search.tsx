@@ -52,6 +52,7 @@ function Search(props: any) {
   return (
     <>
       <Paper
+        id="organizations"
         className={[classes.paper, classes.root].join(" ")}
         component="section"
         elevation={0}

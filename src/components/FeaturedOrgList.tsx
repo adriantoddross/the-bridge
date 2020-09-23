@@ -26,7 +26,7 @@ function FeaturedOrgList(props: any) {
   const classes = useStyles();
 
   return (
-    <section id="organizations" className={classes.root}>
+    <section className={classes.root}>
       <Typography variant="h2">Featured Organizations</Typography>
       <ul className={classes.list}>
         {props.data.map((org: any, index) => {
