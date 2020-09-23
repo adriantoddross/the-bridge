@@ -9,6 +9,7 @@ import Logo from "../logo.svg";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import MenuIcon from "@material-ui/icons/Menu";
+import { Link as RouterLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -33,7 +34,6 @@ const useStyles = makeStyles((theme) => ({
 
 function Navbar() {
   const classes = useStyles();
-  const preventDefault = (event: React.MouseEvent) => event.preventDefault();
 
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -58,13 +58,14 @@ function Navbar() {
                   component="h1"
                 >
                   <Link
-                    href="#"
-                    onClick={preventDefault}
+                    to="/"
+                    component={RouterLink}
                     color="inherit"
                     variant="body1"
                   >
                     <img src={Logo} alt="The Bridge" className={classes.logo} />
                   </Link>
+
                   <span className="visually-hidden">The Bridge</span>
                 </Typography>
               </li>
@@ -90,19 +91,19 @@ function Navbar() {
             >
               <MenuItem onClick={handleClose}>
                 {" "}
-                <Link href="#" onClick={preventDefault}>
+                <Link component={RouterLink} to="/">
                   Home
                 </Link>
               </MenuItem>
 
               <MenuItem onClick={handleClose}>
-                <Link href="#" onClick={preventDefault}>
+                <Link component={RouterLink} to="/about">
                   About
                 </Link>
               </MenuItem>
 
               <MenuItem onClick={handleClose}>
-                <Link href="#" onClick={preventDefault}>
+                <Link component={RouterLink} to="/contact">
                   Contact
                 </Link>
               </MenuItem>
