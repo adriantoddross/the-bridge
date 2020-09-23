@@ -20,7 +20,7 @@ function Homepage() {
       <main>
         <Hero
           title="Welcome to The Bridge!"
-          cloudinaryImageTitle="/the-bridge/pexels-tope-a-asokere-4237407"
+          cloudinaryImageTitle="pexels-tope-a-asokere-4237407"
         >
           <Typography variant="body1">
             Making international philanthropy easier by connecting donors with
