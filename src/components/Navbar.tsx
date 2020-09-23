@@ -59,13 +59,14 @@ function Navbar() {
                   component="h1"
                 >
                   <Link
-                    href="#"
-                    onClick={preventDefault}
+                    to="/"
+                    component={RouterLink}
                     color="inherit"
                     variant="body1"
                   >
                     <img src={Logo} alt="The Bridge" className={classes.logo} />
                   </Link>
+
                   <span className="visually-hidden">The Bridge</span>
                 </Typography>
               </li>
