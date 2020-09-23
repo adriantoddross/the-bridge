@@ -43,6 +43,7 @@ function Hero() {
         publicId="/the-bridge/pexels-tope-a-asokere-4237407"
         cloudName={process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}
         className={classes.img}
+        alt=""
       />
 
       <Paper className={classes.paper} component="section" elevation={0}>
