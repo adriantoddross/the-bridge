@@ -1,6 +1,7 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
+import { Link as RouterLink } from "react-router-dom";
 
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
@@ -26,23 +27,20 @@ function Homepage() {
             Making international philanthropy easier by connecting donors with
             social impact nonprofit organizations across Nigeria.
           </Typography>
-
           <Button
-            href="#"
-            onClick={preventDefault}
+            href="#organizations"
             color="inherit"
             variant="contained"
             component="a"
           >
             Browse organizations
           </Button>
-
+           
           <Button
-            href="#"
-            onClick={preventDefault}
+            to="/about"
             color="inherit"
             variant="contained"
-            component="a"
+            component={RouterLink}
           >
             Learn more
           </Button>
