@@ -9,15 +9,19 @@ function App() {
   return (
     <Router>
       <Switch>
+        <Route exact path="/">
+          <>
+            <Homepage />
+          </>
+        </Route>
         <Route path="/about">
           <>
             <AboutPage />
           </>
         </Route>
-        <Route path="/">
-          <>
-            <Homepage />
-          </>
+
+        <Route path="*">
+          <h1>Page not found.</h1>
         </Route>
       </Switch>
     </Router>
