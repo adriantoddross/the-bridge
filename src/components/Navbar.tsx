@@ -34,7 +34,6 @@ const useStyles = makeStyles((theme) => ({
 
 function Navbar() {
   const classes = useStyles();
-  const preventDefault = (event: React.MouseEvent) => event.preventDefault();
 
   const [anchorEl, setAnchorEl] = React.useState(null);
 

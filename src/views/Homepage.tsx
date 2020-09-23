@@ -12,7 +12,6 @@ import Subscribe from "../components/Subscribe";
 import mockData from "../mockData";
 
 function Homepage() {
-  const preventDefault = (event: React.MouseEvent) => event.preventDefault();
 
   return (
     <>

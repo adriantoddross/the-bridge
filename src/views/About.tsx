@@ -8,7 +8,6 @@ import Hero from "../components/Hero";
 import Button from "@material-ui/core/Button";
 
 function Homepage() {
-  const preventDefault = (event: React.MouseEvent) => event.preventDefault();
 
   return (
     <>
