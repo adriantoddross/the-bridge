@@ -38,7 +38,7 @@ function FeaturedOrgList(props: any) {
                 name={name}
                 category={category}
                 imageTitle={cloudinaryImageTitle}
-                description={needs.description}
+                needs={needs.type}
               />
             </li>
           );
