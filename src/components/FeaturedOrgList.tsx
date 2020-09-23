@@ -31,13 +31,14 @@ function FeaturedOrgList(props: any) {
       <ul className={classes.list}>
         {props.data.map((org: any, index) => {
           console.log(`org ${index}:`, org);
-          const { name, category, cloudinaryImageTitle } = org;
+          const { name, category, cloudinaryImageTitle, needs } = org;
           return (
             <li className={classes.item} key={`$org-${index}`}>
               <FeaturedOrg
                 name={name}
                 category={category}
                 imageTitle={cloudinaryImageTitle}
+                description={needs.description}
               />
             </li>
           );
