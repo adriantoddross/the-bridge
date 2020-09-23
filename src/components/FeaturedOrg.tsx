@@ -4,8 +4,10 @@ import Typography from "@material-ui/core/Typography";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
-import MonetizationOnIcon from "@material-ui/icons/MonetizationOn";
+import Tooltip from "@material-ui/core/Tooltip";
 import { Cloudinary } from "cloudinary-core";
+
+import { ReactComponent as MoneyIcon } from "../icons/money.svg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -46,6 +48,11 @@ const useStyles = makeStyles((theme) => ({
     overflow: "hidden",
     textOverflow: "ellipsis",
   },
+  svg: {
+    alignSelf: "flex-end",
+    width: "1.75rem",
+    height: "auto",
+  },
 }));
 
 function FeaturedOrg(props: any) {
@@ -75,10 +82,9 @@ function FeaturedOrg(props: any) {
       />
 
       <CardContent className={classes.content}>
-        <Typography variant="body1" className={classes.need}>
-          <span className="visually-hidden">Accepting donations</span>
-          <MonetizationOnIcon />
-        </Typography>
+        <Tooltip title={props.description} className={classes.need}>
+          <MoneyIcon title={props.description} className={classes.svg} />
+        </Tooltip>
 
         <div>
           <Typography variant="body2">
