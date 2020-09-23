@@ -44,7 +44,7 @@ function Hero(props) {
           crop="scale"
           loading="lazy"
           responsiveUseBreakpoints="true"
-          publicId={props.cloudinaryImageTitle}
+          publicId={`/the-bridge/${props.cloudinaryImageTitle}`}
           cloudName={process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}
           className={classes.img}
           alt=""
