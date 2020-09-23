@@ -40,7 +40,7 @@ function OrgList(props: any) {
     type: string | "",
     need: string | ""
   ) => {
-    const allOrgs = [...props.data.orgs];
+    const allOrgs = [...props.data];
     const searchTerm = query.toLowerCase();
 
     if (searchTerm) {
