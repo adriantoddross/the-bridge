@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1),
 
     "& > *": {
-      margin: theme.spacing(2),
+      margin: theme.spacing(0, 2),
     },
   },
   form: {
