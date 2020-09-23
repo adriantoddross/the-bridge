@@ -96,7 +96,7 @@ export default {
         "Lagos Food Bank is committed to ending hunger in Lagos by implementing initiatives such as Family Farming, Nutritious Meal Plan for Vulnerable Mothers and Children, Monthly Mobile Pantry and Covid-19 relief drives.",
       impact: ["200,000 people served in 2019."],
       needs: {
-        type: ["treasure"],
+        type: ["treasure", "items"],
         description:
           "Accepting donations in multiple currencies to open more food bank locations, reach 2,000 more children and 1,000 more nursing mothers.",
         currency: "multiple",
