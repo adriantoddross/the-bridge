@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   need: {
-    textAlign: "right",
+    alignSelf: "flex-end",
   },
   cause: {
     textTransform: "capitalize",
@@ -49,9 +49,9 @@ const useStyles = makeStyles((theme) => ({
     textOverflow: "ellipsis",
   },
   svg: {
-    alignSelf: "flex-end",
     width: "1.75rem",
     height: "auto",
+    padding: "0px 0.25rem",
   },
 }));
 
@@ -73,6 +73,31 @@ function FeaturedOrg(props: any) {
     }
   );
 
+  const needsIcons = props.needs.map((need) => {
+    switch (need) {
+      case "time":
+        return (
+          <Tooltip title="Accepting volunteers" className={classes.need}>
+            <MoneyIcon title="Accepting volunteers" className={classes.svg} />
+          </Tooltip>
+        );
+
+      case "stuff":
+        return (
+          <Tooltip title="Accepting items" className={classes.need}>
+            <MoneyIcon title="Accepting items" className={classes.svg} />
+          </Tooltip>
+        );
+
+      default:
+        return (
+          <Tooltip title="Accepting donations" className={classes.need}>
+            <MoneyIcon title="Accepting donations" className={classes.svg} />
+          </Tooltip>
+        );
+    }
+  });
+
   return (
     <Card className={classes.card}>
       <CardMedia
@@ -82,9 +107,9 @@ function FeaturedOrg(props: any) {
       />
 
       <CardContent className={classes.content}>
-        <Tooltip title={props.description} className={classes.need}>
-          <MoneyIcon title={props.description} className={classes.svg} />
-        </Tooltip>
+        <div className={classes.need}>
+          {needsIcons}
+        </div>
 
         <div>
           <Typography variant="body2">
