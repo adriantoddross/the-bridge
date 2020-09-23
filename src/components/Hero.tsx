@@ -31,7 +31,7 @@ function Hero(props: HeroProps) {
     heroContent: {
       padding: theme.spacing(1.5, 3),
       "& > *": {
-        margin: theme.spacing(1),
+        margin: theme.spacing(2),
       },
     },
   }));
