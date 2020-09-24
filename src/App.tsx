@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Homepage from "./views/Homepage";
 import AboutPage from "./views/About";
+import PageNotFound from "./views/404Page";
 import "./App.css";
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
         </Route>
 
         <Route path="*">
-          <h1>Page not found.</h1>
+          <PageNotFound/>
         </Route>
       </Switch>
     </Router>
