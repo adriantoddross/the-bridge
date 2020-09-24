@@ -18,17 +18,19 @@ export default function PageNotFound() {
           title="404"
           description="Oops! The page you’re looking for doesn’t exist."
         >
-          <Typography variant="body2">
-            The page may have been moved or typed incorrectly.
-          </Typography>
-          <Button
-            to="/"
-            color="inherit"
-            variant="contained"
-            component={RouterLink}
-          >
-            Go back home
-          </Button>
+          <div>
+            <Typography variant="body2">
+              The page may have been moved or typed incorrectly.
+            </Typography>
+            <Button
+              to="/"
+              color="inherit"
+              variant="contained"
+              component={RouterLink}
+            >
+              Go back home
+            </Button>
+          </div>
         </ContentBlock>
       </main>
       <footer>
