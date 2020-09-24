@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
   },
   ul: {
-    alignItems: "end",
+    alignItems: "center",
     display: "flex",
     flexFlow: "row nowrap",
     justifyContent: "space-between",
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   },
   logo: {
     height: "auto",
-    width: "100%",
+    width: "8rem",
   },
 }));
 
