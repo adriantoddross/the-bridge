@@ -4,7 +4,7 @@ import Button from "@material-ui/core/Button";
 import { Link as RouterLink } from "react-router-dom";
 
 import Navbar from "../components/Navbar";
-import Hero from "../components/Hero";
+import ContentBlock from "../components/ContentBlock";
 import FeaturedOrgList from "../components/FeaturedOrgList";
 import OrgList from "../components/OrgList/OrgList";
 import Subscribe from "../components/Subscribe";
@@ -17,7 +17,7 @@ function Homepage() {
       <Navbar />
 
       <main>
-        <Hero
+        <ContentBlock
           title="Welcome to Impact Nigeria!"
           cloudinaryImageTitle="pexels-tope-a-asokere-4237407"
           description="Making international philanthropy easier by connecting donors with
@@ -43,7 +43,7 @@ function Homepage() {
               Learn more
             </Button>
           </div>
-        </Hero>
+        </ContentBlock>
         <FeaturedOrgList data={mockData.orgs} />
         <OrgList data={mockData.orgs} />
       </main>

@@ -4,7 +4,7 @@ import { Link as RouterLink } from "react-router-dom";
 
 import Navbar from "../components/Navbar";
 import Subscribe from "../components/Subscribe";
-import Hero from "../components/Hero";
+import ContentBlock from "../components/ContentBlock";
 import Button from "@material-ui/core/Button";
 
 function Homepage() {
@@ -13,7 +13,7 @@ function Homepage() {
       <Navbar />
 
       <main>
-        <Hero
+        <ContentBlock
           cloudinaryImageTitle="pexels-uncoveredlens-3620404"
           objectPosition="top"
           title="About Impact Nigeria"
@@ -75,7 +75,7 @@ function Homepage() {
               Partner With Us!
             </Button>
           </section>
-        </Hero>
+        </ContentBlock>
       </main>
 
       <footer>

@@ -5,14 +5,14 @@ import { Link as RouterLink } from "react-router-dom";
 
 import Navbar from "../components/Navbar";
 import Subscribe from "../components/Subscribe";
-import Hero from "../components/Hero";
+import ContentBlock from "../components/ContentBlock";
 
 export default function PageNotFound() {
   return (
     <>
       <Navbar />
       <main>
-        <Hero
+        <ContentBlock
           cloudinaryImageTitle="pexels-ketut-subiyanto-4560092"
           objectPosition="middle"
           title="404"
@@ -29,7 +29,7 @@ export default function PageNotFound() {
           >
             Go back home
           </Button>
-        </Hero>
+        </ContentBlock>
       </main>
       <footer>
         <Subscribe />
