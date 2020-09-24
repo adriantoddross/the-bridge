@@ -108,5 +108,35 @@ export default {
           "https://www.lagosfoodbank.org/wp-content/uploads/2019/09/2019-Impact-Report-2-1.pdf",
       },
     },
+    {
+      name: "Teach For Nigeria",
+      cloudinaryImageTitle: "pexels-muhammadtaha-ibrahim-ma_aji-2517807",
+
+      contact: {
+        name: "Folawe Omikunle",
+        role: "CEO",
+        image: {
+          cloudinaryImageTitle:
+            "/Founder pics/Founder_pics_folawe_-_teach_for_nigeria.jpg",
+        },
+      },
+      category: ["Education"],
+      description:
+        "The Teach For Nigeria Fellowship is a transformational leadership program that equips Fellows with transferable leadership skills to effect change beyond the classrooms in the communities we serve.\n After the Fellowship, alumni of Teach For Nigeria build on their classroom teaching experience to drive long-term systemic changes in the educational sector in Nigeria as they progress into leadership roles in their varied professions.\n The Teach For Nigeria model is based on the proven success of 40 country organizations including Teach For America, Teach First UK, Teach For Ghana, Teach For Bangladesh, Teach For Nepal and Teach For India, who are all part of the Teach For All network.",
+      impact: [
+        "Over 2,000 students gain leadership experience in the classroom.",
+        "Fellows are active in over 200 schools across Nigeria.",
+      ],
+      needs: {
+        type: ["treasure"],
+        description: "Your donation will support scholarships for fellows.",
+        currency: "multiple",
+      },
+      links: {
+        website: "https://teachfornigeria.org/",
+        donate: "https://teachfornigeria.org/donate/",
+        learnMore: "https://teachfornigeria.org/the-crisis/",
+      },
+    },
   ],
 };
