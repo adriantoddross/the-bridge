@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1),
 
     "& > *": {
-      margin: theme.spacing(2),
+      margin: theme.spacing(0, 2),
     },
   },
   form: {
@@ -28,25 +28,45 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Search() {
+function Search(props: any) {
   const classes = useStyles();
+  const [query, setQuery] = React.useState("");
   const [type, setType] = React.useState("");
+  const [need, setNeed] = React.useState("");
 
   const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+    setQuery(event.target.value as string);
+    props.searchForOrg(event.target.value as string, type, need);
+  };
+
+  const handleTypeSelect = (event: React.ChangeEvent<{ value: unknown }>) => {
     setType(event.target.value as string);
+    props.searchForOrg(query, event.target.value as string, need);
+  };
+
+  const handleNeedSelect = (event: React.ChangeEvent<{ value: unknown }>) => {
+    setNeed(event.target.value as string);
+    props.searchForOrg(query, type, event.target.value as string);
   };
 
   return (
     <>
       <Paper
+        id="organizations"
         className={[classes.paper, classes.root].join(" ")}
         component="section"
         elevation={0}
       >
-        <Typography variant="h1" component="h2">Organization list</Typography>
+        <Typography variant="h3">Organization list</Typography>
 
         <form noValidate autoComplete="off" className={classes.form}>
-          <TextField id="search" label="Search by name" variant="outlined" />
+          <TextField
+            id="search"
+            label="Search by name"
+            variant="outlined"
+            value={query}
+            onChange={handleChange}
+          />
 
           <FormControl variant="outlined">
             <InputLabel id="select-org-type-label">All types</InputLabel>
@@ -54,7 +74,7 @@ function Search() {
               labelId="select-org-type-label"
               id="select-org-type"
               value={type}
-              onChange={handleChange}
+              onChange={handleTypeSelect}
               label="Type"
             >
               <MenuItem value="">
@@ -72,8 +92,8 @@ function Search() {
             <Select
               labelId="select-org-need-label"
               id="select-org-need"
-              value={type}
-              onChange={handleChange}
+              value={need}
+              onChange={handleNeedSelect}
               label="Needs"
             >
               <MenuItem value="">

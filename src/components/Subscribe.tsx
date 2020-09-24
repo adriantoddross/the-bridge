@@ -7,8 +7,8 @@ import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: "#10844E",
-    color: "white",
+    // backgroundColor: "#10844E",
+    // color: "white",
     padding: theme.spacing(3),
   },
   paper: {

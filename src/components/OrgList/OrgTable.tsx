@@ -11,7 +11,7 @@ import TableRow from "@material-ui/core/TableRow";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: theme.spacing(3),
+    padding: theme.spacing(0, 3),
   },
   paper: {
     "& > *": {
@@ -23,7 +23,14 @@ const useStyles = makeStyles((theme) => ({
 
 function OrgTable(props: any) {
   const classes = useStyles();
-  const [orgs] = React.useState(props.orgs || [{}, {}, {}]);
+  const noResults = props.tableData.length ? (
+    ""
+  ) : (
+    <>
+      <Typography variant="h3">No organizations found</Typography>
+      <Typography variant="body1">Try another search term</Typography>
+    </>
+  );
 
   return (
     <Paper
@@ -31,10 +38,6 @@ function OrgTable(props: any) {
       component="section"
       elevation={0}
     >
-      <Typography variant="h6" component="h2">
-        Featured Organizations
-      </Typography>
-
       <TableContainer component={Paper}>
         <Table aria-label="simple table">
           <TableHead>
@@ -52,15 +55,16 @@ function OrgTable(props: any) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {orgs.map((row: any, index: any) => (
+            {props.tableData.map((org: any, index: any) => (
               <TableRow key={index}>
-                <TableCell>Organization name</TableCell>
-                <TableCell>Organization category</TableCell>
+                <TableCell>{org.name}</TableCell>
+                <TableCell>{org.category}</TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
       </TableContainer>
+      {noResults}
     </Paper>
   );
 }

@@ -1,15 +1,31 @@
 import React from "react";
-import Homepage from "./views/Homepage";
-import "./App.css";
-import { ThemeProvider } from "@material-ui/core/styles";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import theme from "./theme";
+import Homepage from "./views/Homepage";
+import AboutPage from "./views/About";
+import PageNotFound from "./views/404Page";
+import "./App.css";
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <Homepage />
-    </ThemeProvider>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <>
+            <Homepage />
+          </>
+        </Route>
+        <Route path="/about">
+          <>
+            <AboutPage />
+          </>
+        </Route>
+
+        <Route path="*">
+          <PageNotFound/>
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
