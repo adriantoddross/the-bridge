@@ -34,6 +34,15 @@ function Hero(props: HeroProps) {
         margin: theme.spacing(2),
       },
     },
+    heroSections: {
+      "& section": {
+        margin: theme.spacing(6, 0),
+      },
+
+      "& section > *": {
+        margin: theme.spacing(2, 0),
+      },
+    },
   }));
 
   const classes = useStyles();
@@ -57,12 +66,12 @@ function Hero(props: HeroProps) {
           className={classes.img}
           alt=""
         />
-        <div className={classes.heroContent}>
+        <section className={classes.heroContent}>
           {" "}
           <Typography variant="h2">{props.title}</Typography>
           <Typography variant="body1">{props.description}</Typography>
-          {props.children}
-        </div>
+          <div className={classes.heroSections}>{props.children}</div>
+        </section>
       </Paper>
     </>
   );
