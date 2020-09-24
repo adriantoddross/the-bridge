@@ -12,14 +12,13 @@ import Subscribe from "../components/Subscribe";
 import mockData from "../mockData";
 
 function Homepage() {
-
   return (
     <>
       <Navbar />
 
       <main>
         <Hero
-          title="Welcome to The Bridge!"
+          title="Welcome to Impact Nigeria!"
           cloudinaryImageTitle="pexels-tope-a-asokere-4237407"
         >
           <Typography variant="body1">
