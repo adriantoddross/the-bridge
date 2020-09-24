@@ -8,7 +8,6 @@ import Hero from "../components/Hero";
 import Button from "@material-ui/core/Button";
 
 function Homepage() {
-
   return (
     <>
       <Navbar />
@@ -17,9 +16,9 @@ function Homepage() {
         <Hero
           cloudinaryImageTitle="pexels-uncoveredlens-3620404"
           objectPosition="top"
-          title="About The Bridge"
+          title="About Impact Nigeria"
         >
-          <Typography variant="h2">
+          <Typography variant="h3">
             How might we connect the Nigerian diaspora to Nigerian causes?
           </Typography>
 
@@ -46,16 +45,20 @@ function Homepage() {
             Contact Us
           </Button>
 
-          <Typography variant="h2">Our vetting process is rigorous.</Typography>
+          <Typography variant="h3">Our vetting process is rigorous.</Typography>
 
           <Typography variant="body1">
             Research, research, research! We review publicly available
             information, paying close attention to financial statements and
-            annual reports. We are also working on establishing relationships
-            with each featured organization. This will allow us to provide
-            accountability to you, the donor. Because we know that gaining your
-            trust will encourage you to support the organizations and ultimately
-            make a meaningful impact in the lives of Nigerians.
+            annual reports.
+          </Typography>
+
+          <Typography variant="body1">
+            We are also working on establishing relationships with each featured
+            organization. This will allow us to provide accountability to you,
+            the donor. Because we know that gaining your trust will encourage
+            you to support the organizations and ultimately make a meaningful
+            impact in the lives of Nigerians.
           </Typography>
 
           <Button
