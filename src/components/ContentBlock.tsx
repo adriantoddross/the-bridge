@@ -36,10 +36,10 @@ function ContentBlock(props: ContentBlockProps) {
     },
     contentBlockSections: {
       "& section": {
-        margin: theme.spacing(6, 0),
+        padding: theme.spacing(2, 0),
       },
 
-      "& section > *": {
+      "& section > * ": {
         margin: theme.spacing(2, 0),
       },
 
