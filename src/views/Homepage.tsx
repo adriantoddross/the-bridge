@@ -20,28 +20,29 @@ function Homepage() {
         <Hero
           title="Welcome to Impact Nigeria!"
           cloudinaryImageTitle="pexels-tope-a-asokere-4237407"
+          description="Making international philanthropy easier by connecting donors with
+          social impact organizations across Nigeria."
         >
-          <Typography variant="body1">
-            Making international philanthropy easier by connecting donors with
-            social impact organizations across Nigeria.
-          </Typography>
-          <Button
-            href="#organizations"
-            color="inherit"
-            variant="contained"
-            component="a"
-          >
-            Browse organizations
-          </Button>
-           
-          <Button
-            to="/about"
-            color="inherit"
-            variant="contained"
-            component={RouterLink}
-          >
-            Learn more
-          </Button>
+          <div>
+            <Typography variant="body1"></Typography>
+            <Button
+              href="#organizations"
+              color="inherit"
+              variant="contained"
+              component="a"
+            >
+              Browse organizations
+            </Button>
+             
+            <Button
+              to="/about"
+              color="inherit"
+              variant="contained"
+              component={RouterLink}
+            >
+              Learn more
+            </Button>
+          </div>
         </Hero>
         <FeaturedOrgList data={mockData.orgs} />
         <OrgList data={mockData.orgs} />
