@@ -42,6 +42,10 @@ function Hero(props: HeroProps) {
       "& section > *": {
         margin: theme.spacing(2, 0),
       },
+
+      "& div > *": {
+        margin: theme.spacing(2, 0),
+      },
     },
   }));
 
