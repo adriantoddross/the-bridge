@@ -1,10 +1,30 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/832b0c5c-859c-4c58-aa67-3d14a07c65f6/deploy-status)](https://app.netlify.com/sites/the-bridge/deploys)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# ImpactNigeria.org
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and uses [Material UI](material-ui.com/) for styling.
+
+## Project Summary
+
+Curated database of social impact organizations based in Nigeria that are making an impact in the lives of a large number of people so that Nigerians in the diaspora can partner with, volunteer their time and skills and/or donate money to.
+
+### Background
+
+Nigerians have a culture of social support, rallying around family and friends in times of need. This is in part due to the absence of a government established social safety net. Nigerians in the diaspora emigrated with those values and do their part to keep it going by remitting money to family back in their home country. They also go a step further by supporting philanthropic causes connected to Nigeria. Majority of Nigerians in the diaspora overwhelmingly support philanthropic causes in Nigeria indirectly by donating money. However, it can be challenging identifying worthy nonprofit organizations in Nigeria that have a wide reach and can make an impact in the lives of a large number of people.
+
+### Why
+The exchange rate is such that foreign currency when converted to local Naira yields a large amount of money and because the need is great, the financial impact can go further. Most people want to give more of their time, talent and treasure but are held back because they do not know of nonprofits, how they can use their skills to help or are wary of how the funds that are donated would be used. 
+
+### Success Metrics
+
+- Organizations will see an increase in donations
+- Organizations will see an increase in volunteer engagement
+- Organizations will see an increase in traffic
 
 ## Available Scripts
 
 In the project directory, you can run:
+
 
 ### `npm start`
 
@@ -28,19 +48,3 @@ The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
