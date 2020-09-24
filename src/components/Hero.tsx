@@ -59,7 +59,7 @@ function Hero(props: HeroProps) {
         />
         <div className={classes.heroContent}>
           {" "}
-          <Typography variant="h1">{props.title}</Typography>
+          <Typography variant="h2">{props.title}</Typography>
           <Typography variant="body1">{props.description}</Typography>
           {props.children}
         </div>
