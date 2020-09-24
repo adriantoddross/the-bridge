@@ -23,7 +23,7 @@ function Homepage() {
         >
           <Typography variant="body1">
             Making international philanthropy easier by connecting donors with
-            social impact nonprofit organizations across Nigeria.
+            social impact organizations across Nigeria.
           </Typography>
           <Button
             href="#organizations"
