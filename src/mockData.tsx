@@ -7,10 +7,8 @@ export default {
         name: "Ife Durosinmi Etti",
         role: "Founder",
         image: {
-          jpg:
-            "https://static.wixstatic.com/media/31a061_c513fe33478e452cbb8e672b50af6cbe~mv2.jpg/v1/crop/x_0,y_128,w_720,h_825/fill/w_719,h_825,al_c,q_85/31a061_c513fe33478e452cbb8e672b50af6cbe~mv2.jpg",
-          webp:
-            "https://static.wixstatic.com/media/31a061_c513fe33478e452cbb8e672b50af6cbe~mv2.jpg/v1/crop/x_0,y_128,w_720,h_825/fill/w_719,h_825,al_c,q_85/31a061_c513fe33478e452cbb8e672b50af6cbe~mv2.webp",
+          cloudinaryImageTitle:
+            "/Founder pics/Founder_pics_Ifedayo_Durosinmi_Etti_-_ags_tribe.png",
         },
       },
       category: ["Youth Development"],
@@ -39,7 +37,8 @@ export default {
         name: "Josephine Effah-Chukwuma",
         role: "Founder",
         image: {
-          jpg: "https://projectalertnig.org/wp-content/uploads/2018/05/rtr.jpg",
+          cloudinaryImageTitle:
+            "/Founder pics/Founder_pics_Josephine-Effah-Chukwuma_-_project_alert.jpg",
         },
       },
       category: ["Women’s Issues"],
@@ -63,7 +62,10 @@ export default {
       contact: {
         name: "Orondaam Otto",
         role: "Founder",
-        image: {},
+        image: {
+          cloudinaryImageTitle:
+            "/Founder pics/Founder_pics_Orondaam_Otto_-_slum_2_school.jpg",
+        },
       },
       category: ["Education"],
       description:
@@ -89,7 +91,10 @@ export default {
       contact: {
         name: "Michael Sunbola",
         role: "Founder",
-        image: {},
+        image: {
+          cloudinaryImageTitle:
+            "/Founder pics/Founder_pics_Michael_Sunbola_-_lagos_food_bank.jpgFounder_pics_Michael_Sunbola_-_lagos_food_bank",
+        },
       },
       category: ["Food Insecurity"],
       description:
@@ -106,6 +111,36 @@ export default {
         donate: "https://www.lagosfoodbank.org/donations/online-payment/",
         learnMore:
           "https://www.lagosfoodbank.org/wp-content/uploads/2019/09/2019-Impact-Report-2-1.pdf",
+      },
+    },
+    {
+      name: "Teach For Nigeria",
+      cloudinaryImageTitle: "pexels-muhammadtaha-ibrahim-ma_aji-2517807",
+
+      contact: {
+        name: "Folawe Omikunle",
+        role: "CEO",
+        image: {
+          cloudinaryImageTitle:
+            "/Founder pics/Founder_pics_folawe_-_teach_for_nigeria.jpg",
+        },
+      },
+      category: ["Education"],
+      description:
+        "The Teach For Nigeria Fellowship is a transformational leadership program that equips Fellows with transferable leadership skills to effect change beyond the classrooms in the communities we serve.\n After the Fellowship, alumni of Teach For Nigeria build on their classroom teaching experience to drive long-term systemic changes in the educational sector in Nigeria as they progress into leadership roles in their varied professions.\n The Teach For Nigeria model is based on the proven success of 40 country organizations including Teach For America, Teach First UK, Teach For Ghana, Teach For Bangladesh, Teach For Nepal and Teach For India, who are all part of the Teach For All network.",
+      impact: [
+        "Over 2,000 students gain leadership experience in the classroom.",
+        "Fellows are active in over 200 schools across Nigeria.",
+      ],
+      needs: {
+        type: ["treasure"],
+        description: "Your donation will support scholarships for fellows.",
+        currency: "multiple",
+      },
+      links: {
+        website: "https://teachfornigeria.org/",
+        donate: "https://teachfornigeria.org/donate/",
+        learnMore: "https://teachfornigeria.org/the-crisis/",
       },
     },
   ],

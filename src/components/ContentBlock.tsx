@@ -5,7 +5,7 @@ import { Image } from "cloudinary-react";
 
 import Paper from "@material-ui/core/Paper";
 
-interface HeroProps {
+interface ContentBlockProps {
   cloudinaryImageTitle: string;
   title: string;
   description?: string;
@@ -13,7 +13,7 @@ interface HeroProps {
   objectPosition?: string;
 }
 
-function Hero(props: HeroProps) {
+function ContentBlock(props: ContentBlockProps) {
   const useStyles = makeStyles((theme) => ({
     root: {
       display: "grid",
@@ -28,10 +28,23 @@ function Hero(props: HeroProps) {
       height: "40vh",
       width: "100%",
     },
-    heroContent: {
+    contentBlockContent: {
       padding: theme.spacing(1.5, 3),
       "& > *": {
         margin: theme.spacing(2),
+      },
+    },
+    contentBlockSections: {
+      "& section": {
+        padding: theme.spacing(2, 0),
+      },
+
+      "& section > * ": {
+        margin: theme.spacing(2, 0),
+      },
+
+      "& div > *": {
+        margin: theme.spacing(2, 0),
       },
     },
   }));
@@ -57,15 +70,15 @@ function Hero(props: HeroProps) {
           className={classes.img}
           alt=""
         />
-        <div className={classes.heroContent}>
+        <section className={classes.contentBlockContent}>
           {" "}
           <Typography variant="h2">{props.title}</Typography>
           <Typography variant="body1">{props.description}</Typography>
-          {props.children}
-        </div>
+          <div className={classes.contentBlockSections}>{props.children}</div>
+        </section>
       </Paper>
     </>
   );
 }
 
-export default Hero;
+export default ContentBlock;
