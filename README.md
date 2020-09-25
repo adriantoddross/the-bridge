@@ -17,9 +17,8 @@ The exchange rate is such that foreign currency when converted to local Naira yi
 
 ### Success Metrics
 
-- Organizations will see an increase in donations
-- Organizations will see an increase in volunteer engagement
-- Organizations will see an increase in traffic
+- Featured organizations will see an increase in donations
+- Newsletter subscriptions
 
 ## Available Scripts
 
