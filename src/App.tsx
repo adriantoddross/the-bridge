@@ -21,6 +21,10 @@ function App() {
           </>
         </Route>
 
+        <Route path="/org/:name">
+          <h1>Hello World!</h1>
+        </Route>
+
         <Route path="*">
           <PageNotFound/>
         </Route>
