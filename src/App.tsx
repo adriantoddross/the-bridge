@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Homepage from "./views/Homepage";
 import AboutPage from "./views/About";
 import PageNotFound from "./views/404Page";
+import OrgPage from "./views/OrgPage";
 import "./App.css";
 
 function App() {
@@ -21,12 +22,10 @@ function App() {
           </>
         </Route>
 
-        <Route path="/org/:name">
-          <h1>Hello World!</h1>
-        </Route>
+        <Route path="/org/:name" component={OrgPage} />
 
         <Route path="*">
-          <PageNotFound/>
+          <PageNotFound />
         </Route>
       </Switch>
     </Router>
