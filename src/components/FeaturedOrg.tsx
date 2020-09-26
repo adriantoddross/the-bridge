@@ -5,7 +5,9 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Tooltip from "@material-ui/core/Tooltip";
+import Link from "@material-ui/core/Link";
 import { Cloudinary } from "cloudinary-core";
+import { Link as RouterLink } from "react-router-dom";
 
 import { ReactComponent as MoneyIcon } from "../icons/money.svg";
 import { ReactComponent as ItemsIcon } from "../icons/items.svg";
@@ -74,6 +76,8 @@ function FeaturedOrg(props: any) {
       fetch_format: "auto",
     }
   );
+  const orgId = props.name.replace(/\s/g, "").toLowerCase();
+  const orgPage = `/org/${orgId}`;
 
   const needsIcons = props.needs.map((need, index) => {
     switch (need) {
@@ -124,9 +128,15 @@ function FeaturedOrg(props: any) {
             {props.category || "Philanthropic cause"}
           </Typography>
 
-          <Typography variant="body1" component="h3" className={classes.name}>
+          <Link
+            to={orgPage}
+            color="inherit"
+            variant="body1"
+            component={RouterLink}
+            className={classes.name}
+          >
             {props.name || "Organization name"}
-          </Typography>
+          </Link>
         </div>
       </CardContent>
     </Card>
