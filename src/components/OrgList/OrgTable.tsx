@@ -8,6 +8,8 @@ import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
+import Link from "@material-ui/core/Link";
+import { Link as RouterLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,8 +43,8 @@ function OrgTable(props: any) {
   );
 
   const searchResults = tableData.map((org: any, index: any) => {
-    let orgId: string;
-    let orgPage: string;
+    let orgId: string = "";
+    let orgPage: string = "";
 
     if (org.name) {
       orgId = org.name.replace(/\s/g, "").toLowerCase();
@@ -50,7 +52,11 @@ function OrgTable(props: any) {
     }
     return (
       <TableRow key={index}>
-        <TableCell>{org.name}</TableCell>
+        <TableCell>
+          <Link to={orgPage} component={RouterLink}>
+            {org.name || "Organization name"}
+          </Link>
+        </TableCell>
         <TableCell>{org.category}</TableCell>
       </TableRow>
     );
