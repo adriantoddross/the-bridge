@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
@@ -23,6 +23,14 @@ const useStyles = makeStyles((theme) => ({
 
 function OrgTable(props: any) {
   const classes = useStyles();
+  const [tableData, setTableData] = useState([]);
+
+  useEffect(() => {
+    if (props.tableData) {
+      setTableData(props.tableData);
+    }
+  }, [props.tableData]);
+
   const noResults = props.tableData.length ? (
     ""
   ) : (
@@ -31,6 +39,22 @@ function OrgTable(props: any) {
       <Typography variant="body1">Try another search term</Typography>
     </>
   );
+
+  const searchResults = tableData.map((org: any, index: any) => {
+    let orgId: string;
+    let orgPage: string;
+
+    if (org.name) {
+      orgId = org.name.replace(/\s/g, "").toLowerCase();
+      orgPage = `/org/${orgId}`;
+    }
+    return (
+      <TableRow key={index}>
+        <TableCell>{org.name}</TableCell>
+        <TableCell>{org.category}</TableCell>
+      </TableRow>
+    );
+  });
 
   return (
     <Paper
@@ -54,14 +78,7 @@ function OrgTable(props: any) {
               </TableCell>
             </TableRow>
           </TableHead>
-          <TableBody>
-            {props.tableData.map((org: any, index: any) => (
-              <TableRow key={index}>
-                <TableCell>{org.name}</TableCell>
-                <TableCell>{org.category}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
+          <TableBody>{searchResults}</TableBody>
         </Table>
       </TableContainer>
       {noResults}
