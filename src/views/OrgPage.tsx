@@ -10,6 +10,7 @@ import mockData from "../mockData";
 export default function OrgPage(props) {
   let { name } = useParams();
   const [orgData, setOrgData] = useState<any>({});
+  const description = orgData?.description?.split("\n");
 
   useEffect(() => {
     const org = mockData.orgs.find(
@@ -39,6 +40,11 @@ export default function OrgPage(props) {
               <Typography variant="h6" component="p">
                 {impact}
               </Typography>
+            ))}
+          </div>
+          <div>
+            {description?.map((paragraph) => (
+              <Typography variant="body1">{paragraph}</Typography>
             ))}
           </div>
         </ContentBlock>
