@@ -13,7 +13,7 @@ export default {
       },
       category: ["Youth Development"],
       description:
-        "AGS Tribe is a networking community primarily for women that develops entrepreneurs and young professionals by providing grant opportunities, workshops and job leads for its members.",
+        "AGS Tribe is a networking community primarily for women that develops entrepreneurs and young professionals by providing grant opportunities, workshops and job leads for its members.\nThe AGS Enterprise Challenge aims to provide grants to entrepreneurs with businesses that can end poverty, protect the planet and ensure prosperity for all. It also ensures that female led businesses gain the support and exposure they need to grow.",
       impact: [
         "1,400 members",
         "N3 million in grants awarded for the AGS Enterprise Challenge in 2019",
