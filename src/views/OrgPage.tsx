@@ -37,15 +37,17 @@ export default function OrgPage(props) {
             </Typography>
           </div>
           <div>
-            {orgData.impact?.map((impact) => (
-              <Typography variant="h6" component="p">
+            {orgData.impact?.map((impact, index) => (
+              <Typography key={impact[0] + index} variant="h6" component="p">
                 {impact}
               </Typography>
             ))}
           </div>
           <div>
-            {description?.map((paragraph) => (
-              <Typography variant="body1">{paragraph}</Typography>
+            {description?.map((paragraph, index) => (
+              <Typography key={paragraph[0] + index} variant="body1">
+                {paragraph}
+              </Typography>
             ))}
           </div>
           <div>
@@ -55,6 +57,8 @@ export default function OrgPage(props) {
                 orgData?.links?.donate ||
                 orgData?.links?.website
               }
+              target="_blank"
+              rel="noopener"
               variant="body1"
             >
               {orgData?.links?.title || "Donate to this organization"}
