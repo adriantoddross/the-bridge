@@ -25,6 +25,7 @@ export default {
         currency: "multiple",
       },
       links: {
+        title: "AGS Enterprise Challenge Details",
         website: "https://www.agstribe.org/",
         donate: "https://dashboard.flutterwave.com/pay/agsdonate",
         learnMore: "https://www.agstribe.org/ags-enterprise-challenge/",
