@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 
 import Navbar from "../components/Navbar";
@@ -46,6 +47,18 @@ export default function OrgPage(props) {
             {description?.map((paragraph) => (
               <Typography variant="body1">{paragraph}</Typography>
             ))}
+          </div>
+          <div>
+            <Link
+              href={
+                orgData?.links?.learnMore ||
+                orgData?.links?.donate ||
+                orgData?.links?.website
+              }
+              variant="body1"
+            >
+              {orgData?.links?.title || "Donate to this organization"}
+            </Link>
           </div>
         </ContentBlock>
       </main>
