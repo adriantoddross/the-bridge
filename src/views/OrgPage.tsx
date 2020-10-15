@@ -102,8 +102,8 @@ export default function OrgPage(props) {
               <Typography variant="h3">{orgData?.contact?.name}</Typography>
             </b>
             <Typography variant="body1">{orgData?.contact?.role}</Typography>
-            <Link href={`mailto:${orgData?.contact?.email}`}>
-              <Typography variant="body2">{orgData?.contact?.email}</Typography>
+            <Link href={`mailto:${orgData?.contact?.email || ""}`}>
+              <Typography variant="body2">{orgData?.contact?.email || ""}</Typography>
             </Link>
           </section>
         </ContentBlock>
