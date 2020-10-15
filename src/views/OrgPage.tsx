@@ -2,16 +2,49 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
+import { Cloudinary } from "cloudinary-core";
+import { makeStyles } from "@material-ui/core/styles";
 
 import Navbar from "../components/Navbar";
 import Subscribe from "../components/Subscribe";
 import ContentBlock from "../components/ContentBlock";
 import mockData from "../mockData";
+import classes from "*.module.css";
+
+const useStyles = makeStyles((theme) => ({
+  contact: {
+    textAlign: "center",
+  },
+  image: {
+    width: "100%",
+    height: "auto",
+  },
+}));
 
 export default function OrgPage(props) {
   let { name } = useParams();
+
+  const classes = useStyles();
+
   const [orgData, setOrgData] = useState<any>({});
+
   const description = orgData?.description?.split("\n");
+
+  const cl = new Cloudinary({
+    cloud_name: process.env.REACT_APP_CLOUDINARY_CLOUD_NAME,
+    secure: true,
+  });
+  const cloudinaryURL = cl.url(
+    `/the-bridge/${orgData?.contact?.image?.cloudinaryImageTitle}` ||
+      "/the-bridge/pexels-uncoveredlens-3620343.jpg",
+    {
+      dpr: "auto",
+      width: "auto",
+      q_auto: "auto",
+      crop: "scale",
+      fetch_format: "auto",
+    }
+  );
 
   useEffect(() => {
     const org = mockData.orgs.find(
@@ -64,6 +97,16 @@ export default function OrgPage(props) {
               {orgData?.links?.title || "Donate to this organization"}
             </Link>
           </div>
+          <section className={classes.contact}>
+            <img className={classes.image} src={cloudinaryURL} alt="" />
+            <b>
+              <Typography variant="h3">{orgData?.contact?.name}</Typography>
+            </b>
+            <Typography variant="body1">{orgData?.contact?.role}</Typography>
+            <Link href={`mailto:${orgData?.contact?.email}`}>
+              <Typography variant="body2">{orgData?.contact?.email}</Typography>
+            </Link>
+          </section>
         </ContentBlock>
       </main>
       <Subscribe />
