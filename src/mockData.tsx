@@ -95,7 +95,7 @@ export default {
         role: "Founder",
         image: {
           cloudinaryImageTitle:
-            "/Founder pics/Founder_pics_Michael_Sunbola_-_lagos_food_bank.jpgFounder_pics_Michael_Sunbola_-_lagos_food_bank",
+            "/Founder pics/Founder_pics_Michael_Sunbola_-_lagos_food_bank.jpg",
         },
       },
       category: ["Food Insecurity"],
