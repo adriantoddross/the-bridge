@@ -4,8 +4,9 @@ export default {
       name: "AGS Tribe",
       cloudinaryImageTitle: "pexels-david-kuko-2647104",
       contact: {
-        name: "Ife Durosinmi Etti",
+        name: "Ife Durosinmi-Etti",
         role: "Founder",
+        email: "info@agstribe.org",
         image: {
           cloudinaryImageTitle:
             "/Founder pics/Founder_pics_Ifedayo_Durosinmi_Etti_-_ags_tribe.png",
