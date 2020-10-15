@@ -9,7 +9,6 @@ import Navbar from "../components/Navbar";
 import Subscribe from "../components/Subscribe";
 import ContentBlock from "../components/ContentBlock";
 import mockData from "../mockData";
-import classes from "*.module.css";
 
 const useStyles = makeStyles((theme) => ({
   contact: {
