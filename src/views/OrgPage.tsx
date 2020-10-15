@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Button from "@material-ui/core/Button/Button";
 import { Link } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import { Cloudinary } from "cloudinary-core";
 import { makeStyles } from "@material-ui/core/styles";
+import { Link as RouterLink } from "react-router-dom";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
 import Navbar from "../components/Navbar";
 import Subscribe from "../components/Subscribe";
@@ -103,9 +106,22 @@ export default function OrgPage(props) {
             </b>
             <Typography variant="body1">{orgData?.contact?.role}</Typography>
             <Link href={`mailto:${orgData?.contact?.email || ""}`}>
-              <Typography variant="body2">{orgData?.contact?.email || ""}</Typography>
+              <Typography variant="body2">
+                {orgData?.contact?.email || ""}
+              </Typography>
             </Link>
           </section>
+          <div>
+            <Button
+              to="/#organizations"
+              color="inherit"
+              variant="contained"
+              component={RouterLink}
+              startIcon={<ArrowBackIcon />}
+            >
+              Back to organizations list
+            </Button>
+          </div>
         </ContentBlock>
       </main>
       <Subscribe />
