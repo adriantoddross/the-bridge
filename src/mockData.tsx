@@ -38,6 +38,7 @@ export default {
       contact: {
         name: "Josephine Effah-Chukwuma",
         role: "Founder",
+        email: "projectalert@projectalertnig.org",
         image: {
           cloudinaryImageTitle:
             "/Founder pics/Founder_pics_Josephine-Effah-Chukwuma_-_project_alert.jpg",
@@ -64,6 +65,7 @@ export default {
       contact: {
         name: "Orondaam Otto",
         role: "Founder",
+        email: "info@slum2school.org",
         image: {
           cloudinaryImageTitle:
             "/Founder pics/Founder_pics_Orondaam_Otto_-_slum_2_school.jpg",
@@ -93,6 +95,7 @@ export default {
       contact: {
         name: "Michael Sunbola",
         role: "Founder",
+        email: "contactus@lagosfoodbank.org",
         image: {
           cloudinaryImageTitle:
             "/Founder pics/Founder_pics_Michael_Sunbola_-_lagos_food_bank.jpg",
@@ -122,6 +125,7 @@ export default {
       contact: {
         name: "Folawe Omikunle",
         role: "CEO",
+        email: "info@teachfornigeria.org",
         image: {
           cloudinaryImageTitle:
             "/Founder pics/Founder_pics_folawe_-_teach_for_nigeria.jpg",
