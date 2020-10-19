@@ -4,14 +4,10 @@ import Typography from "@material-ui/core/Typography";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
-import Tooltip from "@material-ui/core/Tooltip";
 import Link from "@material-ui/core/Link";
 import { Link as RouterLink } from "react-router-dom";
 
-import { generateCloudinaryURL } from "../utils/utils";
-import { ReactComponent as MoneyIcon } from "../icons/money.svg";
-import { ReactComponent as ItemsIcon } from "../icons/items.svg";
-import { ReactComponent as VolunteerIcon } from "../icons/volunteering.svg";
+import { generateCloudinaryURL, generateNeedsIcons } from "../utils/utils";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -67,38 +63,7 @@ function FeaturedOrg(props: any) {
   const orgId = props.name.replace(/\s/g, "").toLowerCase();
   const orgPage = `/org/${orgId}`;
 
-  const needsIcons = props.needs.map((need, index) => {
-    switch (need) {
-      case "time":
-        return (
-          <Tooltip
-            title="Accepting volunteers"
-            className={classes.need}
-            key={index}
-          >
-            <VolunteerIcon className={classes.svg} />
-          </Tooltip>
-        );
-
-      case "items":
-        return (
-          <Tooltip title="Accepting items" className={classes.need} key={index}>
-            <ItemsIcon className={classes.svg} />
-          </Tooltip>
-        );
-
-      default:
-        return (
-          <Tooltip
-            title="Accepting donations"
-            className={classes.need}
-            key={index}
-          >
-            <MoneyIcon className={classes.svg} />
-          </Tooltip>
-        );
-    }
-  });
+  const needsIcons = generateNeedsIcons(props.needs, classes);
 
   return (
     <Card className={classes.card}>
