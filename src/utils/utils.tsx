@@ -23,7 +23,7 @@ export function generateCloudinaryURL(imageURL: string) {
 }
 
 export function generateNeedsIcons(needs: [], classes) {
-  needs.map((need, index) => {
+  const needsIcons = needs.map((need, index) => {
     switch (need) {
       case "time":
         return (
@@ -55,4 +55,5 @@ export function generateNeedsIcons(needs: [], classes) {
         );
     }
   });
+  return needsIcons;
 }
