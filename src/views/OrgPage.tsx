@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import Button from "@material-ui/core/Button/Button";
 import { Link } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
-import { Cloudinary } from "cloudinary-core";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link as RouterLink } from "react-router-dom";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
@@ -12,6 +11,7 @@ import Navbar from "../components/Navbar";
 import Subscribe from "../components/Subscribe";
 import ContentBlock from "../components/ContentBlock";
 import mockData from "../mockData";
+import { generateCloudinaryURL } from "../utils/utils";
 
 const useStyles = makeStyles((theme) => ({
   contact: {
@@ -32,20 +32,8 @@ export default function OrgPage(props) {
 
   const description = orgData?.description?.split("\n");
 
-  const cl = new Cloudinary({
-    cloud_name: process.env.REACT_APP_CLOUDINARY_CLOUD_NAME,
-    secure: true,
-  });
-  const cloudinaryURL = cl.url(
-    `/the-bridge/${orgData?.contact?.image?.cloudinaryImageTitle}` ||
-      "/the-bridge/pexels-uncoveredlens-3620343.jpg",
-    {
-      dpr: "auto",
-      width: "auto",
-      q_auto: "auto",
-      crop: "scale",
-      fetch_format: "auto",
-    }
+  const contactImageURL = generateCloudinaryURL(
+    orgData?.contact?.image?.cloudinaryImageTitle
   );
 
   useEffect(() => {
@@ -100,7 +88,7 @@ export default function OrgPage(props) {
             </Link>
           </div>
           <section className={classes.contact}>
-            <img className={classes.image} src={cloudinaryURL} alt="" />
+            <img className={classes.image} src={contactImageURL} alt="" />
             <b>
               <Typography variant="h3">{orgData?.contact?.name}</Typography>
             </b>

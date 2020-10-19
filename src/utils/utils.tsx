@@ -1,15 +1,11 @@
 import { Cloudinary } from "cloudinary-core";
 
-interface cloudinaryURLProps {
-  imageURL: string;
-}
-
-export function cloudinaryURL(props: cloudinaryURLProps) {
+export function generateCloudinaryURL(imageURL: string) {
   const cl = new Cloudinary({
     cloud_name: process.env.REACT_APP_CLOUDINARY_CLOUD_NAME,
     secure: true,
   });
-  const cloudinaryURL = cl.url(`/the-bridge/${props.imageURL}`, {
+  const cloudinaryURL = cl.url(`/the-bridge/${imageURL}`, {
     dpr: "auto",
     width: "auto",
     q_auto: "auto",
