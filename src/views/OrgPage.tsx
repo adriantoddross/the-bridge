@@ -11,7 +11,7 @@ import Navbar from "../components/Navbar";
 import Subscribe from "../components/Subscribe";
 import ContentBlock from "../components/ContentBlock";
 import mockData from "../mockData";
-import { generateCloudinaryURL } from "../utils/utils";
+import { generateCloudinaryURL, generateNeedsIcons } from "../utils/utils";
 
 const useStyles = makeStyles((theme) => ({
   contact: {
@@ -20,6 +20,14 @@ const useStyles = makeStyles((theme) => ({
   image: {
     width: "100%",
     height: "auto",
+  },
+  need: {
+    alignSelf: "flex-end",
+  },
+  svg: {
+    width: "1.35rem",
+    height: "auto",
+    padding: "0px 0.35rem",
   },
 }));
 
@@ -35,6 +43,13 @@ export default function OrgPage(props) {
   const contactImageURL = generateCloudinaryURL(
     orgData?.contact?.image?.cloudinaryImageTitle
   );
+
+  let needsIcons;
+
+  if (orgData?.needs?.type) {
+    console.log(orgData?.needs?.type);
+    needsIcons = generateNeedsIcons(orgData?.needs?.type, classes);
+  }
 
   useEffect(() => {
     const org = mockData.orgs.find(
@@ -53,8 +68,11 @@ export default function OrgPage(props) {
           title={orgData.name}
           objectPosition="middle"
         >
-          <Typography variant="body2">{orgData.category}</Typography>
           <div>
+            <Typography variant="body2">{orgData.category}</Typography>
+          </div>
+          <div>
+            {needsIcons}
             <Typography variant="body1">
               <b>{orgData.needs?.description}</b>
             </Typography>
