@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
@@ -8,6 +8,8 @@ import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
+import Link from "@material-ui/core/Link";
+import { Link as RouterLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,6 +25,14 @@ const useStyles = makeStyles((theme) => ({
 
 function OrgTable(props: any) {
   const classes = useStyles();
+  const [tableData, setTableData] = useState([]);
+
+  useEffect(() => {
+    if (props.tableData) {
+      setTableData(props.tableData);
+    }
+  }, [props.tableData]);
+
   const noResults = props.tableData.length ? (
     ""
   ) : (
@@ -31,6 +41,26 @@ function OrgTable(props: any) {
       <Typography variant="body1">Try another search term</Typography>
     </>
   );
+
+  const searchResults = tableData.map((org: any, index: any) => {
+    let orgId: string = "";
+    let orgPage: string = "";
+
+    if (org.name) {
+      orgId = org.name.replace(/\s/g, "").toLowerCase();
+      orgPage = `/org/${orgId}`;
+    }
+    return (
+      <TableRow key={index}>
+        <TableCell>
+          <Link to={orgPage} component={RouterLink}>
+            {org.name || "Organization name"}
+          </Link>
+        </TableCell>
+        <TableCell>{org.category}</TableCell>
+      </TableRow>
+    );
+  });
 
   return (
     <Paper
@@ -54,14 +84,7 @@ function OrgTable(props: any) {
               </TableCell>
             </TableRow>
           </TableHead>
-          <TableBody>
-            {props.tableData.map((org: any, index: any) => (
-              <TableRow key={index}>
-                <TableCell>{org.name}</TableCell>
-                <TableCell>{org.category}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
+          <TableBody>{searchResults}</TableBody>
         </Table>
       </TableContainer>
       {noResults}

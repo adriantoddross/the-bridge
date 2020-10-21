@@ -4,12 +4,10 @@ import Typography from "@material-ui/core/Typography";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
-import Tooltip from "@material-ui/core/Tooltip";
-import { Cloudinary } from "cloudinary-core";
+import Link from "@material-ui/core/Link";
+import { Link as RouterLink } from "react-router-dom";
 
-import { ReactComponent as MoneyIcon } from "../icons/money.svg";
-import { ReactComponent as ItemsIcon } from "../icons/items.svg";
-import { ReactComponent as VolunteerIcon } from "../icons/volunteering.svg";
+import { generateCloudinaryURL, generateNeedsIcons } from "../utils/utils";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -59,60 +57,19 @@ const useStyles = makeStyles((theme) => ({
 
 function FeaturedOrg(props: any) {
   const classes = useStyles();
-  const cl = new Cloudinary({
-    cloud_name: process.env.REACT_APP_CLOUDINARY_CLOUD_NAME,
-    secure: true,
-  });
-  const cloudinaryURL = cl.url(
-    `/the-bridge/${props.imageTitle}` ||
-      "/the-bridge/pexels-uncoveredlens-3620343.jpg",
-    {
-      dpr: "auto",
-      width: "auto",
-      q_auto: "auto",
-      crop: "scale",
-      fetch_format: "auto",
-    }
-  );
 
-  const needsIcons = props.needs.map((need, index) => {
-    switch (need) {
-      case "time":
-        return (
-          <Tooltip
-            title="Accepting volunteers"
-            className={classes.need}
-            key={index}
-          >
-            <VolunteerIcon className={classes.svg} />
-          </Tooltip>
-        );
+  const featuredOrgURL = generateCloudinaryURL(props.imageTitle);
 
-      case "items":
-        return (
-          <Tooltip title="Accepting items" className={classes.need} key={index}>
-            <ItemsIcon className={classes.svg} />
-          </Tooltip>
-        );
+  const orgId = props.name.replace(/\s/g, "").toLowerCase();
+  const orgPage = `/org/${orgId}`;
 
-      default:
-        return (
-          <Tooltip
-            title="Accepting donations"
-            className={classes.need}
-            key={index}
-          >
-            <MoneyIcon className={classes.svg} />
-          </Tooltip>
-        );
-    }
-  });
+  const needsIcons = generateNeedsIcons(props.needs, classes);
 
   return (
     <Card className={classes.card}>
       <CardMedia
         className={classes.media}
-        image={props.imageTitle ? cloudinaryURL : ""}
+        image={props.imageTitle ? featuredOrgURL : ""}
         title={props.name || "Organization name"}
       />
 
@@ -124,9 +81,15 @@ function FeaturedOrg(props: any) {
             {props.category || "Philanthropic cause"}
           </Typography>
 
-          <Typography variant="body1" component="h3" className={classes.name}>
+          <Link
+            to={orgPage}
+            color="inherit"
+            variant="body1"
+            component={RouterLink}
+            className={classes.name}
+          >
             {props.name || "Organization name"}
-          </Typography>
+          </Link>
         </div>
       </CardContent>
     </Card>

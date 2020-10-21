@@ -4,8 +4,9 @@ export default {
       name: "AGS Tribe",
       cloudinaryImageTitle: "pexels-david-kuko-2647104",
       contact: {
-        name: "Ife Durosinmi Etti",
+        name: "Ife Durosinmi-Etti",
         role: "Founder",
+        email: "info@agstribe.org",
         image: {
           cloudinaryImageTitle:
             "/Founder pics/Founder_pics_Ifedayo_Durosinmi_Etti_-_ags_tribe.png",
@@ -13,7 +14,7 @@ export default {
       },
       category: ["Youth Development"],
       description:
-        "AGS Tribe is a networking community primarily for women that develops entrepreneurs and young professionals by providing grant opportunities, workshops and job leads for its members.",
+        "AGS Tribe is a networking community primarily for women that develops entrepreneurs and young professionals by providing grant opportunities, workshops and job leads for its members.\nThe AGS Enterprise Challenge aims to provide grants to entrepreneurs with businesses that can end poverty, protect the planet and ensure prosperity for all. It also ensures that female led businesses gain the support and exposure they need to grow.",
       impact: [
         "1,400 members",
         "N3 million in grants awarded for the AGS Enterprise Challenge in 2019",
@@ -25,6 +26,7 @@ export default {
         currency: "multiple",
       },
       links: {
+        title: "AGS Enterprise Challenge Details",
         website: "https://www.agstribe.org/",
         donate: "https://dashboard.flutterwave.com/pay/agsdonate",
         learnMore: "https://www.agstribe.org/ags-enterprise-challenge/",
@@ -36,6 +38,7 @@ export default {
       contact: {
         name: "Josephine Effah-Chukwuma",
         role: "Founder",
+        email: "projectalert@projectalertnig.org",
         image: {
           cloudinaryImageTitle:
             "/Founder pics/Founder_pics_Josephine-Effah-Chukwuma_-_project_alert.jpg",
@@ -62,6 +65,7 @@ export default {
       contact: {
         name: "Orondaam Otto",
         role: "Founder",
+        email: "info@slum2school.org",
         image: {
           cloudinaryImageTitle:
             "/Founder pics/Founder_pics_Orondaam_Otto_-_slum_2_school.jpg",
@@ -91,9 +95,10 @@ export default {
       contact: {
         name: "Michael Sunbola",
         role: "Founder",
+        email: "contactus@lagosfoodbank.org",
         image: {
           cloudinaryImageTitle:
-            "/Founder pics/Founder_pics_Michael_Sunbola_-_lagos_food_bank.jpgFounder_pics_Michael_Sunbola_-_lagos_food_bank",
+            "/Founder pics/Founder_pics_Michael_Sunbola_-_lagos_food_bank.jpg",
         },
       },
       category: ["Food Insecurity"],
@@ -120,6 +125,7 @@ export default {
       contact: {
         name: "Folawe Omikunle",
         role: "CEO",
+        email: "info@teachfornigeria.org",
         image: {
           cloudinaryImageTitle:
             "/Founder pics/Founder_pics_folawe_-_teach_for_nigeria.jpg",
