@@ -47,7 +47,6 @@ export default function OrgPage(props) {
   let needsIcons;
 
   if (orgData?.needs?.type) {
-    console.log(orgData?.needs?.type);
     needsIcons = generateNeedsIcons(orgData?.needs?.type, classes);
   }
 
@@ -130,7 +129,9 @@ export default function OrgPage(props) {
           </div>
         </ContentBlock>
       </main>
-      <Subscribe />
+      <footer>
+        <Subscribe />
+      </footer>
     </>
   );
 }
