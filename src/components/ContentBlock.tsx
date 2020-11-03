@@ -43,7 +43,7 @@ function ContentBlock(props: ContentBlockProps) {
         margin: theme.spacing(2, 0),
       },
 
-      "& div > *": {
+      "& div > :not(div)": {
         margin: theme.spacing(2, 0),
       },
     },
