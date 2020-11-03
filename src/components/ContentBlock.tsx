@@ -58,18 +58,20 @@ function ContentBlock(props: ContentBlockProps) {
         component="section"
         elevation={0}
       >
-        <Image
-          dpr="auto"
-          responsive
-          width="auto"
-          crop="scale"
-          loading="lazy"
-          responsiveUseBreakpoints="true"
-          publicId={`/the-bridge/${props.cloudinaryImageTitle}`}
-          cloudName={process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}
-          className={classes.img}
-          alt=""
-        />
+        {props.cloudinaryImageTitle && (
+          <Image
+            dpr="auto"
+            responsive
+            width="auto"
+            crop="scale"
+            loading="lazy"
+            responsiveUseBreakpoints="true"
+            publicId={`/the-bridge/${props.cloudinaryImageTitle}`}
+            cloudName={process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}
+            className={classes.img}
+            alt=""
+          />
+        )}
         <section className={classes.contentBlockContent}>
           {" "}
           <Typography variant="h2">{props.title}</Typography>
