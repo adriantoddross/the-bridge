@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import ReactGA from "react-ga";
 import Button from "@material-ui/core/Button/Button";
 import { Link } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
@@ -92,7 +93,8 @@ export default function OrgPage(props) {
           </div>
           <div>
             <Link
-              href={
+              eventLabel={`Clicked donate link for: ${orgData.name}`}
+              to={
                 orgData?.links?.learnMore ||
                 orgData?.links?.donate ||
                 orgData?.links?.website
@@ -100,6 +102,7 @@ export default function OrgPage(props) {
               target="_blank"
               rel="noopener"
               variant="body1"
+              component={ReactGA.OutboundLink}
             >
               {orgData?.links?.title || "Donate to this organization"}
             </Link>
