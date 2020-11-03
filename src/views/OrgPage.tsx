@@ -93,7 +93,8 @@ export default function OrgPage(props) {
           </div>
           <div>
             <Link
-              href={
+              eventLabel={`Clicked donate link for: ${orgData.name}`}
+              to={
                 orgData?.links?.learnMore ||
                 orgData?.links?.donate ||
                 orgData?.links?.website
@@ -101,19 +102,7 @@ export default function OrgPage(props) {
               target="_blank"
               rel="noopener"
               variant="body1"
-              onClick={() =>
-                ReactGA.outboundLink(
-                  { label: `Clicked donate link for ${orgData.name}` },
-                  () =>
-                    console.info(
-                      `Redirected user to: ${
-                        orgData?.links?.learnMore ||
-                        orgData?.links?.donate ||
-                        orgData?.links?.website
-                      }`
-                    )
-                )
-              }
+              component={ReactGA.OutboundLink}
             >
               {orgData?.links?.title || "Donate to this organization"}
             </Link>
