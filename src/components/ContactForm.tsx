@@ -29,6 +29,13 @@ function ContactForm() {
     setMessage(event.target.value as string);
   };
 
+  const handleFormSubmission = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    event.preventDefault();
+    console.log(name, email, message);
+  };
+
   return (
     <>
       <form noValidate autoComplete="on" className={classes.form}>
@@ -67,6 +74,7 @@ function ContactForm() {
           value="submit"
           color="inherit"
           variant="contained"
+          onClick={handleFormSubmission}
         >
           Send message
         </Button>
