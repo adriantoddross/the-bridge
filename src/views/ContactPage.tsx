@@ -9,6 +9,10 @@ import Subscribe from "../components/Subscribe";
 import ContentBlock from "../components/ContentBlock";
 
 function ContactPage() {
+  const [name, setName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [message, setMessage] = React.useState("");
+
   const useStyles = makeStyles((theme) => ({
     form: {
       display: "flex",
@@ -17,6 +21,18 @@ function ContactPage() {
   }));
 
   const classes = useStyles();
+
+  const handleName = (event: React.ChangeEvent<{ value: unknown }>) => {
+    setName(event.target.value as string);
+  };
+
+  const handleEmail = (event: React.ChangeEvent<{ value: unknown }>) => {
+    setEmail(event.target.value as string);
+  };
+
+  const handleMessage = (event: React.ChangeEvent<{ value: unknown }>) => {
+    setMessage(event.target.value as string);
+  };
 
   return (
     <>
@@ -34,8 +50,20 @@ function ContactPage() {
           </section>
           <div>
             <form noValidate autoComplete="off" className={classes.form}>
-              <TextField id="sender-name" label="Name" variant="outlined" />
-              <TextField id="sender-email" label="Email" variant="outlined" />
+              <TextField
+                id="sender-name"
+                label="Name"
+                variant="outlined"
+                value={name}
+                onChange={handleName}
+              />
+              <TextField
+                id="sender-email"
+                label="Email"
+                variant="outlined"
+                value={email}
+                onChange={handleEmail}
+              />
               <TextField
                 id="sender-message"
                 label="Message"
@@ -43,6 +71,8 @@ function ContactPage() {
                 multiline={true}
                 rows={6}
                 rowsMax={6}
+                value={message}
+                onChange={handleMessage}
               />
               <Button
                 type="submit"
