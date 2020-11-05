@@ -59,7 +59,6 @@ function ContactForm() {
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     event.preventDefault();
-    console.log(name, email, message);
   };
 
   return (
