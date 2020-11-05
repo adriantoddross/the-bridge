@@ -22,26 +22,12 @@ function ContactForm() {
 
   const classes = useStyles();
 
-  const handleName = (event: React.ChangeEvent<{ value: unknown }>) => {
-    setName(event.target.value as string);
-  };
-
-  const handleEmail = (event: React.ChangeEvent<{ value: unknown }>) => {
-    setEmail(event.target.value as string);
-  };
-
-  const handleMessage = (event: React.ChangeEvent<{ value: unknown }>) => {
-    setMessage(event.target.value as string);
-  };
-
   const handleChange = (
     event: React.ChangeEvent<{ name: string; value: string }>
   ) => {
     event.preventDefault();
 
     const { name, value } = event.target;
-    console.log(event.target);
-    console.log("name:", name, "value:", value);
     let formErrors = { ...errors };
 
     switch (name) {
@@ -51,13 +37,15 @@ function ContactForm() {
         break;
 
       case "email":
+        setEmail(value);
         formErrors.email = value.length
           ? ""
           : "Please provide a valid e-mail address.";
         break;
 
       case "message":
-        formErrors.name = value.length ? "" : "Please provide a message.";
+        setMessage(value);
+        formErrors.message = value.length ? "" : "Please provide a message.";
         break;
 
       default:
@@ -86,6 +74,8 @@ function ContactForm() {
           value={name}
           onChange={handleChange}
           required
+          error={!!errors.name}
+          helperText={errors.name}
         />
         <TextField
           name="email"
@@ -94,7 +84,9 @@ function ContactForm() {
           label="Email"
           variant="outlined"
           value={email}
-          onChange={handleEmail}
+          onChange={handleChange}
+          error={!!errors.email}
+          helperText={errors.email}
           required
         />
         <TextField
@@ -107,7 +99,9 @@ function ContactForm() {
           rows={6}
           rowsMax={6}
           value={message}
-          onChange={handleMessage}
+          onChange={handleChange}
+          error={!!errors.message}
+          helperText={errors.message}
           required
         />
         <Button
