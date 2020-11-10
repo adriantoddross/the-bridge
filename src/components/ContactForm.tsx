@@ -11,6 +11,7 @@ function ContactForm() {
     name: "",
     email: "",
     message: "",
+    visible: false,
   });
 
   const useStyles = makeStyles((theme) => ({
@@ -38,7 +39,10 @@ function ContactForm() {
 
       case "email":
         setEmail(value);
-        formErrors.email = value.length
+        const validEmailRegex = RegExp(
+          /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i
+        );
+        formErrors.email = value.match(validEmailRegex)
           ? ""
           : "Please provide a valid e-mail address.";
         break;
@@ -59,6 +63,12 @@ function ContactForm() {
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     event.preventDefault();
+
+    for (const errorMessage in errors) {
+      if (errors[errorMessage]) {
+        setErrors({ ...errors, visible: true });
+      }
+    }
   };
 
   return (
@@ -84,8 +94,8 @@ function ContactForm() {
           variant="outlined"
           value={email}
           onChange={handleChange}
-          error={!!errors.email}
-          helperText={errors.email}
+          error={errors.visible && !!errors.email}
+          helperText={errors.visible && errors.email}
           required
         />
         <TextField
