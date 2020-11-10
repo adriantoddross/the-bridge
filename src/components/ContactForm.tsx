@@ -83,8 +83,8 @@ function ContactForm() {
           value={name}
           onChange={handleChange}
           required
-          error={!!errors.name}
-          helperText={errors.name}
+          error={errors.visible && !!errors.name}
+          helperText={errors.visible && errors.name}
         />
         <TextField
           name="email"
@@ -109,8 +109,8 @@ function ContactForm() {
           rowsMax={6}
           value={message}
           onChange={handleChange}
-          error={!!errors.message}
-          helperText={errors.message}
+          error={errors.visible && !!errors.message}
+          helperText={errors.visible && errors.message}
           required
         />
         <Button
