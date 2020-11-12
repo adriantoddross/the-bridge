@@ -1,7 +1,7 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField/TextField";
 import Button from "@material-ui/core/Button";
-import { makeStyles } from "@material-ui/core";
+import { makeStyles, Typography } from "@material-ui/core";
 
 function ContactForm() {
   const [name, setName] = React.useState("");
@@ -13,6 +13,9 @@ function ContactForm() {
     message: "",
     visible: false,
   });
+  const [confirmationMessage, displayConfirmationMessage] = React.useState(
+    false
+  );
 
   const useStyles = makeStyles((theme) => ({
     form: {
@@ -72,65 +75,95 @@ function ContactForm() {
     if (isError) {
       setErrors({ ...errors, visible: true });
     } else {
-      setErrors({ ...errors, visible: false });
-      // Reset the form, then...
+      resetForm();
       // Send e-mail!
+      // If e-mail is successful...
+      toggleConfirmationMessage();
       console.log("Sending e-mail!");
     }
   };
 
+  const resetForm = () => {
+    setErrors({ ...errors, visible: false });
+    setName("");
+    setEmail("");
+    setMessage("");
+  };
+
+  const toggleConfirmationMessage = (e?) => {
+    if (e) e.preventDefault();
+    displayConfirmationMessage(!confirmationMessage);
+  };
+
   return (
     <>
-      <form noValidate autoComplete="on" className={classes.form}>
-        <TextField
-          name="name"
-          type="text"
-          id="sender-name"
-          label="Name"
-          variant="outlined"
-          value={name}
-          onChange={handleChange}
-          required
-          error={errors.visible && !!errors.name}
-          helperText={errors.visible && errors.name}
-        />
-        <TextField
-          name="email"
-          type="email"
-          id="sender-email"
-          label="Email"
-          variant="outlined"
-          value={email}
-          onChange={handleChange}
-          error={errors.visible && !!errors.email}
-          helperText={errors.visible && errors.email}
-          required
-        />
-        <TextField
-          name="message"
-          type="text"
-          id="sender-message"
-          label="Message"
-          variant="outlined"
-          multiline={true}
-          rows={6}
-          rowsMax={6}
-          value={message}
-          onChange={handleChange}
-          error={errors.visible && !!errors.message}
-          helperText={errors.visible && errors.message}
-          required
-        />
-        <Button
-          type="submit"
-          value="submit"
-          color="inherit"
-          variant="contained"
-          onClick={handleFormSubmission}
-        >
-          Send message
-        </Button>
-      </form>
+      {confirmationMessage ? (
+        <>
+          <Typography variant="body1">
+            Thank you for your message! We'll get to you within 3-5 business
+            days with a reply.
+          </Typography>
+          <Button
+            type="button"
+            color="inherit"
+            variant="contained"
+            onClick={toggleConfirmationMessage}
+          >
+            OK.
+          </Button>
+        </>
+      ) : (
+        <form noValidate autoComplete="on" className={classes.form}>
+          <TextField
+            name="name"
+            type="text"
+            id="sender-name"
+            label="Name"
+            variant="outlined"
+            value={name}
+            onChange={handleChange}
+            required
+            error={errors.visible && !!errors.name}
+            helperText={errors.visible && errors.name}
+          />
+          <TextField
+            name="email"
+            type="email"
+            id="sender-email"
+            label="Email"
+            variant="outlined"
+            value={email}
+            onChange={handleChange}
+            error={errors.visible && !!errors.email}
+            helperText={errors.visible && errors.email}
+            required
+          />
+          <TextField
+            name="message"
+            type="text"
+            id="sender-message"
+            label="Message"
+            variant="outlined"
+            multiline={true}
+            rows={6}
+            rowsMax={6}
+            value={message}
+            onChange={handleChange}
+            error={errors.visible && !!errors.message}
+            helperText={errors.visible && errors.message}
+            required
+          />
+          <Button
+            type="submit"
+            value="submit"
+            color="inherit"
+            variant="contained"
+            onClick={handleFormSubmission}
+          >
+            Send message
+          </Button>
+        </form>
+      )}
     </>
   );
 }
