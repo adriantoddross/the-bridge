@@ -64,10 +64,18 @@ function ContactForm() {
   ) => {
     event.preventDefault();
 
-    for (const errorMessage in errors) {
-      if (errors[errorMessage]) {
-        setErrors({ ...errors, visible: true });
-      }
+    const allErrors = Object.values(errors);
+    const isError = !allErrors
+      .slice(0, allErrors.length - 1)
+      .every((field) => !field);
+
+    if (isError) {
+      setErrors({ ...errors, visible: true });
+    } else {
+      setErrors({ ...errors, visible: false });
+      // Reset the form, then...
+      // Send e-mail!
+      console.log("Sending e-mail!");
     }
   };
 
