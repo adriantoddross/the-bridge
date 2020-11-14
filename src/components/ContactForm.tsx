@@ -1,4 +1,5 @@
 import React from "react";
+import emailjs from "emailjs-com";
 import TextField from "@material-ui/core/TextField/TextField";
 import Button from "@material-ui/core/Button";
 import { makeStyles, Typography } from "@material-ui/core";
@@ -62,9 +63,7 @@ function ContactForm() {
     setErrors(formErrors);
   };
 
-  const handleFormSubmission = (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
+  const handleFormSubmission = (event) => {
     event.preventDefault();
 
     const allErrors = Object.values(errors);
@@ -76,10 +75,31 @@ function ContactForm() {
       setErrors({ ...errors, visible: true });
     } else {
       resetForm();
-      // Send e-mail!
-      // If e-mail is successful...
       toggleConfirmationMessage();
-      console.log("Sending e-mail!");
+
+      const templateParams = {
+        to_name: "info@impactnigeria.org",
+        from_name: name,
+        from_email: email,
+        message,
+        reply_to: email,
+      };
+
+      emailjs
+        .send(
+          `${process.env.REACT_APP_EMAILJS_SERVICE_ID}`,
+          `${process.env.REACT_APP_EMAILJS_TEMPLATE_ID}`,
+          templateParams,
+          `${process.env.REACT_APP_EMAILJS_USER_ID}`
+        )
+        .then(
+          (result) => {
+            console.log(result.text);
+          },
+          (error) => {
+            console.warn(error.text);
+          }
+        );
     }
   };
 
@@ -113,7 +133,12 @@ function ContactForm() {
           </Button>
         </>
       ) : (
-        <form noValidate autoComplete="on" className={classes.form}>
+        <form
+          noValidate
+          autoComplete="on"
+          className={classes.form}
+          onSubmit={handleFormSubmission}
+        >
           <TextField
             name="name"
             type="text"
@@ -158,7 +183,6 @@ function ContactForm() {
             value="submit"
             color="inherit"
             variant="contained"
-            onClick={handleFormSubmission}
           >
             Send message
           </Button>
