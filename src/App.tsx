@@ -5,6 +5,8 @@ import Homepage from "./views/Homepage";
 import AboutPage from "./views/About";
 import PageNotFound from "./views/404Page";
 import OrgPage from "./views/OrgPage";
+import ContactPage from "./views/ContactPage";
+
 import "./App.css";
 
 function App() {
@@ -16,9 +18,16 @@ function App() {
             <Homepage />
           </>
         </Route>
+
         <Route path="/about">
           <>
             <AboutPage />
+          </>
+        </Route>
+
+        <Route path="/contact">
+          <>
+            <ContactPage />
           </>
         </Route>
 
