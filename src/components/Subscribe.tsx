@@ -33,8 +33,11 @@ function Subscribe() {
   const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     setEmail(event.target.value as string);
   };
-  const preventDefault = (event: React.MouseEvent) => event.preventDefault();
 
+  const handleFormSubmission = (e) => {
+    e.preventDefault();
+    console.log("Submitting form!");
+  };
   return (
     <Paper
       className={[classes.root, classes.paper].join(" ")}
@@ -52,6 +55,7 @@ function Subscribe() {
         noValidate
         autoComplete="off"
         className={classes.form}
+        onSubmit={handleFormSubmission}
       >
         <TextField
           id="email"
@@ -61,13 +65,7 @@ function Subscribe() {
           value={email}
           onChange={handleChange}
         />
-        <Button
-          variant="contained"
-          type="submit"
-          form="subscribe"
-          value={email}
-          onClick={preventDefault}
-        >
+        <Button variant="contained" type="submit">
           Subscribe
         </Button>
       </form>
