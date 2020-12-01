@@ -58,6 +58,23 @@ function Subscribe() {
     if (errors.email) {
       setErrors({ ...errors, visible: true });
     } else {
+      const formData = { email };
+
+      fetch("http://localhost:4000/subscribe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Response:", data);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+
       resetForm();
       toggleConfirmationMessage();
     }
@@ -80,11 +97,13 @@ function Subscribe() {
     >
       {confirmationMessage ? (
         <>
-          <Typography variant="h3">You are now subscribed!</Typography>
+          <Typography variant="h3">
+            Check your e-mail to confirm your subscription!
+          </Typography>
           <Typography variant="body1">
-            You'll be notified of new organizations added to our list, any
-            updates to our website, and other ways to support Nigerian
-            organizations.
+            After confirming your subscription, you'll be notified of new
+            organizations added to our list, any updates to our website, and
+            other ways to support Nigerian organizations.
           </Typography>
           <Button
             type="button"
