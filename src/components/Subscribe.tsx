@@ -55,7 +55,12 @@ function Subscribe() {
   const handleFormSubmission = (e) => {
     e.preventDefault();
 
-    if (errors.email) {
+    if (!email) {
+      setErrors({
+        email: "Please provide a valid e-mail address.",
+        visible: true,
+      });
+    } else if (errors.email) {
       setErrors({ ...errors, visible: true });
     } else {
       const formData = { email };
@@ -70,13 +75,12 @@ function Subscribe() {
         .then((response) => response.json())
         .then((data) => {
           console.log("Response:", data);
+          resetForm();
+          toggleConfirmationMessage();
         })
         .catch((error) => {
           console.error("Error:", error);
         });
-
-      resetForm();
-      toggleConfirmationMessage();
     }
   };
 
