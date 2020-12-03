@@ -34,9 +34,10 @@ function Subscribe() {
   const [email, setEmail] = React.useState("");
   const [errors, setErrors] = React.useState({
     email: "",
+    submissionError: false,
     visible: false,
   });
-  const [confirmationMessage, displayConfirmationMessage] = React.useState(
+  const [showConfirmationMessage, displayConfirmationMessage] = React.useState(
     false
   );
 
@@ -57,6 +58,7 @@ function Subscribe() {
 
     if (!email) {
       setErrors({
+        ...errors,
         email: "Please provide a valid e-mail address.",
         visible: true,
       });
@@ -75,8 +77,14 @@ function Subscribe() {
         .then((response) => response.json())
         .then((data) => {
           console.log("Response:", data);
-          resetForm();
-          toggleConfirmationMessage();
+
+          if (data?.status === "subscribed") {
+            resetForm();
+            toggleConfirmationMessage();
+          } else {
+            setErrors({ ...errors, submissionError: true });
+            toggleConfirmationMessage();
+          }
         })
         .catch((error) => {
           console.error("Error:", error);
@@ -86,12 +94,53 @@ function Subscribe() {
 
   const resetForm = () => {
     setEmail("");
+    setErrors({
+      email: "",
+      submissionError: false,
+      visible: false,
+    });
   };
 
   const toggleConfirmationMessage = (e?) => {
     if (e) e.preventDefault();
-    displayConfirmationMessage(!confirmationMessage);
+    displayConfirmationMessage(!showConfirmationMessage);
   };
+
+  const confirmationMessage = errors.submissionError ? (
+    <>
+      <Typography variant="h3">Sorry, something went wrong.</Typography>
+      <Typography variant="body1">
+        We weren't able to add you to our mailing list. Please try again.
+      </Typography>
+      <Button
+        type="button"
+        color="inherit"
+        variant="contained"
+        onClick={toggleConfirmationMessage}
+      >
+        OK.
+      </Button>
+    </>
+  ) : (
+    <>
+      <Typography variant="h3">
+        Check your e-mail to confirm your subscription!
+      </Typography>
+      <Typography variant="body1">
+        After confirming your subscription, you'll be notified of new
+        organizations added to our list, any updates to our website, and other
+        ways to support Nigerian organizations.
+      </Typography>
+      <Button
+        type="button"
+        color="inherit"
+        variant="contained"
+        onClick={toggleConfirmationMessage}
+      >
+        OK.
+      </Button>
+    </>
+  );
 
   return (
     <Paper
@@ -99,25 +148,8 @@ function Subscribe() {
       component="section"
       elevation={0}
     >
-      {confirmationMessage ? (
-        <>
-          <Typography variant="h3">
-            Check your e-mail to confirm your subscription!
-          </Typography>
-          <Typography variant="body1">
-            After confirming your subscription, you'll be notified of new
-            organizations added to our list, any updates to our website, and
-            other ways to support Nigerian organizations.
-          </Typography>
-          <Button
-            type="button"
-            color="inherit"
-            variant="contained"
-            onClick={toggleConfirmationMessage}
-          >
-            OK.
-          </Button>
-        </>
+      {showConfirmationMessage ? (
+        confirmationMessage
       ) : (
         <>
           <Typography variant="body1" component="h3">
