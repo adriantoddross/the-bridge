@@ -5,7 +5,7 @@ import Paper from "@material-ui/core/Paper";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
-import { validEmailRegex } from "../utils/utils";
+import { validEmailRegex, APIUrl } from "../utils/utils";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -67,7 +67,7 @@ function Subscribe() {
     } else {
       const formData = { email };
 
-      fetch("http://localhost:4000/subscribe", {
+      fetch(APIUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
