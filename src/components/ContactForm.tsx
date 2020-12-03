@@ -4,6 +4,8 @@ import TextField from "@material-ui/core/TextField/TextField";
 import Button from "@material-ui/core/Button";
 import { makeStyles, Typography } from "@material-ui/core";
 
+import { validEmailRegex } from "../utils/utils";
+
 function ContactForm() {
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
@@ -43,9 +45,6 @@ function ContactForm() {
 
       case "email":
         setEmail(value);
-        const validEmailRegex = RegExp(
-          /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i
-        );
         formErrors.email = value.match(validEmailRegex)
           ? ""
           : "Please provide a valid e-mail address.";
