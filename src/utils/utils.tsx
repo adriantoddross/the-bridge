@@ -61,3 +61,8 @@ export function generateNeedsIcons(needs: [], classes) {
 export const validEmailRegex = RegExp(
   /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i
 );
+
+export const APIUrl =
+  process.env.NODE_ENV === "production"
+    ? `${process.env.REACT_APP_API_URL}/subscribe`
+    : "http://localhost:4000/subscribe";
