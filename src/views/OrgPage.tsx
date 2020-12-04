@@ -8,11 +8,12 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Link as RouterLink } from "react-router-dom";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
+import mockData from "../mockData";
 import Navbar from "../components/Navbar";
 import Subscribe from "../components/Subscribe";
 import ContentBlock from "../components/ContentBlock";
-import mockData from "../mockData";
 import { generateCloudinaryURL, generateNeedsIcons } from "../utils/utils";
+import contactPlaceholderImage from "../images/org-founder-placeholder.png";
 
 const useStyles = makeStyles((theme) => ({
   contact: {
@@ -44,6 +45,11 @@ export default function OrgPage(props) {
   const contactImageURL = generateCloudinaryURL(
     orgData?.contact?.image?.cloudinaryImageTitle
   );
+
+  const handleImageError = (e) => {
+    e.target.onerror = null;
+    e.target.src = contactPlaceholderImage;
+  };
 
   let needsIcons;
 
@@ -108,7 +114,12 @@ export default function OrgPage(props) {
             </Link>
           </div>
           <section className={classes.contact}>
-            <img className={classes.image} src={contactImageURL} alt="" />
+            <img
+              className={classes.image}
+              src={contactImageURL || contactPlaceholderImage}
+              onError={handleImageError}
+              alt=""
+            />
             <b>
               <Typography variant="h3">{orgData?.contact?.name}</Typography>
             </b>
