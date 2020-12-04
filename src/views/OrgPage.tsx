@@ -13,7 +13,7 @@ import Navbar from "../components/Navbar";
 import Subscribe from "../components/Subscribe";
 import ContentBlock from "../components/ContentBlock";
 import { generateCloudinaryURL, generateNeedsIcons } from "../utils/utils";
-import founderPlaceholderImage from "../images/org-founder-placeholder.png";
+import contactPlaceholderImage from "../images/org-founder-placeholder.png";
 
 const useStyles = makeStyles((theme) => ({
   contact: {
@@ -48,7 +48,7 @@ export default function OrgPage(props) {
 
   const handleImageError = (e) => {
     e.target.onerror = null;
-    e.target.src = founderPlaceholderImage;
+    e.target.src = contactPlaceholderImage;
   };
 
   let needsIcons;
@@ -116,7 +116,7 @@ export default function OrgPage(props) {
           <section className={classes.contact}>
             <img
               className={classes.image}
-              src={contactImageURL}
+              src={contactImageURL || contactPlaceholderImage}
               onError={handleImageError}
               alt=""
             />
