@@ -15,27 +15,35 @@ function App() {
   return (
     <Router>
       <Switch>
-        <ThemeProvider theme={theme}>
-          <Route exact path="/">
+        <Route exact path="/">
+          <ThemeProvider theme={theme}>
             <Homepage />
-          </Route>
+          </ThemeProvider>
+        </Route>
 
-          <Route path="/about">
+        <Route path="/about">
+          <ThemeProvider theme={theme}>
             <AboutPage />
-          </Route>
+          </ThemeProvider>
+        </Route>
 
-          <Route path="/contact">
+        <Route path="/contact">
+          <ThemeProvider theme={theme}>
             <ContactPage />
-          </Route>
+          </ThemeProvider>
+        </Route>
 
-          <Route path="/org/:name">
+        <Route path="/org/:name">
+          <ThemeProvider theme={theme}>
             <OrgPage />
-          </Route>
+          </ThemeProvider>
+        </Route>
 
-          <Route path="*">
+        <Route path="*">
+          <ThemeProvider theme={theme}>
             <PageNotFound />
-          </Route>
-        </ThemeProvider>
+          </ThemeProvider>
+        </Route>
       </Switch>
     </Router>
   );
