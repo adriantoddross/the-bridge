@@ -13,6 +13,9 @@ import { Link as RouterLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
+  toolbar: {
+    backgroundColor: "#10844e",
+  },
   nav: {
     width: "100%",
   },
@@ -48,7 +51,7 @@ function Navbar() {
   return (
     <>
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar className={classes.toolbar}>
           <nav className={classes.nav}>
             <ul className={classes.ul}>
               <li className={classes.link}>
