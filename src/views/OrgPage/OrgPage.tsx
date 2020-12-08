@@ -8,12 +8,12 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Link as RouterLink } from "react-router-dom";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
-import mockData from "../mockData";
-import Navbar from "../components/Navbar";
-import Subscribe from "../components/Subscribe";
-import ContentBlock from "../components/ContentBlock";
-import { generateCloudinaryURL, generateNeedsIcons } from "../utils/utils";
-import contactPlaceholderImage from "../images/org-founder-placeholder.png";
+import mockData from "../../mockData";
+import Navbar from "../../components/Navbar";
+import Subscribe from "../../components/Subscribe";
+import ContentBlock from "../../components/ContentBlock";
+import { generateCloudinaryURL, generateNeedsIcons } from "../../utils/utils";
+import contactPlaceholderImage from "../../images/org-founder-placeholder.png";
 
 const useStyles = makeStyles((theme) => ({
   contact: {

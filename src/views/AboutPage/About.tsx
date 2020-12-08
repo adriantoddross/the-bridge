@@ -2,9 +2,9 @@ import React from "react";
 import Typography from "@material-ui/core/Typography";
 import { Link as RouterLink } from "react-router-dom";
 
-import Navbar from "../components/Navbar";
-import Subscribe from "../components/Subscribe";
-import ContentBlock from "../components/ContentBlock";
+import Navbar from "../../components/Navbar";
+import Subscribe from "../../components/Subscribe";
+import ContentBlock from "../../components/ContentBlock";
 import Button from "@material-ui/core/Button";
 
 function Homepage() {

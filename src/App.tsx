@@ -1,10 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { ThemeProvider } from "@material-ui/core/styles";
 
-import theme from "./theme";
 import Homepage from "./views/Homepage";
-import AboutPage from "./views/About";
+import AboutPage from "./views/AboutPage";
 import PageNotFound from "./views/404Page";
 import OrgPage from "./views/OrgPage";
 import ContactPage from "./views/ContactPage";
@@ -16,33 +14,23 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/">
-          <ThemeProvider theme={theme}>
-            <Homepage />
-          </ThemeProvider>
+          <Homepage />
         </Route>
 
         <Route path="/about">
-          <ThemeProvider theme={theme}>
-            <AboutPage />
-          </ThemeProvider>
+          <AboutPage />
         </Route>
 
         <Route path="/contact">
-          <ThemeProvider theme={theme}>
-            <ContactPage />
-          </ThemeProvider>
+          <ContactPage />
         </Route>
 
         <Route path="/org/:name">
-          <ThemeProvider theme={theme}>
-            <OrgPage />
-          </ThemeProvider>
+          <OrgPage />
         </Route>
 
         <Route path="*">
-          <ThemeProvider theme={theme}>
-            <PageNotFound />
-          </ThemeProvider>
+          <PageNotFound />
         </Route>
       </Switch>
     </Router>
