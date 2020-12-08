@@ -6,18 +6,20 @@ const theme = createMuiTheme({
   typography: {
     fontFamily: ["Lato", "sans-serif"].join(","),
     h1: {
-      fontFamily: ["Lato", "sans-serif"].join(","),
-      fontWeight: "bold",
-      fontSize: "1.25rem",
+      fontFamily: ["EB Garamond", "Garamond", "serif"].join(","),
     },
     h2: {
-      fontFamily: ["EB Garamond", "Garamond", "serif"].join(","),
+      fontFamily: ["Lato", "sans-serif"].join(","),
       fontWeight: "bold",
-      fontSize: "1.875rem",
+      fontSize: "1.25em",
+      textTransform: "uppercase",
     },
     h3: {
       fontFamily: ["EB Garamond", "Garamond", "serif"].join(","),
+      fontWeight: "bold",
+      fontSize: "2.5em",
     },
+
     h4: {
       fontFamily: ["EB Garamond", "Garamond", "serif"].join(","),
     },
@@ -41,7 +43,7 @@ const theme = createMuiTheme({
       dark: "#004B28",
     },
     text: {
-      primary: "#004B28",
+      primary: "#014c50",
     },
   },
 
