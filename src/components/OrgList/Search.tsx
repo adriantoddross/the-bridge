@@ -17,6 +17,9 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(0, 2),
     },
   },
+  header: {
+    margin: theme.spacing(2),
+  },
   form: {
     display: "flex",
     flexDirection: "column",
@@ -57,7 +60,9 @@ function Search(props: any) {
         component="section"
         elevation={0}
       >
-        <Typography variant="h3">Organization list</Typography>
+        <Typography variant="h2" component="h3" className={classes.header}>
+          Organization list
+        </Typography>
 
         <form noValidate autoComplete="off" className={classes.form}>
           <TextField
@@ -69,7 +74,7 @@ function Search(props: any) {
           />
 
           <FormControl variant="outlined">
-            <InputLabel id="select-org-type-label">All types</InputLabel>
+            <InputLabel id="select-org-type-label">All categories</InputLabel>
             <Select
               labelId="select-org-type-label"
               id="select-org-type"
