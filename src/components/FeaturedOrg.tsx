@@ -37,12 +37,14 @@ const useStyles = makeStyles((theme) => ({
     alignSelf: "flex-end",
   },
   cause: {
+    color: "#10844E",
     textTransform: "capitalize",
     whiteSpace: "nowrap",
     overflow: "hidden",
     textOverflow: "ellipsis",
   },
   name: {
+    fontWeight: "bold",
     textTransform: "uppercase",
     whiteSpace: "nowrap",
     overflow: "hidden",
@@ -77,7 +79,7 @@ function FeaturedOrg(props: any) {
         <div className={classes.need}>{needsIcons}</div>
 
         <div>
-          <Typography variant="body2">
+          <Typography variant="body2" className={classes.cause}>
             {props.category || "Philanthropic cause"}
           </Typography>
 
