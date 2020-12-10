@@ -47,6 +47,29 @@ const theme = createMuiTheme({
       primary: "#004B28",
     },
   },
+
+  overrides: {
+    MuiTypography: {
+      h1: {
+        color: "#004B28",
+      },
+      h2: {
+        color: "#004B28",
+      },
+      h3: {
+        color: "#004B28",
+      },
+      h4: {
+        color: "#004B28",
+      },
+      h5: {
+        color: "#004B28",
+      },
+      h6: {
+        color: "#004B28",
+      },
+    },
+  },
 });
 
 export default theme;
