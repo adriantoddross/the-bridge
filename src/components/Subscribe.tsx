@@ -9,14 +9,20 @@ import { validEmailRegex, APIUrl } from "../utils/utils";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    // backgroundColor: "#10844E",
-    // color: "white",
+    backgroundColor: "#10844E",
     padding: theme.spacing(3),
   },
   paper: {
     "& > *": {
       margin: theme.spacing(1),
     },
+  },
+  proposition: {
+    color: "white",
+    textAlign: "center",
+  },
+  header: {
+    fontWeight: "bold",
   },
   form: {
     display: "flex",
@@ -26,6 +32,13 @@ const useStyles = makeStyles((theme) => ({
       marginTop: theme.spacing(1),
       marginBottom: theme.spacing(1),
     },
+  },
+  buttonRoot: {
+    backgroundColor: "#e2f4ec",
+  },
+  label: {
+    color: "#10844E",
+    fontWeight: "bold",
   },
 }));
 
@@ -152,12 +165,18 @@ function Subscribe() {
         confirmationMessage
       ) : (
         <>
-          <Typography variant="body1" component="h3">
-            Sign up to our newsletter!
-          </Typography>
-          <Typography variant="body2">
-            Get notified of new organizations and other updates.
-          </Typography>
+          <section className={classes.proposition}>
+            <Typography
+              variant="body1"
+              component="h3"
+              className={classes.header}
+            >
+              Sign up to our newsletter!
+            </Typography>
+            <Typography variant="body2">
+              Get notified of new organizations and other updates.
+            </Typography>
+          </section>
           <form
             id="subscribe"
             noValidate
@@ -176,7 +195,11 @@ function Subscribe() {
               helperText={errors.visible && errors.email}
               required
             />
-            <Button variant="contained" type="submit">
+            <Button
+              variant="contained"
+              type="submit"
+              classes={{ root: classes.buttonRoot, label: classes.label }}
+            >
               Subscribe
             </Button>
           </form>
