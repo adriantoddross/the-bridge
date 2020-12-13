@@ -29,6 +29,9 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: theme.spacing(1),
     },
   },
+  selectIcon: {
+    color: "#004B28",
+  },
 }));
 
 function Search(props: any) {
@@ -67,6 +70,7 @@ function Search(props: any) {
         <form noValidate autoComplete="off" className={classes.form}>
           <TextField
             id="search"
+            type="search"
             label="Search by name"
             variant="outlined"
             value={query}
@@ -81,6 +85,7 @@ function Search(props: any) {
               value={type}
               onChange={handleTypeSelect}
               label="Type"
+              classes={{ icon: classes.selectIcon }}
             >
               <MenuItem value="">
                 <em>None</em>
@@ -100,6 +105,7 @@ function Search(props: any) {
               value={need}
               onChange={handleNeedSelect}
               label="Needs"
+              classes={{ icon: classes.selectIcon }}
             >
               <MenuItem value="">
                 <em>None</em>
