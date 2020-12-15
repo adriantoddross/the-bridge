@@ -79,7 +79,7 @@ function OrgTable(props: any) {
       component="section"
       elevation={0}
     >
-      <TableContainer component={Paper}>
+      <TableContainer>
         <Table aria-label="simple table">
           <TableHead>
             <TableRow>
