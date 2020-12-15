@@ -12,10 +12,7 @@ import Link from "@material-ui/core/Link";
 import { Link as RouterLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    padding: theme.spacing(0, 3),
-  },
-  paper: {
+paper: {
     "& > *": {
       marginTop: theme.spacing(3),
       marginBottom: theme.spacing(3),
@@ -76,7 +73,7 @@ function OrgTable(props: any) {
 
   return (
     <Paper
-      className={[classes.root, classes.paper].join(" ")}
+      className={classes.paper}
       component="section"
       elevation={0}
     >
