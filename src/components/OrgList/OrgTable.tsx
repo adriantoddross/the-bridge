@@ -21,6 +21,10 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: theme.spacing(3),
     },
   },
+  tableHeader: {
+    fontWeight: "bold",
+    textTransform: "uppercase",
+  },
 }));
 
 function OrgTable(props: any) {
@@ -54,10 +58,14 @@ function OrgTable(props: any) {
       <TableRow key={index}>
         <TableCell>
           <Link to={orgPage} component={RouterLink}>
-            {org.name || "Organization name"}
+            <Typography variant="body1">
+              {org.name || "Organization name"}
+            </Typography>
           </Link>
         </TableCell>
-        <TableCell>{org.category}</TableCell>
+        <TableCell>
+          <Typography variant="body1">{org.category}</Typography>
+        </TableCell>
       </TableRow>
     );
   });
@@ -73,12 +81,12 @@ function OrgTable(props: any) {
           <TableHead>
             <TableRow>
               <TableCell>
-                <Typography variant="body1" component="h3">
+                <Typography variant="body1" className={classes.tableHeader}>
                   Name
                 </Typography>
               </TableCell>
               <TableCell>
-                <Typography variant="body1" component="h3">
+                <Typography variant="body1" className={classes.tableHeader}>
                   Category
                 </Typography>
               </TableCell>
