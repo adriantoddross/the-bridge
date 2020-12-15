@@ -23,8 +23,11 @@ const useStyles = makeStyles((theme) => ({
     textTransform: "uppercase",
   },
   tableBody: {
+    "& tr:first-child": {
+      boxShadow: "inset 0px 20px 20px -8px rgba(0, 77, 41, 0.25)",
+    },
     "& tr:last-child": {
-      boxShadow: "inset 0px -38px 20px -8px rgba(0, 77, 41, 0.25)",
+      boxShadow: "inset 0px -30px 20px -8px rgba(0, 77, 41, 0.25)",
     },
   },
   tableRow: {
