@@ -28,9 +28,6 @@ const theme = createMuiTheme({
     h6: {
       fontFamily: ["EB Garamond", "Garamond", "serif"].join(","),
     },
-    body1: {
-      fontSize: "0.875em",
-    },
     button: {
       fontSize: "0.875em",
       textTransform: "uppercase",
