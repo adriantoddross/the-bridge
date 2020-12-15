@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
   tableRow: {
     backgroundColor: "#E2F4EC",
+    borderBottom: "0.25em solid white",
   },
 }));
 
