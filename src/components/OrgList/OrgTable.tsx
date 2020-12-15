@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
     textTransform: "uppercase",
   },
   tableBody: {
+    color: "#004B28",
     "& tr:first-child": {
       boxShadow: "inset 0px 20px 20px -8px rgba(0, 77, 41, 0.25)",
     },
@@ -33,6 +34,9 @@ const useStyles = makeStyles((theme) => ({
   tableRow: {
     backgroundColor: "#E2F4EC",
     borderBottom: "0.25em solid white",
+  },
+  tableCellText: {
+    color: "#004B28",
   },
 }));
 
@@ -67,13 +71,15 @@ function OrgTable(props: any) {
       <TableRow key={index} className={classes.tableRow}>
         <TableCell>
           <Link to={orgPage} component={RouterLink}>
-            <Typography variant="body1">
+            <Typography className={classes.tableCellText}>
               {org.name || "Organization name"}
             </Typography>
           </Link>
         </TableCell>
         <TableCell>
-          <Typography variant="body1">{org.category}</Typography>
+          <Typography className={classes.tableCellText}>
+            {org.category}
+          </Typography>
         </TableCell>
       </TableRow>
     );
