@@ -12,7 +12,7 @@ import Link from "@material-ui/core/Link";
 import { Link as RouterLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
-paper: {
+  paper: {
     "& > *": {
       marginTop: theme.spacing(3),
       marginBottom: theme.spacing(3),
@@ -21,6 +21,11 @@ paper: {
   tableHeader: {
     fontWeight: "bold",
     textTransform: "uppercase",
+  },
+  tableBody: {
+    "& tr:last-child": {
+      boxShadow: "inset 0px -38px 20px -8px rgba(0, 77, 41, 0.25)",
+    },
   },
   tableRow: {
     backgroundColor: "#E2F4EC",
@@ -72,11 +77,7 @@ function OrgTable(props: any) {
   });
 
   return (
-    <Paper
-      className={classes.paper}
-      component="section"
-      elevation={0}
-    >
+    <Paper className={classes.paper} component="section" elevation={0}>
       <TableContainer>
         <Table aria-label="simple table">
           <TableHead>
@@ -93,7 +94,7 @@ function OrgTable(props: any) {
               </TableCell>
             </TableRow>
           </TableHead>
-          <TableBody>{searchResults}</TableBody>
+          <TableBody className={classes.tableBody}>{searchResults}</TableBody>
         </Table>
       </TableContainer>
       {noResults}
