@@ -25,6 +25,9 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
     textTransform: "uppercase",
   },
+  tableRow: {
+    backgroundColor: "#E2F4EC",
+  },
 }));
 
 function OrgTable(props: any) {
@@ -55,7 +58,7 @@ function OrgTable(props: any) {
       orgPage = `/org/${orgId}`;
     }
     return (
-      <TableRow key={index}>
+      <TableRow key={index} className={classes.tableRow}>
         <TableCell>
           <Link to={orgPage} component={RouterLink}>
             <Typography variant="body1">
