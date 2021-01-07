@@ -188,7 +188,7 @@ function Subscribe() {
               id="email"
               type="email"
               label="Email"
-              variant="outlined"
+              variant="filled"
               value={email}
               onChange={handleChange}
               error={errors.visible && !!errors.email}
