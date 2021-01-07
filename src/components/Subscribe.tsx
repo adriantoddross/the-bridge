@@ -198,6 +198,7 @@ function Subscribe() {
               onChange={handleChange}
               error={errors.visible && !!errors.email}
               helperText={errors.visible && errors.email}
+              autoComplete="true"
               required
             />
             <Button
