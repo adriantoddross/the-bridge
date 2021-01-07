@@ -40,6 +40,10 @@ const useStyles = makeStyles((theme) => ({
     color: "#10844E",
     fontWeight: "bold",
   },
+  textFieldRoot: {
+    backgroundColor: "white",
+    borderRadius: "4px",
+  },
 }));
 
 function Subscribe() {
@@ -186,6 +190,7 @@ function Subscribe() {
           >
             <TextField
               id="email"
+              classes={{ root: classes.textFieldRoot }}
               type="email"
               label="Email"
               variant="filled"
