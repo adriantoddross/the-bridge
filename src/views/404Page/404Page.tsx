@@ -3,9 +3,9 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import { Link as RouterLink } from "react-router-dom";
 
-import Navbar from "../components/Navbar";
-import Subscribe from "../components/Subscribe";
-import ContentBlock from "../components/ContentBlock";
+import Navbar from "../../components/Navbar";
+import Subscribe from "../../components/Subscribe";
+import ContentBlock from "../../components/ContentBlock";
 
 export default function PageNotFound() {
   return (

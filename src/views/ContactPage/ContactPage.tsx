@@ -1,10 +1,10 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
 
-import Navbar from "../components/Navbar";
-import Subscribe from "../components/Subscribe";
-import ContentBlock from "../components/ContentBlock";
-import ContactForm from "../components/ContactForm";
+import Navbar from "../../components/Navbar";
+import Subscribe from "../../components/Subscribe";
+import ContentBlock from "../../components/ContentBlock";
+import ContactForm from "../../components/ContactForm";
 
 function ContactPage() {
   return (

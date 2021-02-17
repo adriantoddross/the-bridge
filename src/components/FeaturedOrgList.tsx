@@ -27,7 +27,7 @@ function FeaturedOrgList(props: any) {
 
   return (
     <section className={classes.root}>
-      <Typography variant="h3">Featured Organizations</Typography>
+      <Typography variant="h2" component="h3">Featured Organizations</Typography>
       <ul className={classes.list}>
         {props.data.map((org: any, index) => {
           const { name, category, cloudinaryImageTitle, needs } = org;

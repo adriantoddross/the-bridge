@@ -1,22 +1,23 @@
 import { createMuiTheme } from "@material-ui/core/styles";
 
 const theme = createMuiTheme({
-  // Typography
-
   typography: {
     fontFamily: ["Lato", "sans-serif"].join(","),
     h1: {
-      fontFamily: ["Lato", "sans-serif"].join(","),
+      fontFamily: ["EB Garamond", "Garamond", "serif"].join(","),
+      fontSize: "1.875em",
       fontWeight: "bold",
-      fontSize: "1.25rem",
     },
     h2: {
-      fontFamily: ["EB Garamond", "Garamond", "serif"].join(","),
+      fontFamily: ["Lato", "sans-serif"].join(","),
+      fontSize: "1.25em",
       fontWeight: "bold",
-      fontSize: "1.875rem",
+      textTransform: "uppercase",
     },
     h3: {
       fontFamily: ["EB Garamond", "Garamond", "serif"].join(","),
+      fontSize: "2.5em",
+      fontWeight: "bold",
     },
     h4: {
       fontFamily: ["EB Garamond", "Garamond", "serif"].join(","),
@@ -28,31 +29,44 @@ const theme = createMuiTheme({
       fontFamily: ["EB Garamond", "Garamond", "serif"].join(","),
     },
     button: {
+      fontSize: "0.875em",
       textTransform: "uppercase",
     },
   },
 
-  // Colors
-
   palette: {
     primary: {
-      light: "#E2F4EC",
-      main: "#10844E",
-      dark: "#004B28",
+      light: "#4fb57a",
+      main: "#10844e",
+      dark: "#005625",
+    },
+    secondary: {
+      main: "#e2f4ec",
     },
     text: {
       primary: "#004B28",
     },
   },
 
-  // Style overrides
-
   overrides: {
     MuiTypography: {
-      root: {
-        "& h1": {
-          color: "#004B28",
-        },
+      h1: {
+        color: "#004B28",
+      },
+      h2: {
+        color: "#004B28",
+      },
+      h3: {
+        color: "#004B28",
+      },
+      h4: {
+        color: "#004B28",
+      },
+      h5: {
+        color: "#004B28",
+      },
+      h6: {
+        color: "#004B28",
       },
     },
   },

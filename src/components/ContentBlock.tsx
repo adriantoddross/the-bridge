@@ -74,7 +74,7 @@ function ContentBlock(props: ContentBlockProps) {
         )}
         <section className={classes.contentBlockContent}>
           {" "}
-          <Typography variant="h2">{props.title}</Typography>
+          <Typography  variant="h1" component="h2">{props.title}</Typography>
           <Typography variant="body1">{props.description}</Typography>
           <div className={classes.contentBlockSections}>{props.children}</div>
         </section>

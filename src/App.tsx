@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Homepage from "./views/Homepage";
-import AboutPage from "./views/About";
+import AboutPage from "./views/AboutPage";
 import PageNotFound from "./views/404Page";
 import OrgPage from "./views/OrgPage";
 import ContactPage from "./views/ContactPage";
@@ -14,24 +14,20 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/">
-          <>
-            <Homepage />
-          </>
+          <Homepage />
         </Route>
 
         <Route path="/about">
-          <>
-            <AboutPage />
-          </>
+          <AboutPage />
         </Route>
 
         <Route path="/contact">
-          <>
-            <ContactPage />
-          </>
+          <ContactPage />
         </Route>
 
-        <Route path="/org/:name" component={OrgPage} />
+        <Route path="/org/:name">
+          <OrgPage />
+        </Route>
 
         <Route path="*">
           <PageNotFound />

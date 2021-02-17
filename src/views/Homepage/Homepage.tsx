@@ -1,17 +1,25 @@
 import React from "react";
-import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
+import { makeStyles } from "@material-ui/core/styles";
 import { Link as RouterLink } from "react-router-dom";
 
-import Navbar from "../components/Navbar";
-import ContentBlock from "../components/ContentBlock";
-import FeaturedOrgList from "../components/FeaturedOrgList";
-import OrgList from "../components/OrgList/OrgList";
-import Subscribe from "../components/Subscribe";
+import Navbar from "../../components/Navbar";
+import ContentBlock from "../../components/ContentBlock";
+import FeaturedOrgList from "../../components/FeaturedOrgList";
+import OrgList from "../../components/OrgList/OrgList";
+import Subscribe from "../../components/Subscribe";
 
-import mockData from "../mockData";
+import mockData from "../../mockData";
 
 function Homepage() {
+  const useStyles = makeStyles(() => ({
+    button: {
+      width: "100%",
+    },
+  }));
+
+  const classes = useStyles();
+
   return (
     <>
       <Navbar />
@@ -24,21 +32,12 @@ function Homepage() {
           social impact organizations across Nigeria."
         >
           <div>
-            <Typography variant="body1"></Typography>
-            <Button
-              href="#organizations"
-              color="inherit"
-              variant="contained"
-              component="a"
-            >
-              Browse organizations
-            </Button>
-             
             <Button
               to="/about"
-              color="inherit"
+              color="primary"
               variant="contained"
               component={RouterLink}
+              className={classes.button}
             >
               Learn more
             </Button>

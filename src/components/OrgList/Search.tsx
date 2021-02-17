@@ -17,6 +17,9 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(0, 2),
     },
   },
+  header: {
+    margin: theme.spacing(2),
+  },
   form: {
     display: "flex",
     flexDirection: "column",
@@ -25,6 +28,9 @@ const useStyles = makeStyles((theme) => ({
       marginTop: theme.spacing(1),
       marginBottom: theme.spacing(1),
     },
+  },
+  selectIcon: {
+    color: "#004B28",
   },
 }));
 
@@ -57,11 +63,14 @@ function Search(props: any) {
         component="section"
         elevation={0}
       >
-        <Typography variant="h3">Organization list</Typography>
+        <Typography variant="h2" component="h3" className={classes.header}>
+          Organization list
+        </Typography>
 
         <form noValidate autoComplete="off" className={classes.form}>
           <TextField
             id="search"
+            type="search"
             label="Search by name"
             variant="outlined"
             value={query}
@@ -69,13 +78,14 @@ function Search(props: any) {
           />
 
           <FormControl variant="outlined">
-            <InputLabel id="select-org-type-label">All types</InputLabel>
+            <InputLabel id="select-org-type-label">All categories</InputLabel>
             <Select
               labelId="select-org-type-label"
               id="select-org-type"
               value={type}
               onChange={handleTypeSelect}
               label="Type"
+              classes={{ icon: classes.selectIcon }}
             >
               <MenuItem value="">
                 <em>None</em>
@@ -95,6 +105,7 @@ function Search(props: any) {
               value={need}
               onChange={handleNeedSelect}
               label="Needs"
+              classes={{ icon: classes.selectIcon }}
             >
               <MenuItem value="">
                 <em>None</em>
