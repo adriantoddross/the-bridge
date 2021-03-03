@@ -37,6 +37,10 @@ const useStyles = makeStyles((theme) => ({
   impact: {
     fontSize: "1.5em",
   },
+  link: {
+    fontStyle: "italic",
+    textDecoration: "underline",
+  },
 }));
 
 export default function OrgPage(props) {
@@ -121,6 +125,7 @@ export default function OrgPage(props) {
               rel="noopener"
               variant="body1"
               component={ReactGA.OutboundLink}
+              className={classes.link}
             >
               {orgData?.links?.title || "Donate to this organization"}
             </Link>
@@ -136,10 +141,11 @@ export default function OrgPage(props) {
               <Typography variant="h3">{orgData?.contact?.name}</Typography>
             </b>
             <Typography variant="body1">{orgData?.contact?.role}</Typography>
-            <Link href={`mailto:${orgData?.contact?.email || ""}`}>
-              <Typography variant="body2">
-                {orgData?.contact?.email || ""}
-              </Typography>
+            <Link
+              href={`mailto:${orgData?.contact?.email || ""}`}
+              className={classes.link}
+            >
+              {orgData?.contact?.email || ""}
             </Link>
           </section>
           <div>
