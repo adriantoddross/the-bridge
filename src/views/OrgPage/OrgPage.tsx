@@ -34,6 +34,9 @@ const useStyles = makeStyles((theme) => ({
   category: {
     color: "#10844E",
   },
+  impact: {
+    fontSize: "1.5em",
+  },
 }));
 
 export default function OrgPage(props) {
@@ -90,7 +93,11 @@ export default function OrgPage(props) {
           </div>
           <div>
             {orgData.impact?.map((impact, index) => (
-              <Typography key={impact[0] + index} variant="body1">
+              <Typography
+                key={impact[0] + index}
+                variant="body1"
+                className={classes.impact}
+              >
                 {impact}
               </Typography>
             ))}
