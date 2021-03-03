@@ -41,6 +41,10 @@ const useStyles = makeStyles((theme) => ({
     fontStyle: "italic",
     textDecoration: "underline",
   },
+  button: {
+    textTransform: "uppercase",
+    width: "100%",
+  },
 }));
 
 export default function OrgPage(props) {
@@ -151,12 +155,13 @@ export default function OrgPage(props) {
           <div>
             <Button
               to="/#organizations"
-              color="inherit"
+              color="primary"
               variant="contained"
               component={RouterLink}
               startIcon={<ArrowBackIcon />}
+              className={classes.button}
             >
-              Back to organizations list
+              Back to nonprofits
             </Button>
           </div>
         </ContentBlock>
