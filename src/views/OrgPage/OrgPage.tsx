@@ -31,6 +31,9 @@ const useStyles = makeStyles((theme) => ({
     height: "auto",
     padding: "0px 0.35rem",
   },
+  category: {
+    color: "#10844E",
+  },
 }));
 
 export default function OrgPage(props) {
@@ -75,7 +78,9 @@ export default function OrgPage(props) {
           objectPosition="middle"
         >
           <div>
-            <Typography variant="body2">{orgData.category}</Typography>
+            <Typography variant="body2" className={classes.category}>
+              {orgData.category}
+            </Typography>
           </div>
           <div>
             {needsIcons}
@@ -85,7 +90,7 @@ export default function OrgPage(props) {
           </div>
           <div>
             {orgData.impact?.map((impact, index) => (
-              <Typography key={impact[0] + index} variant="h6" component="p">
+              <Typography key={impact[0] + index} variant="body1">
                 {impact}
               </Typography>
             ))}
