@@ -34,8 +34,11 @@ const useStyles = makeStyles((theme) => ({
   category: {
     color: "#10844E",
   },
-  impact: {
+  largeText: {
     fontSize: "1.5em",
+  },
+  bold: {
+    fontWeight: "bold",
   },
   link: {
     fontStyle: "italic",
@@ -104,7 +107,7 @@ export default function OrgPage(props) {
               <Typography
                 key={impact[0] + index}
                 variant="body1"
-                className={classes.impact}
+                className={classes.largeText}
               >
                 {impact}
               </Typography>
@@ -142,9 +145,16 @@ export default function OrgPage(props) {
               alt=""
             />
             <b>
-              <Typography variant="h3">{orgData?.contact?.name}</Typography>
+              <Typography
+                variant="body1"
+                className={[classes.largeText, classes.bold].join(" ")}
+              >
+                {orgData?.contact?.name}
+              </Typography>
             </b>
-            <Typography variant="body1">{orgData?.contact?.role}</Typography>
+            <Typography variant="body1" className={classes.largeText}>
+              {orgData?.contact?.role}
+            </Typography>
             <Link
               href={`mailto:${orgData?.contact?.email || ""}`}
               className={classes.link}
