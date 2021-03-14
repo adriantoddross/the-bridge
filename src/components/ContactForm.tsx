@@ -25,6 +25,12 @@ function ContactForm() {
       display: "flex",
       flexDirection: "column",
     },
+    inputStyle: {
+      "& .MuiOutlinedInput-notchedOutline": {
+        borderColor: "#e2f4ec",
+        borderWidth: "2px",
+      },
+    },
   }));
 
   const classes = useStyles();
@@ -149,6 +155,7 @@ function ContactForm() {
             required
             error={errors.visible && !!errors.name}
             helperText={errors.visible && errors.name}
+            className={classes.inputStyle}
           />
           <TextField
             name="email"
