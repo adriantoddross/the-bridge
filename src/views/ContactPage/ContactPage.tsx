@@ -10,6 +10,11 @@ const useStyles = makeStyles((theme) => ({
   highlight: {
     color: "#10844e",
   },
+  header: {
+    fontFamily: "Lato",
+    fontSize: "1.250em",
+    textTransform: "uppercase",
+  },
 }));
 
 function ContactPage() {
@@ -23,6 +28,7 @@ function ContactPage() {
           cloudinaryImageTitle=""
           objectPosition=""
           title="Contact Us"
+          headerClassName={classes.header}
         >
           <section>
             <Typography

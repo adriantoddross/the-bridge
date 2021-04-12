@@ -11,6 +11,7 @@ interface ContentBlockProps {
   description?: string;
   children?: React.ReactNode;
   objectPosition?: string;
+  headerClassName?: string;
 }
 
 function ContentBlock(props: ContentBlockProps) {
@@ -74,7 +75,13 @@ function ContentBlock(props: ContentBlockProps) {
         )}
         <section className={classes.contentBlockContent}>
           {" "}
-          <Typography  variant="h1" component="h2">{props.title}</Typography>
+          <Typography
+            variant="h1"
+            component="h2"
+            className={props.headerClassName}
+          >
+            {props.title}
+          </Typography>
           <Typography variant="body1">{props.description}</Typography>
           <div className={classes.contentBlockSections}>{props.children}</div>
         </section>
