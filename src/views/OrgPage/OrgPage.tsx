@@ -31,6 +31,23 @@ const useStyles = makeStyles((theme) => ({
     height: "auto",
     padding: "0px 0.35rem",
   },
+  category: {
+    color: "#10844E",
+  },
+  largeText: {
+    fontSize: "1.5em",
+  },
+  bold: {
+    fontWeight: "bold",
+  },
+  link: {
+    fontStyle: "italic",
+    textDecoration: "underline",
+  },
+  button: {
+    textTransform: "uppercase",
+    width: "100%",
+  },
 }));
 
 export default function OrgPage(props) {
@@ -75,7 +92,9 @@ export default function OrgPage(props) {
           objectPosition="middle"
         >
           <div>
-            <Typography variant="body2">{orgData.category}</Typography>
+            <Typography variant="body2" className={classes.category}>
+              {orgData.category}
+            </Typography>
           </div>
           <div>
             {needsIcons}
@@ -85,7 +104,11 @@ export default function OrgPage(props) {
           </div>
           <div>
             {orgData.impact?.map((impact, index) => (
-              <Typography key={impact[0] + index} variant="h6" component="p">
+              <Typography
+                key={impact[0] + index}
+                variant="body1"
+                className={classes.largeText}
+              >
                 {impact}
               </Typography>
             ))}
@@ -109,6 +132,7 @@ export default function OrgPage(props) {
               rel="noopener"
               variant="body1"
               component={ReactGA.OutboundLink}
+              className={classes.link}
             >
               {orgData?.links?.title || "Donate to this organization"}
             </Link>
@@ -121,24 +145,33 @@ export default function OrgPage(props) {
               alt=""
             />
             <b>
-              <Typography variant="h3">{orgData?.contact?.name}</Typography>
-            </b>
-            <Typography variant="body1">{orgData?.contact?.role}</Typography>
-            <Link href={`mailto:${orgData?.contact?.email || ""}`}>
-              <Typography variant="body2">
-                {orgData?.contact?.email || ""}
+              <Typography
+                variant="body1"
+                className={[classes.largeText, classes.bold].join(" ")}
+              >
+                {orgData?.contact?.name}
               </Typography>
+            </b>
+            <Typography variant="body1" className={classes.largeText}>
+              {orgData?.contact?.role}
+            </Typography>
+            <Link
+              href={`mailto:${orgData?.contact?.email || ""}`}
+              className={classes.link}
+            >
+              {orgData?.contact?.email || ""}
             </Link>
           </section>
           <div>
             <Button
               to="/#organizations"
-              color="inherit"
+              color="primary"
               variant="contained"
               component={RouterLink}
               startIcon={<ArrowBackIcon />}
+              className={classes.button}
             >
-              Back to organizations list
+              Back to nonprofits
             </Button>
           </div>
         </ContentBlock>
