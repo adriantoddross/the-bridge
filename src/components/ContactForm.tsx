@@ -25,6 +25,12 @@ function ContactForm() {
       display: "flex",
       flexDirection: "column",
     },
+    inputStyle: {
+      "& .MuiOutlinedInput-notchedOutline": {
+        borderColor: "#e2f4ec",
+        borderWidth: "2px",
+      },
+    },
   }));
 
   const classes = useStyles();
@@ -149,6 +155,7 @@ function ContactForm() {
             required
             error={errors.visible && !!errors.name}
             helperText={errors.visible && errors.name}
+            className={classes.inputStyle}
           />
           <TextField
             name="email"
@@ -160,6 +167,7 @@ function ContactForm() {
             onChange={handleChange}
             error={errors.visible && !!errors.email}
             helperText={errors.visible && errors.email}
+            className={classes.inputStyle}
             required
           />
           <TextField
@@ -175,12 +183,13 @@ function ContactForm() {
             onChange={handleChange}
             error={errors.visible && !!errors.message}
             helperText={errors.visible && errors.message}
+            className={classes.inputStyle}
             required
           />
           <Button
             type="submit"
             value="submit"
-            color="inherit"
+            color="primary"
             variant="contained"
           >
             Send message
