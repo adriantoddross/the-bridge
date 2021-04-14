@@ -39,8 +39,9 @@ function Homepage() {
 
             <Button
               to="/contact"
-              color="inherit"
+              color="primary"
               variant="contained"
+              fullWidth={true}
               component={RouterLink}
             >
               Contact Us
@@ -68,8 +69,9 @@ function Homepage() {
 
             <Button
               to="/contact"
-              color="inherit"
+              color="primary"
               variant="contained"
+              fullWidth={true}
               component={RouterLink}
             >
               Partner With Us!
