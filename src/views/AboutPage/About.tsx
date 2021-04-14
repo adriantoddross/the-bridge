@@ -17,6 +17,7 @@ function Homepage() {
           cloudinaryImageTitle="pexels-uncoveredlens-3620404"
           objectPosition="top"
           title="About Impact Nigeria"
+          headerVariant="h2"
         >
           <section>
             <Typography variant="h3">
