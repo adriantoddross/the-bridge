@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Image } from "cloudinary-react";
 
 import Paper from "@material-ui/core/Paper";
+import { Variant } from "@material-ui/core/styles/createTypography";
 
 interface ContentBlockProps {
   cloudinaryImageTitle: string;
@@ -12,6 +13,7 @@ interface ContentBlockProps {
   children?: React.ReactNode;
   objectPosition?: string;
   headerClassName?: string;
+  headerVariant?: Variant;
 }
 
 function ContentBlock(props: ContentBlockProps) {
@@ -76,7 +78,7 @@ function ContentBlock(props: ContentBlockProps) {
         <section className={classes.contentBlockContent}>
           {" "}
           <Typography
-            variant="h1"
+            variant={props.headerVariant || "h1"}
             component="h2"
             className={props.headerClassName}
           >

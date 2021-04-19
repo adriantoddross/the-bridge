@@ -17,6 +17,7 @@ function Homepage() {
           cloudinaryImageTitle="pexels-uncoveredlens-3620404"
           objectPosition="top"
           title="About Impact Nigeria"
+          headerVariant="h2"
         >
           <section>
             <Typography variant="h3">
@@ -39,8 +40,9 @@ function Homepage() {
 
             <Button
               to="/contact"
-              color="inherit"
+              color="primary"
               variant="contained"
+              fullWidth={true}
               component={RouterLink}
             >
               Contact Us
@@ -68,8 +70,9 @@ function Homepage() {
 
             <Button
               to="/contact"
-              color="inherit"
+              color="primary"
               variant="contained"
+              fullWidth={true}
               component={RouterLink}
             >
               Partner With Us!
