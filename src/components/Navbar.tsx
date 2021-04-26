@@ -1,17 +1,21 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import { useTheme } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
 import Button from "@material-ui/core/Button";
-import Logo from "../logo.svg";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link as RouterLink } from "react-router-dom";
 
-const useStyles = makeStyles((theme) => ({
+import Logo from "../logo.svg";
+import mobileLogo from "../mobileLogo.png";
+
+const useStyles = makeStyles(() => ({
   root: {},
   toolbar: {
     backgroundColor: "#10844e",
@@ -37,6 +41,8 @@ const useStyles = makeStyles((theme) => ({
 
 function Navbar() {
   const classes = useStyles();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -67,7 +73,7 @@ function Navbar() {
                     variant="body1"
                   >
                     <img
-                      src={Logo}
+                      src={isMobile ? mobileLogo : Logo}
                       alt="Impact Nigeria Logo"
                       className={classes.logo}
                     />
