@@ -39,7 +39,6 @@ const useStyles = makeStyles((theme) => ({
   cause: {
     color: "#10844E",
     textTransform: "capitalize",
-    whiteSpace: "nowrap",
     overflow: "hidden",
     textOverflow: "ellipsis",
   },
@@ -80,7 +79,7 @@ function FeaturedOrg(props: any) {
 
         <div>
           <Typography variant="body2" className={classes.cause}>
-            {props.category || "Philanthropic cause"}
+            {props.category.join(", ") || "Philanthropic cause"}
           </Typography>
 
           <Link
