@@ -88,7 +88,7 @@ function Search(props: any) {
               classes={{ icon: classes.selectIcon }}
             >
               <MenuItem value="">
-                <em>None</em>
+                <em>All Categories</em>
               </MenuItem>
               <MenuItem value="education">Education</MenuItem>
               <MenuItem value="food">Food Insecurity</MenuItem>
@@ -108,7 +108,7 @@ function Search(props: any) {
               classes={{ icon: classes.selectIcon }}
             >
               <MenuItem value="">
-                <em>None</em>
+                <em>All Needs</em>
               </MenuItem>
               <MenuItem value="time">Time</MenuItem>
               <MenuItem value="talent">Talent</MenuItem>
