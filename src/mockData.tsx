@@ -71,7 +71,7 @@ export default {
             "/Founder pics/Founder_pics_Orondaam_Otto_-_slum_2_school.jpg",
         },
       },
-      category: ["Education"],
+      category: ["Education", "Youth Development"],
       description:
         "Slum2School is a volunteer based organization that works with thousands of volunteers across slums, hard to reach villages and underserved communities by engaging these communities to find the best sustainable solution to provide education for children and young people. They build learning centers, provide scholarship opportunities and collaborate with community schools to improve education quality and outcomes.",
       impact: [
