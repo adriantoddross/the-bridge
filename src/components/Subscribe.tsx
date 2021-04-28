@@ -203,6 +203,7 @@ function Subscribe() {
             />
             <Button
               variant="contained"
+              color="secondary"
               type="submit"
               classes={{ root: classes.buttonRoot, label: classes.label }}
             >
