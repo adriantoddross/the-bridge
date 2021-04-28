@@ -93,7 +93,7 @@ export default function OrgPage(props) {
         >
           <div>
             <Typography variant="body2" className={classes.category}>
-              {orgData.category}
+              {orgData.category && orgData.category.join(", ")}
             </Typography>
           </div>
           <div>
