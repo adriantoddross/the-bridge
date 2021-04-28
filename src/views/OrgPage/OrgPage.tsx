@@ -158,6 +158,7 @@ export default function OrgPage(props) {
             <Link
               href={`mailto:${orgData?.contact?.email || ""}`}
               className={classes.link}
+              variant="body1"
             >
               {orgData?.contact?.email || ""}
             </Link>
