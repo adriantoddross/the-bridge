@@ -33,9 +33,6 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: theme.spacing(1),
     },
   },
-  buttonRoot: {
-    backgroundColor: "#e2f4ec",
-  },
   label: {
     color: "#10844E",
     fontWeight: "bold",
@@ -203,8 +200,9 @@ function Subscribe() {
             />
             <Button
               variant="contained"
+              color="secondary"
               type="submit"
-              classes={{ root: classes.buttonRoot, label: classes.label }}
+              classes={{ label: classes.label }}
             >
               Subscribe
             </Button>

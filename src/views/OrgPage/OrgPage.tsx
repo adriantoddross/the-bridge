@@ -93,7 +93,7 @@ export default function OrgPage(props) {
         >
           <div>
             <Typography variant="body2" className={classes.category}>
-              {orgData.category}
+              {orgData.category && orgData.category.join(", ")}
             </Typography>
           </div>
           <div>
@@ -158,6 +158,7 @@ export default function OrgPage(props) {
             <Link
               href={`mailto:${orgData?.contact?.email || ""}`}
               className={classes.link}
+              variant="body1"
             >
               {orgData?.contact?.email || ""}
             </Link>

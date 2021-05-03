@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
   card: {
     display: "flex",
-    height: "18vh",
+    height: "auto",
   },
   media: {
     height: "auto",
@@ -39,14 +39,12 @@ const useStyles = makeStyles((theme) => ({
   cause: {
     color: "#10844E",
     textTransform: "capitalize",
-    whiteSpace: "nowrap",
     overflow: "hidden",
     textOverflow: "ellipsis",
   },
   name: {
     fontWeight: "bold",
     textTransform: "uppercase",
-    whiteSpace: "nowrap",
     overflow: "hidden",
     textOverflow: "ellipsis",
   },
@@ -68,33 +66,33 @@ function FeaturedOrg(props: any) {
   const needsIcons = generateNeedsIcons(props.needs, classes);
 
   return (
-    <Card className={classes.card}>
-      <CardMedia
-        className={classes.media}
-        image={props.imageTitle ? featuredOrgURL : ""}
-        title={props.name || "Organization name"}
-      />
+    <Link
+      to={orgPage}
+      color="inherit"
+      variant="body1"
+      component={RouterLink}
+      className={classes.name}
+    >
+      <Card className={classes.card}>
+        <CardMedia
+          className={classes.media}
+          image={props.imageTitle ? featuredOrgURL : ""}
+          title={props.name || "Organization name"}
+        />
 
-      <CardContent className={classes.content}>
-        <div className={classes.need}>{needsIcons}</div>
+        <CardContent className={classes.content}>
+          <div className={classes.need}>{needsIcons}</div>
 
-        <div>
-          <Typography variant="body2" className={classes.cause}>
-            {props.category || "Philanthropic cause"}
-          </Typography>
+          <div>
+            <Typography variant="body2" className={classes.cause}>
+              {props.category.join(", ") || "Philanthropic cause"}
+            </Typography>
 
-          <Link
-            to={orgPage}
-            color="inherit"
-            variant="body1"
-            component={RouterLink}
-            className={classes.name}
-          >
-            {props.name || "Organization name"}
-          </Link>
-        </div>
-      </CardContent>
-    </Card>
+            <Typography>{props.name || "Organization name"}</Typography>
+          </div>
+        </CardContent>
+      </Card>
+    </Link>
   );
 }
 

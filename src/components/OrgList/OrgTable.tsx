@@ -78,7 +78,7 @@ function OrgTable(props: any) {
         </TableCell>
         <TableCell>
           <Typography className={classes.tableCellText}>
-            {org.category}
+            {org.category && org.category.join(', ')}
           </Typography>
         </TableCell>
       </TableRow>
