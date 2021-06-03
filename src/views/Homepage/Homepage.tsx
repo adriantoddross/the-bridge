@@ -12,14 +12,6 @@ import Subscribe from "../../components/Subscribe";
 import mockData from "../../mockData";
 
 function Homepage() {
-  const useStyles = makeStyles(() => ({
-    button: {
-      width: "100%",
-    },
-  }));
-
-  const classes = useStyles();
-
   return (
     <>
       <Navbar />
@@ -37,7 +29,7 @@ function Homepage() {
               color="primary"
               variant="contained"
               component={RouterLink}
-              className={classes.button}
+              fullWidth={true}
             >
               Learn more
             </Button>
