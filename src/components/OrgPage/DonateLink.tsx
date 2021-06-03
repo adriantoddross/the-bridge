@@ -10,7 +10,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default function donateButton(props) {
+export default function DonateLink(props) {
   const classes = useStyles();
 
   return (
