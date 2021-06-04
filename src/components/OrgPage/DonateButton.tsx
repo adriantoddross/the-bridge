@@ -1,18 +1,9 @@
 import React from "react";
 import ReactGA from "react-ga";
+import Button from "@material-ui/core/Button";
 import { Link } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-
-const useStyles = makeStyles(() => ({
-  link: {
-    fontStyle: "italic",
-    textDecoration: "underline",
-  },
-}));
 
 export default function DonateButton(props) {
-  const classes = useStyles();
-
   return (
     <div>
       <Link
@@ -26,9 +17,10 @@ export default function DonateButton(props) {
         rel="noopener"
         variant="body1"
         component={ReactGA.OutboundLink}
-        className={classes.link}
       >
-        {props.orgData?.links?.title || "Donate on Website"}
+        <Button color="primary" variant="contained" fullWidth={true}>
+          {props.orgData?.links?.title || "Donate on Website"}
+        </Button>
       </Link>
     </div>
   );
