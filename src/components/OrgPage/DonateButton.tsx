@@ -19,7 +19,7 @@ export default function DonateButton(props) {
         component={ReactGA.OutboundLink}
       >
         <Button color="primary" variant="contained" fullWidth={true}>
-          {props.orgData?.links?.title || "Donate on Website"}
+          Donate on Website
         </Button>
       </Link>
     </div>
