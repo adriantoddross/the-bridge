@@ -12,6 +12,9 @@ import mockData from "../../mockData";
 import Navbar from "../../components/Navbar";
 import Subscribe from "../../components/Subscribe";
 import ContentBlock from "../../components/ContentBlock";
+import DonateLink from "../../components/OrgPage/DonateLink";
+import DonateButton from "../../components/OrgPage/DonateLink";
+
 import { generateCloudinaryURL, generateNeedsIcons } from "../../utils/utils";
 import contactPlaceholderImage from "../../images/org-founder-placeholder.png";
 
@@ -121,6 +124,7 @@ export default function OrgPage(props) {
             ))}
           </div>
           <div>
+            {/* New donate button goes below... */}
             <Link
               eventLabel={`Clicked donate link for: ${orgData.name}`}
               to={
@@ -136,6 +140,7 @@ export default function OrgPage(props) {
             >
               {orgData?.links?.title || "Donate to this organization"}
             </Link>
+            {/* New donate button goes above... */}
           </div>
           <section className={classes.contact}>
             <img
