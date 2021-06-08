@@ -28,7 +28,7 @@ export default function DonateLink(props) {
         component={ReactGA.OutboundLink}
         className={classes.link}
       >
-        Donate to this organization
+        {props.orgData?.links?.title || "Donate to this organization"}
       </Link>
     </div>
   );
