@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import ReactGA from "react-ga";
 import Button from "@material-ui/core/Button/Button";
 import { Link } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
@@ -13,7 +12,7 @@ import Navbar from "../../components/Navbar";
 import Subscribe from "../../components/Subscribe";
 import ContentBlock from "../../components/ContentBlock";
 import DonateLink from "../../components/OrgPage/DonateLink";
-import DonateButton from "../../components/OrgPage/DonateLink";
+import DonateButton from "../../components/OrgPage/DonateButton";
 
 import { generateCloudinaryURL, generateNeedsIcons } from "../../utils/utils";
 import contactPlaceholderImage from "../../images/org-founder-placeholder.png";
@@ -124,23 +123,11 @@ export default function OrgPage(props) {
             ))}
           </div>
           <div>
-            {/* New donate button goes below... */}
-            <Link
-              eventLabel={`Clicked donate link for: ${orgData.name}`}
-              to={
-                orgData?.links?.learnMore ||
-                orgData?.links?.donate ||
-                orgData?.links?.website
-              }
-              target="_blank"
-              rel="noopener"
-              variant="body1"
-              component={ReactGA.OutboundLink}
-              className={classes.link}
-            >
-              {orgData?.links?.title || "Donate to this organization"}
-            </Link>
-            {/* New donate button goes above... */}
+            {!!orgData?.links?.title ? (
+              <DonateLink orgData={orgData} />
+            ) : (
+              <DonateButton orgData={orgData} />
+            )}
           </div>
           <section className={classes.contact}>
             <img
