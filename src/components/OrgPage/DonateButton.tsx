@@ -6,7 +6,7 @@ import { Link } from "@material-ui/core";
 export default function DonateButton(props) {
   return (
     <div>
-      <Link
+      <Button
         eventLabel={`Clicked donate link for: ${props.orgData.name}`}
         to={
           props.orgData?.links?.learnMore ||
@@ -15,13 +15,13 @@ export default function DonateButton(props) {
         }
         target="_blank"
         rel="noopener"
-        variant="body1"
         component={ReactGA.OutboundLink}
+        color="primary"
+        variant="contained"
+        fullWidth={true}
       >
-        <Button color="primary" variant="contained" fullWidth={true}>
-          Donate on Website
-        </Button>
-      </Link>
+        Donate on Website
+      </Button>
     </div>
   );
 }
