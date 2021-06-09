@@ -17,7 +17,7 @@ import DonateButton from "../../components/OrgPage/DonateButton";
 import { generateCloudinaryURL, generateNeedsIcons } from "../../utils/utils";
 import contactPlaceholderImage from "../../images/org-founder-placeholder.png";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   contact: {
     textAlign: "center",
   },
