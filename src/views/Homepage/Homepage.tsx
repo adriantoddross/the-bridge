@@ -1,6 +1,5 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
-import { makeStyles } from "@material-ui/core/styles";
 import { Link as RouterLink } from "react-router-dom";
 
 import Navbar from "../../components/Navbar";
@@ -12,14 +11,6 @@ import Subscribe from "../../components/Subscribe";
 import mockData from "../../mockData";
 
 function Homepage() {
-  const useStyles = makeStyles(() => ({
-    button: {
-      width: "100%",
-    },
-  }));
-
-  const classes = useStyles();
-
   return (
     <>
       <Navbar />
@@ -37,7 +28,7 @@ function Homepage() {
               color="primary"
               variant="contained"
               component={RouterLink}
-              className={classes.button}
+              fullWidth={true}
             >
               Learn more
             </Button>
