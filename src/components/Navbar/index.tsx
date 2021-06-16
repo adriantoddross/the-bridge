@@ -12,8 +12,8 @@ import MenuItem from "@material-ui/core/MenuItem";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link as RouterLink } from "react-router-dom";
 
-import Logo from "../logo.svg";
-import mobileLogo from "../mobileLogo.png";
+import Logo from "../../logo.svg";
+import mobileLogo from "../../mobileLogo.png";
 
 const useStyles = makeStyles(() => ({
   root: {},
