@@ -2,7 +2,7 @@ import React from "react";
 import { Menu, MenuItem, Link } from "@material-ui/core";
 import { Link as RouterLink } from "react-router-dom";
 
-function MobileNavLinks(props) {
+function MobileNavLinks() {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClose = () => {
@@ -15,11 +15,11 @@ function MobileNavLinks(props) {
       anchorEl={anchorEl}
       keepMounted
       open={Boolean(anchorEl)}
-      onClose={props.handleClose}
+      onClose={handleClose}
     >
-      <MenuItem onClick={props.handleClose}>
+      <MenuItem onClick={handleClose}>
         {" "}
-        <Link component={props.RouterLink} to="/">
+        <Link component={RouterLink} to="/">
           Home
         </Link>
       </MenuItem>
