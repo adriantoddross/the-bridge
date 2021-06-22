@@ -4,7 +4,7 @@ import { Link as RouterLink } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import MenuIcon from "@material-ui/icons/Menu";
 
-function MobileNavLinks() {
+function MobileNavMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event: any) => {
@@ -56,4 +56,4 @@ function MobileNavLinks() {
   );
 }
 
-export default MobileNavLinks;
+export default MobileNavMenu;
